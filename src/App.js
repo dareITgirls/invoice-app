@@ -1,6 +1,19 @@
 import './App.css';
+import {useEffect} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {fetchInvoices} from "./store/invoicesActions";
 
 function App() {
+
+    //mozecie popatrzec czy wyniki sie wyswietlaja
+    const invoicesList = useSelector(state => state.invoices.entities)
+    const dispatch = useDispatch()
+    console.log(invoicesList)
+
+    useEffect(() => {
+        dispatch(fetchInvoices())
+    },[]);
+
 
   return (
     <div className="text-white font-bold bg-black h-screen flex flex-auto flex-col items-center justify-center">
@@ -10,5 +23,4 @@ function App() {
     </div>
   );
 }
-
 export default App;
