@@ -30,11 +30,3 @@ export const invoiceSchema = {
     total: 0
 }
 
-//w arg trzeba bedzie przekazac wszystkie pola obiektu (createdAt, paymentDue itd)
-export function writeInvoice(id, status, name) {
-    let newInvoice = invoiceSchema
-    newInvoice.id = id
-    newInvoice.status = status
-    newInvoice.clientName = name
-    return newInvoice
-}
