@@ -1,5 +1,7 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createEntityAdapter, createSlice, createSelector} from "@reduxjs/toolkit";
 import {addNewInvoice, deleteInvoice, editInvoice, fetchInvoices} from "./invoicesActions";
+
+const invoicesAdapter = createEntityAdapter()
 
 const initialState = {
     status: 'idle',
@@ -49,6 +51,27 @@ const invoicesSlice = createSlice({
 export const { invoicesLoaded } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;
+
+// export const {
+//     selectAll: selectInvoices,
+//     selectById: selectInvoiceById
+// } = invoicesAdapter.getSelectors(state => state.invoices)
+
+const selectInvoicesEntities = (state) => state.invoices.entities
+export const selectInvoices = createSelector(selectInvoicesEntities, (entities) =>
+    Object.values(entities)
+)
+
+export const selectInvoiceById = (state, invoiceId) => {
+    return selectInvoicesEntities(state)[invoiceId]
+}
+
+export const selectInvoiceId = createSelector(
+    selectInvoices,
+    (invoices) => invoices.map((invoice) => invoice.id)
+)
+
+
 
 
 
