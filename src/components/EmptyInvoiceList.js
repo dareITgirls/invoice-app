@@ -1,4 +1,5 @@
 const EmptyInvoiceList = () => {
+
 	return (
 		<section>
 			<img src='/assets/illustration-empty.svg' alt='A person holding a megaphone' />
@@ -11,4 +12,5 @@ const EmptyInvoiceList = () => {
 		</section>
 	);
 };
+
 export default EmptyInvoiceList;
