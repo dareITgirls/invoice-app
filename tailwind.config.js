@@ -6,6 +6,11 @@ module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
+
+			boxShadow: {
+				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
+			},
+
 			fontFamily: {
 				sans: ['League Spartan', ...defaultTheme.fontFamily.sans],
 			},
@@ -75,7 +80,8 @@ module.exports = {
 				'success-150': '#33D69F0F', //success-100 with opacity 0.06
 				'danger-100': '#9277FF',
 				'danger-150': '#EC5757',
-				'light-100': '#F8F8FB',
+				'light-100': '#FFFFFF',
+				'light-200': '#F8F8FB',
 				'neutral-200': '#DFE3FA',
 				'neutral-300': '#888EB0',
 				'neutral-400': '#858BB2',
@@ -87,11 +93,14 @@ module.exports = {
 				'dark-500': '#373B53',
 				'dark-550': '#373B530F', //dark-500 with opacity 0.06
 			},
+
 			opacity: {
 				6: '.06',
 			},
+
 			spacing: {
 				3.5: '18px',
+				26: '104px',
 			},
 		},
 	},
