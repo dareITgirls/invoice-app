@@ -30,7 +30,7 @@ module.exports = {
 				],
 
 				'md/1': [
-					'0.9375', //15px
+					'0.9375rem', //15px
 					{
 						lineHeight: '0.9375rem', //15px
 						letterSpacing: '-0.25px',
@@ -39,7 +39,7 @@ module.exports = {
 				],
 
 				'md/2': [
-					'0.9375', //15px
+					'0.9375rem', //15px
 					{
 						lineHeight: '1.5rem', //24px
 						letterSpacing: '-0.25px',
@@ -69,18 +69,29 @@ module.exports = {
 			colors: {
 				'primary-100': '#9277FF',
 				'primary-200': '#7C5DFA',
-				'secondary-100': 'FF8F00',
-				'success-100': '33D69F',
+				'warning-100': '#FF8F00',
+				'warning-150': '#FF8f000F', //secondary-100 with opacity 0.06
+				'success-100': '#33D69F',
+				'success-150': '#33D69F0F', //success-100 with opacity 0.06
 				'danger-100': '#9277FF',
-				'danger-200': '#EC5757',
-				'neutral-100': '#F8F8FB',
+				'danger-150': '#EC5757',
+				'light-100': '#F8F8FB',
 				'neutral-200': '#DFE3FA',
-				'neutral-300': '888EB0',
-				'neutral-400': '7E88C3',
-				'neutral-500': '252945',
-				'neutral-600': '1E2139',
-				'neutral-700': '141625',
-				'neutral-800': '0C0E16',
+				'neutral-300': '#888EB0',
+				'neutral-400': '#858BB2',
+				'neutral-500': '#7E88C3',
+				'dark-100': '#252945',
+				'dark-200': '#1E2139',
+				'dark-300': '#141625',
+				'dark-400': '#0C0E16',
+				'dark-500': '#373B53',
+				'dark-550': '#373B530F', //dark-500 with opacity 0.06
+			},
+			opacity: {
+				6: '.06',
+			},
+			spacing: {
+				3.5: '18px',
 			},
 		},
 	},
