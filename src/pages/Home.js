@@ -1,26 +1,22 @@
-import HeaderHome from "../components/HeaderHome";
-import NewInvoice from "../components/NewInvoice";
-import {useSelector} from "react-redux";
-import InvoiceList from "../components/InvoiceList";
+import HeaderHome from '../components/HeaderHome';
+import NewInvoice from '../components/NewInvoice';
+import { useSelector } from 'react-redux';
+import InvoiceList from '../components/InvoiceList';
 
 const Home = () => {
+	const loadingStatus = useSelector(state => state.invoices.status);
 
-    const loadingStatus = useSelector(state => state.invoices.status)
+	if (loadingStatus === 'loading') {
+		return <div>LOADING</div>;
+	}
 
-    if (loadingStatus === 'loading') {
-        return (
-            <div>LOADING</div>
-        )
-    }
+	return (
+		<>
+			<HeaderHome />
+			<InvoiceList />
+			<NewInvoice />
+		</>
+	);
+};
 
-    return (
-        <>
-            <HeaderHome/>
-            <InvoiceList/>
-            <NewInvoice/>
-        </>
-
-    )
-}
-
-export default Home
+export default Home;
