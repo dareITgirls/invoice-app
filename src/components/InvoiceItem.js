@@ -22,7 +22,9 @@ const InvoiceItem = ({ id }) => {
 
 					<td className='text-dark-300 text-md/2 row-start-3 self-end'>£ {invoice.total}</td>
 
-					<Label status={invoice.status} />
+					<td className='row-start-2 row-end-4 col-start-2 justify-self-end mt-3'>
+						<Label status={invoice.status} />
+					</td>
 				</tr>
 			</table>
 		</li>
