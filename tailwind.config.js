@@ -6,7 +6,6 @@ module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
-			
 			boxShadow: {
 				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
 			},
@@ -81,6 +80,7 @@ module.exports = {
 				'light-100': '#FFFFFF',
 				'light-200': '#F8F8FB',
 				'neutral-200': '#DFE3FA',
+				'neutral-250': '#DFE3FA0F', //neutral-200 with opacity 0.06
 				'neutral-300': '#888EB0',
 				'neutral-400': '#858BB2',
 				'neutral-500': '#7E88C3',
@@ -97,12 +97,9 @@ module.exports = {
 			},
 
 			minHeight: {
-				'33': '8.375rem', //134px
+				33: '8.375rem', //134px
 			},
 
-			opacity: {
-				6: '.06',
-			},
 
 			spacing: {
 				3.5: '18px',
