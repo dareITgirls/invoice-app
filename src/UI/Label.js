@@ -11,7 +11,8 @@ const Label = ({ status }) => {
 	} else if (status === 'paid') {
 		className += ' text-success-100 before:bg-success-100 bg-success-150';
 	} else {
-		className += ' text-dark-500 before:bg-dark-500 bg-dark-550';
+		className +=
+			' text-dark-500 dark:text-neutral-200 before:bg-dark-500 bg-dark-550 dark:before:bg-neutral-200 dark:bg-neutral-250';
 	}
 
 	return <p className={className}>{firstLetterToUpper(status)}</p>;
