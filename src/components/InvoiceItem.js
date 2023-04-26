@@ -5,7 +5,7 @@ import Label from '../UI/Label';
 const InvoiceItem = ({ id }) => {
 	const invoice = useSelector(state => selectInvoiceById(state, id));
 
-	const dateFormat = givenDate => {
+	const changeDateFormat = givenDate => {
 		const date = new Date(givenDate).toDateString().split(' ');
 
 		const formatedDate = `${date[2]} ${date[1]} ${date[3]}`;
@@ -23,7 +23,7 @@ const InvoiceItem = ({ id }) => {
 					</td>
 
 					<td className='text-neutral-300 dark:text-neutral-200 text-base/1 row-start-2 self-end'>
-						Due {dateFormat(invoice.paymentDue)}
+						Due {changeDateFormat(invoice.paymentDue)}
 					</td>
 
 					<td className='text-neutral-400 dark:text-light-100 text-base/1 row-start-1 col-start-2 justify-self-end self-start leading-3'>
