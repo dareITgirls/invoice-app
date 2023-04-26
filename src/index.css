@@ -4,7 +4,7 @@
 @tailwind variants;
 
 @layer base {
-    body {
-      @apply bg-light-200 dark:bg-dark-300;
-    }
-  }
+	body {
+		@apply bg-light-200 dark:bg-dark-300;
+	}
+}
