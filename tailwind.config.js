@@ -15,7 +15,7 @@ module.exports = {
 	theme: {
 		extend: {
 			borderRadius: {
-			'2xl': '20px', 
+				'2xl': '20px',
 			},
 
 			boxShadow: {
@@ -114,8 +114,8 @@ module.exports = {
 			},
 
 			scale: {
-				'140': '1.4',
-			  },
+				140: '1.4',
+			},
 
 			spacing: {
 				3.5: '1.125rem', //18px
