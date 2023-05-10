@@ -113,6 +113,10 @@ module.exports = {
 				33: '8.375rem', //134px
 			},
 
+			scale: {
+				'140': '1.4',
+			  },
+
 			spacing: {
 				3.5: '1.125rem', //18px
 				18: '4.5rem', //72px
