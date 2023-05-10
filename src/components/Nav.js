@@ -1,3 +1,5 @@
+//Future todo: consider what to do with a user avatar - what functionality should it has?
+
 import imageAvatar from '../assets/imageAvatar.jpg';
 
 const Nav = () => {
