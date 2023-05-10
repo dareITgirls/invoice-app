@@ -6,7 +6,6 @@ const Home = () => {
     return (
         <div className='flex flex-col lg:flex-row'>
         <Nav />
-        <h1>Welcome</h1>
         </div>
     )
 }
