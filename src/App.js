@@ -1,13 +1,27 @@
-import './App.css';
+import {useDispatch, useSelector} from "react-redux";
+import { openModal } from "./store/modalStatusSlice";
+import { NewInvoice } from './components/newInvoice/NewInvoice'
+import { useEffect } from 'react';
+
 
 function App() {
 
+  const modalStatus = useSelector(state => state.modalStatus.status);
+  const dispatch = useDispatch();
+
+  const openModalHandler = () => {
+    dispatch(openModal());
+    return
+  }
+
   return (
-    <div className="text-white font-bold bg-black h-screen flex flex-auto flex-col items-center justify-center">
-      <h1 className="text-6xl m-20">Hello dareITgirl!</h1>
-      <p className="text-3xl">Hope you doing great today!</p>
-      <p className="text-3xl">Let's do some codin':D:D</p>
-    </div>
+  
+    
+    <><h1>new main page</h1>
+      <button onClick={openModalHandler}>OPEN</button>
+   
+      {modalStatus === true && <NewInvoice />}
+      </>
   );
 }
 
