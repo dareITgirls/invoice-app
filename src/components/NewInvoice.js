@@ -1,14 +1,14 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeModal} from "../store/modalStatusSlice";
+import {closeNewFormModal} from "../store/newFormModalStatusSlice";
 
 
 const NewInvoice = () => {
 
-    const modalStatus = useSelector(state => state.modalStatus.status)
+    const modalStatus = useSelector(state => state.newFormModalStatus.status)
 
     const dispatch = useDispatch()
     const closeNewInvoice = () => {
-        dispatch(closeModal())
+        dispatch(closeNewFormModal())
     }
 
     if (modalStatus === false) return null;

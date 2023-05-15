@@ -1,10 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
 import invoicesSlice from "./invoicesSlice";
-import modalStatusSlice from "./modalStatusSlice";
+import newFormModalStatusSlice from "./newFormModalStatusSlice";
+import filterModalStatusSlice from "./filterModalStatusSlice";
 
 export const store = configureStore({
     reducer: {
         invoices: invoicesSlice,
-        modalStatus: modalStatusSlice
+        newFormModalStatus: newFormModalStatusSlice,
+        filterModalStatus: filterModalStatusSlice
     },
 })
