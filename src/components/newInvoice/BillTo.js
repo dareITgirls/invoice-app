@@ -1,6 +1,7 @@
 import { useFormikContext, Field } from 'formik';
 import { Input } from '../../UI/Input';
 import { Dropdown } from '../../UI/Dropdown';
+import { CustomDatePicker } from '../../UI/CustomDatePicker';
 
 export const BillTo = () => {
     const { handleBlur } = useFormikContext()
@@ -16,7 +17,8 @@ export const BillTo = () => {
             </div>
             <Input name="clientAddress.country" id="client-country" label="Country" type="text" onBlur={handleBlur} />
             <div className="select-wrapper">
-                <Input name="createdAt" id="invoice-date" label="Invoice Date" type="date" onBlur={handleBlur} />
+                {/* <Input name="createdAt" id="invoice-date" label="Invoice Date" type="date" onBlur={handleBlur} /> */}
+                <CustomDatePicker />
                 <Dropdown />
             </div>
             <Input name="description" id="project-description" label="Project Description" type="text" onBlur={handleBlur} />

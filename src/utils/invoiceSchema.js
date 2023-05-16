@@ -10,7 +10,7 @@
         return `${alphabet[getRandomNumber(0, alphabet.length)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
 }
     
-const today = new Date().toISOString().split('T')[0];
+export const today = new Date().toISOString().split('T')[0];
 
 export const invoiceSchema = {
     id: createInvoiceId(),
