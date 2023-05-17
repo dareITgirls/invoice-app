@@ -26,26 +26,26 @@ export const Dropdown = () => {
 
     return (
         <CacheProvider value={cache}>
-                <div className=" text-base/1 flex flex-col py-3">
-                    <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-base/1">Payment terms</InputLabel>
-                    <Select
-                        className=" rounded w-full cursor-pointer"
-                        name="paymentTerms"
-                        id="payment-terms"
-                        value={value}
-                        onChange={(e) => { changeValueHandler(e) }}
+            <div className=" text-base/1 flex flex-col py-3">
+                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-base/1">Payment terms</InputLabel>
+                <Select
+                    className=" rounded w-full cursor-pointer"
+                    name="paymentTerms"
+                    id="payment-terms"
+                    value={value}
+                    onChange={(e) => { changeValueHandler(e) }}
                     onBlur={handleBlur}
                     //still not working
-                       components={{
+                    components={{
                     openPickerIcon: ExpandMore,
                 }}
                 >
-                            <MenuItem value={1}>Net 1 Day</MenuItem>
-                            <MenuItem value={7}>Net 7 Days</MenuItem>
-                            <MenuItem value={14}>Net 14 Days</MenuItem>
-                            <MenuItem value={30}>Net 30 Days</MenuItem>    
-                        </Select>
-                </div>
-            </CacheProvider>
+                        <MenuItem value={1}>Net 1 Day</MenuItem>
+                        <MenuItem value={7}>Net 7 Days</MenuItem>
+                        <MenuItem value={14}>Net 14 Days</MenuItem>
+                        <MenuItem value={30}>Net 30 Days</MenuItem>    
+                </Select>
+            </div>
+        </CacheProvider>
     )
 }

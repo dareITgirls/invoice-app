@@ -18,3 +18,19 @@ export const ASSETS_LIBRARY = {
         logo: './assets/logo.svg'
     }
 }
+
+    export const getItemTotal = (item) => {
+        return item.quantity * item.price
+    }
+
+    export const getTotal = (items) => {
+        return items.map((item) => item.total).reduce((sum, num) => sum + num, 0);
+    }
+    
+    export const getPaymentDue = (createdAt, paymentTerms) => {
+        const paymentDue = new Date();
+        const date = new Date(createdAt)
+        const dayInFuture = date.getDate() + Number(paymentTerms)
+        paymentDue.setDate(dayInFuture)
+        return paymentDue.toISOString().split('T')[0]
+    }
