@@ -1,19 +1,26 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'; 
 import dayjs from 'dayjs'
-import { DatePicker } from '@mui/x-date-pickers';
+import { DesktopDatePicker } from '@mui/x-date-pickers';
 import { TextField } from '@mui/material';
 import { useFormikContext } from 'formik';
-import { useField } from 'formik';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { today } from '../utils/invoiceSchema';
+import { CacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
 
-export const CustomDatePicker = (props) => {
+//resetting most of mui styles
+const cache = createCache({
+  key: 'css',
+  prepend: true,
+});
+
+export const CustomDatePicker = () => {
 
     const { setFieldValue, handleBlur } = useFormikContext();
+    //state only for mui satisfaction
     const [value, setValue] = useState(dayjs(today));
-    const [field, meta] = useField('createdAt');
     
     const changeValueHandler = (newValue) => {
         setValue(newValue);
@@ -21,31 +28,24 @@ export const CustomDatePicker = (props) => {
     }
 
     return (
+        <CacheProvider value={cache}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <p className="text-neutral-500 text-base/1">Invoice date</p>
-            <DatePicker
-                className="text-dark-400 text-md/1 p-3 border rounded w-full"
+            <label htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</label>
+            <DesktopDatePicker
+                className=" rounded w-full cursor-pointer"
                 name="createdAt"
+                id="createdAt"
                 inputFormat="YYYY/MM/DD"
-                views={["day", 'month']}
+                views={["day"]}
                 showDaysOutsideCurrentMonth={true}
                 components={{
                     openPickerIcon: CalendarTodayIcon,
                 }}
-                InputProps={{
-                    sx: {
-                        "& .MuiSvgIcon-root": {
-                        color: "blue"
-                    }
-                    }
-                }}
                 value={value}
                 onChange={(newValue) => { changeValueHandler(newValue) }}
                 onBlur={handleBlur}
-                renderInput={(params) => {
-                    return <TextField {...params} />;
-                }}
             />
             </LocalizationProvider>
+            </CacheProvider>
     )
 }

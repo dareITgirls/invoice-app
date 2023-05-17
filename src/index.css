@@ -2,3 +2,45 @@
 @tailwind components;
 @tailwind utilities;
 @tailwind variants;
+
+.MuiInputBase-root:hover,
+.MuiInputBase-root:focus {
+	border: 1px solid #7c5dfa;
+}
+.MuiSvgIcon-root {
+	width: 0.9375rem;
+	height: 0.9375rem;
+	color: #7c5dfa;
+}
+
+.MuiInputBase-input,
+.MuiDayCalendar-weekDayLabel,
+.MuiPickersCalendarHeader-label,
+.Mui-selected,
+.MuiButtonBase-root,
+.MuiPickersDay-today,
+.MuiPickersDay-root {
+	font-size: 0.9375rem;
+	line-height: 0.9375rem;
+	letter-spacing: -0.25px;
+	font-weight: bold;
+	color: #0c0e16;
+	font-family: 'LeagueSpartan' sans-serif;
+	padding: 0.75rem;
+	cursor: pointer;
+}
+
+.MuiPickersDay-dayWithMargin:hover,
+.MuiPickersDay-dayWithMargin:focus {
+	color: #7c5dfa !important;
+}
+
+.MuiPickersDay-dayWithMargin {
+	background-color: transparent !important;
+	color: #0c0e16 !important;
+	font-weight: bold !important;
+}
+
+.MuiPickersDay-dayOutsideMonth {
+	color: #dfe3fa !important;
+}
