@@ -28,6 +28,18 @@
 	font-family: 'LeagueSpartan' sans-serif;
 	padding: 0.75rem;
 	cursor: pointer;
+	background: transparent;
+}
+
+.MuiSelect-select {
+	display: flex;
+	align-items: center;
+}
+
+.MuiMenuItem-root:hover,
+.MuiMenuItem-root:focus {
+	color: #7c5dfa;
+	background: transparent;
 }
 
 .MuiPickersDay-dayWithMargin:hover,
