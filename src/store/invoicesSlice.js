@@ -58,8 +58,10 @@ export default invoicesSlice.reducer;
 // } = invoicesAdapter.getSelectors(state => state.invoices)
 
 const selectInvoicesEntities = (state) => state.invoices.entities
-export const selectInvoices = createSelector(selectInvoicesEntities, (entities) =>
-    Object.values(entities)
+
+export const selectInvoices = createSelector(
+    selectInvoicesEntities,
+    (entities) => Object.values(entities)
 )
 
 export const selectInvoiceById = (state, invoiceId) => {

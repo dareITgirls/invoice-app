@@ -1,5 +1,4 @@
 import HeaderHome from '../components/HeaderHome';
-import NewInvoice from '../components/NewInvoice';
 import { useSelector } from 'react-redux';
 import InvoiceList from '../components/InvoiceList';
 
@@ -14,7 +13,6 @@ const Home = () => {
 		<>
 			<HeaderHome />
 			<InvoiceList />
-			<NewInvoice />
 		</>
 	);
 };
