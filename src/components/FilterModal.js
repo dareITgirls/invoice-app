@@ -1,25 +1,47 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeFilterModal, invoiceStatusFilterChanged} from "../store/filterModalSlice";
+import {closeFilterModal} from "../store/filterModalSlice";
+import {availableFiltersType} from "../utils/consts";
 
 
-const FilterModal = () => {
+const FilterModal = ({filters, onChange}) => {
+    const dispatch = useDispatch()
 
     const modalStatus = useSelector(state => state.filterModal.status)
-    const invoiceStatusToFilter = useSelector(state => state.filterModal.invoiceStatusToFilter)
+    console.log(filters)
 
-    const dispatch = useDispatch()
+    const renderedFilters = availableFiltersType.map((filterType) => {
+        const checked = filters.includes(filterType)
+        console.log(checked)
+        const handleChange = () => {
+            const changeType = checked ? 'removed' : 'added'
+            onChange(filterType, changeType)
+        }
+        return (
+            <label key={filterType}>
+                <input
+                    type="checkbox"
+                    name={filterType}
+                    checked={checked}
+                    onChange={handleChange}
+                />
+                {filterType}
+            </label>
+        )
+    })
+
+
     const closeModal = () => {
         dispatch(closeFilterModal())
     }
-    // const onInvoiceStatusChange = (invoiceStatus, changeType) => {
-    //     dispatch(invoiceStatusFilterChanged(invoiceStatus, changeType ))
-    // }
+
 
     if (modalStatus === false) return null;
 
     return (
         <div>
-            <h1 onClick={closeModal}>Filters</h1>
+            <form>
+                {renderedFilters}
+            </form>
         </div>
     )
 }

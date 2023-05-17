@@ -2,7 +2,7 @@ import {createSlice} from "@reduxjs/toolkit";
 
 const initialState = {
     status: false,
-    invoiceStatusToFilter: []
+    filters: []
 }
 
 const filterModalSlice = createSlice( {
@@ -15,35 +15,35 @@ const filterModalSlice = createSlice( {
         closeFilterModal(state, action) {
             state.status = false
         },
-        // invoiceStatusFilterChanged: {
-        //     reducer(state, action) {
-        //         let { invoiceStatus, changeType } = action.payload
-        //         const { chosenInvoiceStatus } = state
-        //         switch (changeType) {
-        //             case 'added': {
-        //                 if (!chosenInvoiceStatus.includes(invoiceStatus)) {
-        //                     chosenInvoiceStatus.push(invoiceStatus)
-        //                 }
-        //                 break
-        //             }
-        //             case 'removed': {
-        //                 state.invoiceStatusToFilter = chosenInvoiceStatus.filter(
-        //                     (existingInvoiceStatus) => existingInvoiceStatus !== invoiceStatus
-        //                 )
-        //             }
-        //             default:
-        //                 return
-        //         }
-        //     },
-        //     prepare(invoiceStatus, changeType) {
-        //         return {
-        //             payload: { invoiceStatus, changeType },
-        //         }
-        //     },
-        // }
+        filterChanged: {
+            reducer(state, action) {
+                let { filterType, changeType } = action.payload
+                const { filters } = state
+                switch (changeType) {
+                    case 'added': {
+                        if (!filters.includes(filterType)) {
+                            filters.push(filterType)
+                        }
+                        break
+                    }
+                    case 'removed': {
+                        state.filters = filters.filter(
+                            (existingFilterType) => existingFilterType !== filterType
+                        )
+                    }
+                    default:
+                        return
+                }
+            },
+            prepare(filterType, changeType) {
+                return {
+                    payload: { filterType, changeType },
+                }
+            },
+        }
     }
 });
 
-export const {openFilterModal, closeFilterModal, invoiceStatusFilterChanged} = filterModalSlice.actions;
+export const {openFilterModal, closeFilterModal, filterChanged} = filterModalSlice.actions;
 
 export default filterModalSlice.reducer

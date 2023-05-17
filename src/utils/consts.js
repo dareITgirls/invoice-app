@@ -1,3 +1,3 @@
 export const invoices = "invoices"
 
-export const availableInvoiceStatus = ['Draft', 'Pending', 'Paid']
+export const availableFiltersType = ['draft', 'pending', 'paid']
