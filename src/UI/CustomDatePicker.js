@@ -30,22 +30,24 @@ export const CustomDatePicker = () => {
 
     return (
         <CacheProvider value={cache}>
-        <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</InputLabel>
-            <DesktopDatePicker
-                className=" rounded w-full cursor-pointer"
-                name="createdAt"
-                id="createdAt"
-                inputFormat="YYYY/MM/DD"
-                views={["day"]}
-                showDaysOutsideCurrentMonth={true}
-                components={{
-                    openPickerIcon: CalendarTodayIcon,
-                }}
-                value={value}
-                onChange={(newValue) => { changeValueHandler(newValue) }}
-                onBlur={handleBlur}
-            />
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+            <div className=" text-base/1 flex flex-col py-3 md:w-full">
+                <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</InputLabel>
+                <DesktopDatePicker
+                    className="rounded w-full cursor-pointer"
+                    name="createdAt"
+                    id="createdAt"
+                    inputFormat="YYYY/MM/DD"
+                    views={["day"]}
+                    showDaysOutsideCurrentMonth={true}
+                    components={{
+                        openPickerIcon: CalendarTodayIcon,
+                    }}
+                    value={value}
+                    onChange={(newValue) => { changeValueHandler(newValue) }}
+                    onBlur={handleBlur}
+                    />
+            </div>
             </LocalizationProvider>
             </CacheProvider>
     )

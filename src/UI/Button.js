@@ -1,6 +1,6 @@
 export const Button = (props) => {
 
   return (
-    <button className={`rounded-full py-4 px-3 text-md/1 ${props.classname}`} {...props}>{props.children}{props.title}</button>
+    <button className={`rounded-full py-5 px-4 text-md/1 md:px-6 ${props.classname}`} {...props}>{props.children}{props.title}</button>
   );
 };

@@ -3,7 +3,7 @@ import { Input } from '../../UI/Input';
 import { ASSETS_LIBRARY } from '../../utils/consts';
 
 export const Item = (props) => {
-    
+
     const { handleBlur, values, setFieldValue } = useFormikContext();
 
     const { index, clickHandler } = props;
@@ -19,11 +19,11 @@ export const Item = (props) => {
     }
 
     return (
-        <li>
-            <Input name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
-            <div className='flex items-center space-x-4'>
-                <Input name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur} />
-                <Input name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} />
+        <li className="md:flex md:space-x-6 md:w-full">
+            <Input name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} classname="md:w-full"/>
+            <div className='flex items-center space-x-4 md:space-x-6'>
+                <Input name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classname="md:w-16"/>
+                <Input name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} classname="md:w-24"/>
                 <div>
                       <p className="text-neutral-500 text-base/1 pb-2">Total: </p><p className="text-dark-400 text-md/1 py-3 w-full mr-14">{ getItemTotal(values.items[index]) }</p>
                 </div>              

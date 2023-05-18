@@ -29,9 +29,10 @@ export const NewInvoice = () => {
 
     return (
         <Modal>
+            {/*nav missing */}
             {/* only on mobile button */}
             <button className="flex text-dark-400 text-md/1 pt-6 pl-6 items-center justify-between w-2/6"type="button" title="Go back" onClick={discardHandler}><img src={ASSETS_LIBRARY.icons.arrowLeft} alt='left arrow'/>Go back</button>
-            <h1 className="text-dark-400 text-xl pt-6 pl-6">New Invoice</h1>
+            <h1 className="text-dark-400 text-xl pt-6 pl-6 md:text-lg md:pl-14">New Invoice</h1>
                 <Formik
                     initialValues={invoiceSchema}
                     validationSchema={SignupSchema}
@@ -45,7 +46,7 @@ export const NewInvoice = () => {
                     resetForm();
                 }}>
 
-                    <Form action="POST" className="p-6">
+                    <Form action="POST" className="p-6 md:p-14">
                         <BillFrom />
                         <BillTo />
                         <ItemList />
