@@ -5,11 +5,7 @@ const postCodeRegex = /\d{2}-\d{3}/;
 
 export const SignupSchema =
      Yup.object().shape({
-//     Yup.object()
-// .when('status', {
-//     is: 'pending',
-//     then: Yup.object().shape({
-     createdAt: Yup.string()
+        createdAt: Yup.string()
             .required("can't be empty"),
         description: Yup.string()
             .min(1, "Description is too short")

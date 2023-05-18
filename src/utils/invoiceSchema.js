@@ -7,7 +7,7 @@
     const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
     const createInvoiceId = () => {
-        return `${alphabet[getRandomNumber(0, alphabet.length)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
+        return `${alphabet[getRandomNumber(0, alphabet.length - 1)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
 }
     
 export const today = new Date().toISOString().split('T')[0];

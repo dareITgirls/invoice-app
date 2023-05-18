@@ -3,7 +3,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'; 
 import dayjs from 'dayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers';
-import { TextField } from '@mui/material';
+import { InputLabel } from '@mui/material';
 import { useFormikContext } from 'formik';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { today } from '../utils/invoiceSchema';
@@ -31,7 +31,7 @@ export const CustomDatePicker = () => {
     return (
         <CacheProvider value={cache}>
         <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <label htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</label>
+            <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</InputLabel>
             <DesktopDatePicker
                 className=" rounded w-full cursor-pointer"
                 name="createdAt"
