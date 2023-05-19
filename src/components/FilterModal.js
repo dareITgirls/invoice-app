@@ -1,39 +1,35 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeFilterModal} from "../store/filterModalSlice";
-import {availableFiltersType} from "../utils/consts";
+import {closeFilterModal, toggleFilter} from "../store/filterModalSlice";
 
-
-const FilterModal = ({filters, onChange}) => {
+const FilterModal = () => {
     const dispatch = useDispatch()
+    const { modalStatus, filters }= useSelector(state => state.filterModal)
 
-    const modalStatus = useSelector(state => state.filterModal.status)
-    console.log(filters)
+    const handleToggleFilter = (filterType) => {
+        dispatch(toggleFilter(filterType))
+    }
 
-    const renderedFilters = availableFiltersType.map((filterType) => {
-        const checked = filters.includes(filterType)
-        console.log(checked)
+    const renderedFilters = Object.keys(filters).map((filter) => {
+        const checked = filters[filter]
         const handleChange = () => {
-            const changeType = checked ? 'removed' : 'added'
-            onChange(filterType, changeType)
+            handleToggleFilter(filter)
         }
         return (
-            <label key={filterType}>
+            <label key={filter}>
                 <input
                     type="checkbox"
-                    name={filterType}
+                    name={filter}
                     checked={checked}
                     onChange={handleChange}
                 />
-                {filterType}
+                {filter}
             </label>
         )
     })
 
-
     const closeModal = () => {
         dispatch(closeFilterModal())
     }
-
 
     if (modalStatus === false) return null;
 

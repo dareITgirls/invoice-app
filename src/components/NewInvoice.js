@@ -3,7 +3,6 @@ import {closeNewFormModal} from "../store/newFormModalStatusSlice";
 
 
 const NewInvoice = () => {
-
     const modalStatus = useSelector(state => state.newFormModalStatus.status)
 
     const dispatch = useDispatch()

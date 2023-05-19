@@ -1,17 +1,16 @@
 import { useSelector } from 'react-redux';
-import { selectInvoiceId } from '../store/invoicesSlice';
+import { selectFilteredInvoiceId } from '../store/invoicesSlice';
 import InvoiceItem from './InvoiceItem';
 import EmptyInvoiceList from './EmptyInvoiceList';
 
 const InvoiceList = () => {
-	const invoiceIds = useSelector(selectInvoiceId);
-	console.log(invoiceIds);
-
+	const invoiceIds = useSelector(selectFilteredInvoiceId);
 	const allInvoices = useSelector(state => state.invoices.entities);
 	const invoicesNumber = Object.keys(allInvoices).length;
 
-	const renderedListItems = invoiceIds.map(el => {
-		return <InvoiceItem key={el} id={el} />;
+
+	const renderedListItems = invoiceIds.map(id => {
+		return <InvoiceItem key={id} id={id} />;
 	});
 
 	if (invoicesNumber === 0) return <EmptyInvoiceList />;

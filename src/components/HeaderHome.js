@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
-import {filterChanged, openFilterModal} from "../store/filterModalSlice";
+import { openFilterModal } from "../store/filterModalSlice";
 import FilterModal from "./FilterModal";
 import NewInvoice from "./NewInvoice";
 
@@ -8,7 +8,6 @@ const HeaderHome = () => {
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
-	const filters = useSelector( state => state.filterModal.filters)
 
 	const invoicesNumber = Object.keys(invoices).length;
 	let invoicesNumberInfo;
@@ -27,17 +26,12 @@ const HeaderHome = () => {
 		dispatch(openFilterModal())
 	}
 
-	const onFilterChange = (filterType, changeType) => {
-		dispatch(filterChanged(filterType, changeType))
-	}
-
 	return (
 		<div>
 			<h1>Invoices</h1>
 			{invoicesNumberInfo}
 			<button onClick={openStatusFilterModal}>Filter by status</button>
-			<FilterModal filters={filters}
-						 onChange={onFilterChange}/>
+			<FilterModal/>
 			<button onClick={openNewInvoice}>New invoice</button>
 			<NewInvoice />
 		</div>
