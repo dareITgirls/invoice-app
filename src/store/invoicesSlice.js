@@ -1,5 +1,6 @@
-import {createSlice} from "@reduxjs/toolkit";
+import {createSlice, createSelector} from "@reduxjs/toolkit";
 import {addNewInvoice, deleteInvoice, editInvoice, fetchInvoices} from "./invoicesActions";
+
 
 const initialState = {
     status: 'idle',
@@ -49,6 +50,39 @@ const invoicesSlice = createSlice({
 export const { invoicesLoaded } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;
+
+const selectInvoicesEntities = (state) => state.invoices.entities
+
+export const selectInvoices = createSelector(
+    selectInvoicesEntities,
+     (entities) => Object.values(entities)
+)
+
+export const selectFilteredInvoices = createSelector(
+    selectInvoices,
+    (state) => state.filterModal.filters,
+    (invoices, filters) => {
+        return invoices.filter((invoice) => {
+            return  (
+                (filters.pending && invoice.status === 'pending') ||
+                (filters.paid && invoice.status === 'paid') ||
+                (filters.draft && invoice.status === 'draft')
+            )
+        })
+    }
+)
+
+export const selectFilteredInvoiceId = createSelector(
+    selectFilteredInvoices,
+    (invoices) => invoices.map((invoice) => invoice.id)
+)
+
+export const selectInvoiceById = (state, invoiceId) => {
+    return selectInvoicesEntities(state)[invoiceId]
+}
+
+
+
 
 
 
