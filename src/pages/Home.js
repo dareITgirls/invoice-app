@@ -14,11 +14,15 @@ const Home = () => {
 
 	return (
 		<>
-            <div className='flex flex-col lg:flex-row'>
-                <Nav />
-            </div>
-			<HeaderHome />
-			<InvoiceList />
+			<div className='flex flex-col lg:flex-row'>
+				<Nav />
+
+				<main>
+					<HeaderHome />
+
+					<InvoiceList />
+				</main>
+			</div>
 		</>
 	);
 };
