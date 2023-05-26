@@ -7,10 +7,8 @@ const InvoiceItem = ({ id }) => {
 
 	const changeDateFormat = givenDate => {
 		const date = new Date(givenDate).toDateString().split(' ');
-
-		const formatedDate = `${date[2]} ${date[1]} ${date[3]}`;
-
-		return formatedDate;
+		const formattedDate = `${date[2]} ${date[1]} ${date[3]}`;
+		return formattedDate;
 	};
 
 	return (

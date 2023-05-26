@@ -17,7 +17,7 @@ const Nav = () => {
 				</svg>
 			</div>
 
-			<nav className='flex items-center justify-center h-full divide-x divide-dark-600 lg:h-fit lg:flex-col lg:divide-y lg:divide-x-0'>
+			<nav className='flex items-center justify-center h-18 md:h-20 divide-x divide-dark-600 lg:h-fit lg:flex-col lg:divide-y lg:divide-x-0'>
 				<button className='px-6 h-full md:px-8 lg:py-8' type='button' aria-label='Switch color theme'>
 					<svg className='dark:hidden' width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
 						<title>Switch to dark mode</title>
