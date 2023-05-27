@@ -5,12 +5,11 @@ import { fetchInvoices } from './store/invoicesActions';
 import Home from './pages/Home';
 
 function App() {
-
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchInvoices())
-
-    },[]);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchInvoices());
+		document.body.classList.add('bg-light-200', 'dark:bg-dark-300', 'font-sans');
+	}, []);
 
 	return <Home />;
 }
