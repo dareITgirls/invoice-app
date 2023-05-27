@@ -1,7 +1,7 @@
 import HeaderHome from '../components/HeaderHome';
 import { useSelector } from 'react-redux';
 import InvoiceList from '../components/InvoiceList';
-import Nav from '../components/Nav';
+import { Nav } from '../components/Nav';
 
 //Future todo - create Wrapper component for DRY rule
 

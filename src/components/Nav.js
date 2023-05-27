@@ -6,7 +6,7 @@ import { MoonIcon } from './icons/MoonIcon.js';
 import { SunIcon } from './icons/SunIcon.js';
 import { LogoIcon } from './icons/LogoIcon.js';
 
-const Nav = () => {
+export const Nav = () => {
 	/*
 	dark/light mode logic
 	*/
@@ -69,5 +69,3 @@ const Nav = () => {
 		</header>
 	);
 };
-
-export default Nav;
