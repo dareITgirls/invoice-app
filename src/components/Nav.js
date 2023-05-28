@@ -1,5 +1,5 @@
 //Future todo: consider what to do with a user avatar - what functionality should it has?
-//to fix - doesn't recognise the changement from dark to light 
+
 import { useEffect, useState } from 'react';
 import imageAvatar from '../assets/imageAvatar.jpg';
 import { MoonIcon } from './icons/MoonIcon.js';
@@ -12,37 +12,36 @@ export const Nav = () => {
 	*/
 
 	const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	const [darkTheme, setDarkTheme] = useState(
-		localStorage.getItem('darkTheme') ? localStorage.getItem('darkTheme') : darkQuery.matches.toString()
+	const [theme, setTheme] = useState(
+		localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches
 	);
 
 	const handleDark = () => {
-		if (darkTheme === 'true') {
-			setDarkTheme('false');
-			localStorage.setItem('darkTheme', false);
+		if (theme === 'dark') {
+			setTheme('light');
+			localStorage.setItem('theme', 'light');
 		} else {
-			setDarkTheme('true');
-			localStorage.setItem('darkTheme', true);
+			setTheme('dark');
+			localStorage.setItem('theme', 'dark');
 		}
 	};
 
 	useEffect(() => {
-		if (darkTheme === 'true') {
+		if (theme === 'dark') {
 			document.documentElement.classList.add('dark');
 		} else {
 			document.documentElement.classList.remove('dark');
 		}
-	}, [darkTheme]);
+	}, [theme]);
 
-	//to fix - doesn't recognise the changement from dark to light 
-	darkQuery.addEventListener('change', (e) => {
-		if (!('darkTheme' in localStorage)) {
+	darkQuery.addEventListener('change', e => {
+		if (!('theme' in localStorage)) {
 			if (e.matches) {
 				document.documentElement.classList.add('dark');
+			}else {
+				document.documentElement.classList.remove('dark');
 			}
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
+		} 
 	});
 
 	return (
