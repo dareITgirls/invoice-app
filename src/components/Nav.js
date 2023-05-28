@@ -16,7 +16,7 @@ export const Nav = () => {
 		localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches
 	);
 
-	const handleDark = () => {
+	const handleTheme = () => {
 		if (theme === 'dark') {
 			setTheme('light');
 			localStorage.setItem('theme', 'light');
@@ -55,7 +55,7 @@ export const Nav = () => {
 					className='px-6 h-full md:px-8 lg:py-8'
 					type='button'
 					aria-label='Switch color theme'
-					onClick={handleDark}>
+					onClick={handleTheme}>
 					<MoonIcon />
 
 					<SunIcon />
