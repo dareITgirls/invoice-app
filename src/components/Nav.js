@@ -16,6 +16,14 @@ export const Nav = () => {
 		localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches
 	);
 
+	useEffect(() => {
+		if (theme === 'dark') {
+			document.documentElement.classList.add('dark');
+		} else {
+			document.documentElement.classList.remove('dark');
+		}
+	}, [theme]);
+
 	const handleTheme = () => {
 		if (theme === 'dark') {
 			setTheme('light');
@@ -25,14 +33,6 @@ export const Nav = () => {
 			localStorage.setItem('theme', 'dark');
 		}
 	};
-
-	useEffect(() => {
-		if (theme === 'dark') {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
-	}, [theme]);
 
 	darkQuery.addEventListener('change', e => {
 		if (!('theme' in localStorage)) {
