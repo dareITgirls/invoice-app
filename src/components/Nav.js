@@ -12,9 +12,7 @@ export const Nav = () => {
 	*/
 
 	const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	const [theme, setTheme] = useState(
-		localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches
-	);
+	const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches);
 
 	useEffect(() => {
 		if (theme === 'dark') {
@@ -38,10 +36,10 @@ export const Nav = () => {
 		if (!('theme' in localStorage)) {
 			if (e.matches) {
 				document.documentElement.classList.add('dark');
-			}else {
+			} else {
 				document.documentElement.classList.remove('dark');
 			}
-		} 
+		}
 	});
 
 	return (

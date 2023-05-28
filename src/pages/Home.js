@@ -1,9 +1,8 @@
+//Future todo - create Wrapper component for DRY rule
 import HeaderHome from '../components/HeaderHome';
 import { useSelector } from 'react-redux';
 import InvoiceList from '../components/InvoiceList';
 import { Nav } from '../components/Nav';
-
-//Future todo - create Wrapper component for DRY rule
 
 const Home = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
