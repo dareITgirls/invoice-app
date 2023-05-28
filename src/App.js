@@ -8,6 +8,9 @@ function App() {
 	const dispatch = useDispatch();
 	useEffect(() => {
 		dispatch(fetchInvoices());
+	}, []);
+
+	useEffect(() => {
 		document.body.classList.add('bg-light-200', 'dark:bg-dark-300', 'font-sans');
 	}, []);
 
