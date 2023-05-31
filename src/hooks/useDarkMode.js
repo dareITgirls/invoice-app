@@ -14,7 +14,6 @@ export const useDarkMode = () => {
 	}, [theme]);
 
 	const handleTheme = () => {
-		console.log('kliknięto');
 		if (theme === 'dark') {
 			setTheme('light');
 			localStorage.setItem('theme', 'light');
