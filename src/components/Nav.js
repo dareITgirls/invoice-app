@@ -1,46 +1,13 @@
 //Future todo: consider what to do with a user avatar - what functionality should it has?
 
-import { useEffect, useState } from 'react';
 import imageAvatar from '../assets/imageAvatar.jpg';
 import { MoonIcon } from './icons/MoonIcon.js';
 import { SunIcon } from './icons/SunIcon.js';
 import { LogoIcon } from './icons/LogoIcon.js';
+import { useDarkMode } from '../hooks/useDarkMode';
 
 export const Nav = () => {
-	/*
-	dark/light mode logic
-	*/
-
-	const darkQuery = window.matchMedia('(prefers-color-scheme: dark)');
-	const [theme, setTheme] = useState(localStorage.getItem('theme') ? localStorage.getItem('theme') : darkQuery.matches);
-
-	useEffect(() => {
-		if (theme === 'dark') {
-			document.documentElement.classList.add('dark');
-		} else {
-			document.documentElement.classList.remove('dark');
-		}
-	}, [theme]);
-
-	const handleTheme = () => {
-		if (theme === 'dark') {
-			setTheme('light');
-			localStorage.setItem('theme', 'light');
-		} else {
-			setTheme('dark');
-			localStorage.setItem('theme', 'dark');
-		}
-	};
-
-	darkQuery.addEventListener('change', e => {
-		if (!('theme' in localStorage)) {
-			if (e.matches) {
-				document.documentElement.classList.add('dark');
-			} else {
-				document.documentElement.classList.remove('dark');
-			}
-		}
-	});
+	const [handleTheme, theme] = useDarkMode();
 
 	return (
 		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-full lg:w-fit lg:flex-col lg:rounded-r-2xl'>
@@ -54,9 +21,7 @@ export const Nav = () => {
 					type='button'
 					aria-label='Switch color theme'
 					onClick={handleTheme}>
-					<MoonIcon />
-
-					<SunIcon />
+					{theme === 'dark' ? <SunIcon /> : <MoonIcon />}
 				</button>
 
 				<button aria-label='User account' title='User account' className='px-6 h-full md:px-8 lg:py-6'>

@@ -1,6 +1,6 @@
 export const SunIcon = () => {
 	return (
-		<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg' className='hidden dark:block'>
+		<svg width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
 			<title>Switch to light mode</title>
 
 			<path
