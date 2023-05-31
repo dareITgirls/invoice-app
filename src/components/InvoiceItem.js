@@ -34,8 +34,8 @@ const InvoiceItem = ({ id }) => {
 					<td className='row-start-2 row-end-4 col-start-2 md:col-start-5 md:row-auto justify-self-end md:justify-self-center mt-3 md:mt-0'>
 						<Label status={invoice.status} />
 					</td>
-					<td className='hidden md:inline '>
-						<svg width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+					<td className='hidden md:inline md:justify-self-end md:self-center'>
+						<svg className='' width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
 					</td>
 				</tr>
 				</tbody>

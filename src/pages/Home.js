@@ -17,7 +17,7 @@ const Home = () => {
 			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 				<Nav />
 
-				<main className='lg:w-2/4'>
+				<main className='lg:max-w-max'>
 					<HeaderHome />
 
 					<InvoiceList />
