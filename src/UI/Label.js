@@ -16,7 +16,7 @@ const Label = ({ status }) => {
 	}
 
 	return (
-		<div className='md: w-26'>
+		<div className='md:w-28 md:mr-6'>
 			<p className={className}>{firstLetterToUpper(status)}</p>
 		</div>
 		)

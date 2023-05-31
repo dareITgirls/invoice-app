@@ -15,7 +15,7 @@ const InvoiceItem = ({ id }) => {
 		<li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg'>
 			<table className='w-full'>
 				<tbody>
-				<tr className='grid grid-cols-2 md:grid-cols-6 p-6 gap-1'>
+				<tr className='grid grid-cols-2 md:grid-cols-5 p-6 gap-1'>
 					<td className='text-dark-300 dark:text-light-100 text-md/1 row-start-1 col-start-1 pb-4 md:pb-0 md:self-center'>
 						<span className='text-neutral-400'>#</span>
 						{invoice.id}
@@ -29,13 +29,13 @@ const InvoiceItem = ({ id }) => {
 						{invoice.clientName}
 					</td>
 
-					<td className='text-dark-300 dark:text-light-100 text-md/2 row-start-3 md:row-auto self-end md:justify-self-end md:self-center'>£ {invoice.total}</td>
-
-					<td className='row-start-2 row-end-4 col-start-2 md:col-start-5 md:row-auto justify-self-end md:justify-self-center mt-3 md:mt-0'>
-						<Label status={invoice.status} />
+					<td className='text-dark-300 dark:text-light-100 text-md/2 row-start-3 md:row-auto self-end md: pr-8 md:justify-self-end md:self-center'>
+						£ {invoice.total}
 					</td>
-					<td className='hidden md:inline md:justify-self-end md:self-center'>
-						<svg className='' width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+
+					<td className='row-start-2 row-end-4 col-start-2 md:col-start-5 md:row-auto md:flex md:items-center justify-self-end md:justify-self-center mt-3 md:mt-0'>
+						<Label status={invoice.status} />
+						<svg className='hidden md:inline' width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
 					</td>
 				</tr>
 				</tbody>
