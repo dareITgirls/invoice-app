@@ -14,10 +14,10 @@ const Home = () => {
 
 	return (
 		<>
-			<div className='flex flex-col lg:flex-row relative'>
+			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 				<Nav />
 
-				<main>
+				<main className='lg:w-2/4'>
 					<HeaderHome />
 
 					<InvoiceList />
