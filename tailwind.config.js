@@ -23,7 +23,7 @@ module.exports = {
 			},
 
 			width: {
-				'22': '5rem', //90 px for button in mobileView
+				'22': '5.63rem', //90 px for button in mobileView
 			},
 
 			fontFamily: {
