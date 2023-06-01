@@ -31,7 +31,7 @@ const HeaderHome = () => {
 
 	return (
 		<div className='grid grid-cols-3 grid-rows-2 px-6 md:px-12 pt-8 pb-0 md:pb-0 '>
-			<h1 className='text-lg'>Invoices</h1>
+			<h1 className='text-lg dark:text-light-100'>Invoices</h1>
 			<div className='flex justify-end items-center row-span-2'>
 				<button className='text-dark-300 dark:text-light-100 text-md/2 mr-3' onClick={openStatusFilterModal}>Filter <span className='hidden md:visible'>by status</span></button>
 				<IconArrowDown/>
@@ -42,7 +42,7 @@ const HeaderHome = () => {
 				</div>
 				<p className='text-light-100 text-md/2 pl-1 pr-3' onClick={openNewInvoice}>New <span className='hidden md:visible'>invoice</span></p>
 			</div>
-			<p className='text-neutral-300 text-base/1 md:hidden'>{invoicesNumber} invoices</p>
+			<p className='text-neutral-300 dark:text-light-100 text-base/1 md:hidden'>{invoicesNumber} invoices</p>
 			{invoicesNumberInfo}
 		</div>
 	);
