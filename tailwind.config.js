@@ -22,6 +22,10 @@ module.exports = {
 				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
 			},
 
+			width: {
+				'22': '5rem', //90 px for button in mobileView
+			},
+
 			fontFamily: {
 				sans: ['League Spartan', ...defaultTheme.fontFamily.sans],
 			},
