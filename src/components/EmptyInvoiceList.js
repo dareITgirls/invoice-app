@@ -1,9 +1,8 @@
-import illustrationEmpty from '../assets/illustrationEmpty.svg';
-
+import { ReactComponent as IllustrationEmpty } from '../assets/illustration-empty.svg';
 const EmptyInvoiceList = () => {
 	return (
 		<section>
-			<img src={illustrationEmpty} alt='A person holding a megaphone' />
+			<IllustrationEmpty />
 			<h2>There is nothing here</h2>
 			<p>
 				Create a new invoice by clicking the
