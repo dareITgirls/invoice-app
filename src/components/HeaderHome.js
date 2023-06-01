@@ -13,7 +13,7 @@ const HeaderHome = () => {
 
 	const invoicesNumber = Object.keys(invoices).length;
 	let invoicesNumberInfo;
-	let invoiceNumberInfoVisibility = 'hidden md:inline text-base/2 text-neutral-300'
+	let invoiceNumberInfoVisibility = 'hidden md:inline text-base/2 text-neutral-300 md:col-span2'
 	if (invoicesNumber === 0) {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>No invoices</p>;
 	} else if (invoicesNumber === 1) {
@@ -30,19 +30,23 @@ const HeaderHome = () => {
 	}
 
 	return (
-		<div className='grid grid-cols-3 grid-rows-2'>
-			<h1 className='text-lg dark:text-light-100 md:text-xl'>Invoices</h1>
-			<div role='button' className='flex justify-end items-center row-span-2'>
-				<div className='text-dark-300 dark:text-light-100 text-md/2 mr-3' onClick={openStatusFilterModal}>
+		<div className='grid grid-cols-3 md: grid-cols-4 grid-rows-2'>
+			<h1 className='text-lg dark:text-light-100 md:text-xl md:col-span-2'>Invoices</h1>
+			<div role='button'
+				 className='flex justify-end items-center row-span-2 md:mr-5'
+				 onClick={openStatusFilterModal}>
+				<div className='text-dark-300 dark:text-light-100 text-md/2 mr-3'>
 					Filter <span className='hidden md:inline'>by status</span>
 				</div>
 				<IconArrowDown/>
 			</div>
-			<div role='button' className='flex row-span-2 w-22 md:w-46 md:h-12 ml-5 justify-evenly items-center row-span-2 bg-primary-200 rounded-3xl'>
+			<div role='button'
+				 className='flex row-span-2 w-22 md:w-46 md:h-12 ml-5 justify-evenly items-center md:self-center row-span-2 bg-primary-200 rounded-3xl'
+				 onClick={openNewInvoice}>
 				<div className='flex justify-center items-center w-8 h-8 bg-light-100 rounded-full p-2'>
 					<IconPlus/>
 				</div>
-				<p className='text-light-100 text-md/2 pl-1 pr-3' onClick={openNewInvoice}>
+				<p className='text-light-100 text-md/2 pl-1 pr-3'>
 					New <span className='hidden md:inline'>invoice</span>
 				</p>
 			</div>
