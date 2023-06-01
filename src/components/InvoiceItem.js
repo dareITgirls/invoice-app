@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 import { selectInvoiceById } from '../store/invoicesSlice';
+import { ReactComponent as ArrowRight } from '../assets/icon-arrow-right.svg'
 import Label from '../UI/Label';
 
 const InvoiceItem = ({ id }) => {
@@ -20,22 +21,18 @@ const InvoiceItem = ({ id }) => {
 						<span className='text-neutral-400'>#</span>
 						{invoice.id}
 					</td>
-
 					<td className='text-neutral-300 dark:text-neutral-200 text-base/1 row-start-2 md:row-auto self-end md:self-center'>
 						Due {changeDateFormat(invoice.paymentDue)}
 					</td>
-
 					<td className='text-neutral-400 dark:text-light-100 text-base/1 row-start-1 md:row-auto justify-self-end md:justify-self-auto self-start md:self-center leading-3'>
 						{invoice.clientName}
 					</td>
-
 					<td className='text-dark-300 dark:text-light-100 text-md/2 row-start-3 md:row-auto self-end md: pr-8 md:justify-self-end md:self-center'>
 						£ {invoice.total}
 					</td>
-
 					<td className='row-start-2 row-end-4 col-start-2 md:col-start-5 md:row-auto md:flex md:items-center justify-self-end md:justify-self-center mt-3 md:mt-0'>
 						<Label status={invoice.status} />
-						<svg className='hidden md:inline' width="7" height="10" xmlns="http://www.w3.org/2000/svg"><path d="M1 1l4 4-4 4" stroke="#7C5DFA" stroke-width="2" fill="none" fill-rule="evenodd"/></svg>
+						<ArrowRight className='hidden md:inline'/>
 					</td>
 				</tr>
 				</tbody>
