@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { useFormikContext } from 'formik';
+import { useFormikContext, ErrorMessage } from 'formik';
 import { Item } from './Item'; 
 import { Button } from '../../UI/Button';
 import { ASSETS_LIBRARY } from '../../utils/consts';
@@ -7,7 +7,7 @@ import { ASSETS_LIBRARY } from '../../utils/consts';
 
 export const ItemList = () => {
 
-    const { values } = useFormikContext();
+    const { values, errors } = useFormikContext();
 
     const [content, setContent] = useState(<Item index={0} key={ Math.random()} clickHandler={() => renderList()}/>);
 

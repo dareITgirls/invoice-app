@@ -23,9 +23,8 @@ export const CustomDatePicker = () => {
     const [value, setValue] = useState(dayjs(today));
     
     const changeValueHandler = (newValue) => {
-        console.log(newValue);
         setValue(newValue);
-        setFieldValue('createdAt', newValue.$d);
+        setFieldValue('createdAt', new Date(newValue).toISOString().split('T')[0]);
     }
 
     return (

@@ -19,7 +19,6 @@ export const Dropdown = () => {
     const [value, setValue] = useState(30);
     
     const changeValueHandler = (e) => {
-        console.log(e.target.value);
         setValue(e.target.value);
         setFieldValue('paymentTerms', e.target.value);
     }

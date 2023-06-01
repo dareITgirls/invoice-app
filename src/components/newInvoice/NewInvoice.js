@@ -1,6 +1,7 @@
 import { Formik, Form } from 'formik';
 import {useDispatch, useSelector} from "react-redux";
-import { closeModal } from "../../store/modalStatusSlice";
+import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { addNewInvoice } from '../../store/invoicesActions';
 import { invoiceSchema } from '../../utils/invoiceSchema';
 import { SignupSchema } from '../../utils/validation';
 import { ASSETS_LIBRARY, getItemTotal, getTotal, getPaymentDue } from '../../utils/consts';
@@ -9,21 +10,20 @@ import { BillFrom } from './BillFrom';
 import { BillTo } from './BillTo';
 import { ItemList } from './ItemList';
 import { Footer } from './Footer';
-import { Button } from '../../UI/Button';
 
 export const NewInvoice = () => {
 
-    const modalStatus = useSelector(state => state.modalStatus.status);
+    const modalStatus = useSelector(state => state.newFormModalStatus.status);
     const dispatch = useDispatch();
 
     const discardHandler = () => {
-        dispatch(closeModal());
+        dispatch( closeNewFormModal());
         return
     }
 
-    if (modalStatus === false) return null;
-
     const onSubmitHandler = (data) => {
+        dispatch(addNewInvoice(data));
+        //dispatch(closeNewFormModal());
         console.log(data); 
     }
 
@@ -32,7 +32,7 @@ export const NewInvoice = () => {
             {/*nav missing */}
             {/* only on mobile button */}
             <button className="flex text-dark-400 text-md/1 pt-6 pl-6 items-center justify-between w-2/6"type="button" title="Go back" onClick={discardHandler}><img src={ASSETS_LIBRARY.icons.arrowLeft} alt='left arrow'/>Go back</button>
-            <h1 className="text-dark-400 text-xl pt-6 pl-6 md:text-lg md:pl-14">New Invoice</h1>
+            <h1 className="text-dark-400 dark:text-neutral-200 text-xl pt-6 pl-6 md:text-lg md:pl-14">New Invoice</h1>
                 <Formik
                     initialValues={invoiceSchema}
                     validationSchema={SignupSchema}

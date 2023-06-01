@@ -1,6 +1,5 @@
 import { Field, ErrorMessage } from 'formik';
 
-
 export const Input = (props) => {
     const { label, id, name, onBlur, classname } = props;
 

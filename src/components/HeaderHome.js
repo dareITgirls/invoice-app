@@ -2,12 +2,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { openFilterModal } from "../store/filterModalSlice";
 import FilterModal from "./FilterModal";
-import NewInvoice from "./NewInvoice";
+
 
 const HeaderHome = () => {
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
+
 
 	const invoicesNumber = Object.keys(invoices).length;
 	let invoicesNumberInfo;
@@ -33,7 +34,6 @@ const HeaderHome = () => {
 			<button onClick={openStatusFilterModal}>Filter by status</button>
 			<FilterModal/>
 			<button onClick={openNewInvoice}>New invoice</button>
-			<NewInvoice />
 		</div>
 	);
 };
