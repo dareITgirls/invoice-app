@@ -94,10 +94,7 @@ module.exports = {
 				'dark-400': '#0C0E16',
 				'dark-500': '#373B53',
 				'dark-550': '#373B530F', //dark-500 with opacity 0.06
-<<<<<<< HEAD
-=======
 				'dark-600': '#494E6E',
->>>>>>> develop
 			},
 
 			gridTemplateRows: {
@@ -108,12 +105,6 @@ module.exports = {
 				33: '8.375rem', //134px
 			},
 
-<<<<<<< HEAD
-
-			spacing: {
-				3.5: '18px',
-				26: '104px',
-=======
 			scale: {
 				140: '1.4',
 			},
@@ -122,13 +113,8 @@ module.exports = {
 				3.5: '1.125rem', //18px
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
->>>>>>> develop
 			},
 		},
 	},
 	plugins: [],
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> develop
