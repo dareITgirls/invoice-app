@@ -30,7 +30,7 @@ const HeaderHome = () => {
 	}
 
 	return (
-		<div className='grid grid-cols-3 grid-rows-2 px-6 md:px-12 pt-8 pb-0 md:pb-0 '>
+		<div className='grid grid-cols-3 grid-rows-2'>
 			<h1 className='text-lg dark:text-light-100'>Invoices</h1>
 			<div className='flex justify-end items-center row-span-2'>
 				<button className='text-dark-300 dark:text-light-100 text-md/2 mr-3' onClick={openStatusFilterModal}>Filter <span className='hidden md:visible'>by status</span></button>
