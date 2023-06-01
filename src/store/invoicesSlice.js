@@ -1,7 +1,6 @@
-import {createEntityAdapter, createSlice, createSelector} from "@reduxjs/toolkit";
+import {createSlice, createSelector} from "@reduxjs/toolkit";
 import {addNewInvoice, deleteInvoice, editInvoice, fetchInvoices} from "./invoicesActions";
 
-const invoicesAdapter = createEntityAdapter()
 
 const initialState = {
     status: 'idle',
@@ -52,24 +51,40 @@ export const { invoicesLoaded } = invoicesSlice.actions;
 
 export default invoicesSlice.reducer;
 
-// export const {
-//     selectAll: selectInvoices,
-//     selectById: selectInvoiceById
-// } = invoicesAdapter.getSelectors(state => state.invoices)
-
 const selectInvoicesEntities = (state) => state.invoices.entities
-export const selectInvoices = createSelector(selectInvoicesEntities, (entities) =>
-    Object.values(entities)
+
+export const selectInvoices = createSelector(
+    selectInvoicesEntities,
+     (entities) => Object.values(entities)
+)
+
+export const selectFilteredInvoices = createSelector(
+    selectInvoices,
+    (state) => state.filterModal.filters,
+    (invoices, filters) => {
+        return invoices.filter((invoice) => {
+            return  (
+                (filters.pending && invoice.status === 'pending') ||
+                (filters.paid && invoice.status === 'paid') ||
+                (filters.draft && invoice.status === 'draft')
+            )
+        })
+    }
+)
+
+export const selectFilteredInvoiceId = createSelector(
+    selectFilteredInvoices,
+    (invoices) => invoices.map((invoice) => invoice.id)
 )
 
 export const selectInvoiceById = (state, invoiceId) => {
     return selectInvoicesEntities(state)[invoiceId]
 }
 
-export const selectInvoiceId = createSelector(
-    selectInvoices,
-    (invoices) => invoices.map((invoice) => invoice.id)
-)
+
+
+
+
 
 
 

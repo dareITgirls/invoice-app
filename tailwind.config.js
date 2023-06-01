@@ -6,6 +6,10 @@ module.exports = {
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
+			borderRadius: {
+				'2xl': '20px',
+			},
+
 			boxShadow: {
 				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
 			},
@@ -90,6 +94,10 @@ module.exports = {
 				'dark-400': '#0C0E16',
 				'dark-500': '#373B53',
 				'dark-550': '#373B530F', //dark-500 with opacity 0.06
+<<<<<<< HEAD
+=======
+				'dark-600': '#494E6E',
+>>>>>>> develop
 			},
 
 			gridTemplateRows: {
@@ -100,12 +108,27 @@ module.exports = {
 				33: '8.375rem', //134px
 			},
 
+<<<<<<< HEAD
 
 			spacing: {
 				3.5: '18px',
 				26: '104px',
+=======
+			scale: {
+				140: '1.4',
+			},
+
+			spacing: {
+				3.5: '1.125rem', //18px
+				18: '4.5rem', //72px
+				26: '6.5rem', //104px
+>>>>>>> develop
 			},
 		},
 	},
 	plugins: [],
+<<<<<<< HEAD
 };
+=======
+};
+>>>>>>> develop

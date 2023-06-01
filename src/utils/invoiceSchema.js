@@ -35,7 +35,11 @@ export const invoiceSchema = {
     },
     items: [
         {
+<<<<<<< HEAD
             name: " ",
+=======
+            name: "",
+>>>>>>> develop
             quantity: 0,
             price: 0,
             total: 0
