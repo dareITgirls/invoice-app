@@ -23,7 +23,8 @@ module.exports = {
 			},
 
 			width: {
-				'22': '5.63rem', // 90 px for button in mobileView
+				'22': '5.63rem', // 90 px for button in mobile view
+				'46': '9.375rem', // 150 px for button in desktop view
 			},
 
 			padding: {
