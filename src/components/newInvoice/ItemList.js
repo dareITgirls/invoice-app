@@ -45,11 +45,9 @@ export const ItemList = () => {
             <ul>
                 {content}
             </ul>
-            <Button classname="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center my-6" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-2" src={ASSETS_LIBRARY.icons.plus} /></Button>
+            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center my-6" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-2" src={ASSETS_LIBRARY.icons.plus} /></Button>
             {renderMainError()}
-            {renderItemsError()}
-          
-           
+            {renderItemsError()}          
         </section>
     )
 }

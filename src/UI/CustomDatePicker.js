@@ -3,6 +3,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'; 
 import dayjs from 'dayjs'
 import { DesktopDatePicker } from '@mui/x-date-pickers';
+import TextField from '@mui/material/TextField';
 import { InputLabel } from '@mui/material';
 import { useFormikContext } from 'formik';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
@@ -22,9 +23,9 @@ export const CustomDatePicker = () => {
     //state only for mui satisfaction
     const [value, setValue] = useState(dayjs(today));
     
-    const changeValueHandler = (newValue) => {
+    const changeDateHandler = (newValue) => {
         setValue(newValue);
-        setFieldValue('createdAt', new Date(newValue).toISOString().split('T')[0]);
+        setFieldValue('createdAt', newValue);
     }
 
     return (
@@ -36,18 +37,18 @@ export const CustomDatePicker = () => {
                     className="rounded w-full cursor-pointer"
                     name="createdAt"
                     id="createdAt"
-                    inputFormat="YYYY/MM/DD"
+                    inputFormat="DD MMM YYYY"
                     views={["day"]}
                     showDaysOutsideCurrentMonth={true}
                     components={{
                         openPickerIcon: CalendarTodayIcon,
                     }}
                     value={value}
-                    onChange={(newValue) => { changeValueHandler(newValue) }}
+                    onChange={(newValue) => { changeDateHandler(newValue) }}
                     onBlur={handleBlur}
                     />
             </div>
             </LocalizationProvider>
-            </CacheProvider>
+        </CacheProvider>
     )
 }
