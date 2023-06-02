@@ -1,8 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
-import { openFilterModal } from "../store/filterModalSlice";
+import { toggleFilterModalOpening } from "../store/filterModalSlice";
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
+import FilterModal from "./FilterModal";
 
 const HeaderHome = () => {
 	const dispatch = useDispatch();
@@ -19,12 +20,13 @@ const HeaderHome = () => {
 	} else {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
 	}
+
 	const openNewInvoice = () => {
 		dispatch(openNewFormModal());
 	};
 
-	const openStatusFilterModal = () => {
-		dispatch(openFilterModal())
+	const displayFilterModal = () => {
+		dispatch(toggleFilterModalOpening())
 	}
 
 	return (
@@ -32,11 +34,12 @@ const HeaderHome = () => {
 			<h1 className='text-lg dark:text-light-100 md:text-xl md:col-span-2'>Invoices</h1>
 			<button
 				 className='flex justify-end items-center row-span-2'
-				 onClick={openStatusFilterModal}>
+				 onClick={displayFilterModal}>
 				<div className='text-dark-300 dark:text-light-100 text-md/2 mr-3'>
 					Filter <span className='hidden md:inline'>by status</span>
 				</div>
 				<IconArrowDown/>
+				<FilterModal/>
 			</button>
 			<div className='flex row-span-2 justify-end items-center'>
 				<button
