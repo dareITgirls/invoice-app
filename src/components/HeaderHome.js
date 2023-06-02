@@ -4,6 +4,7 @@ import { toggleFilterModalOpening } from "../store/filterModalSlice";
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
 import FilterModal from "./FilterModal";
+import {createPortal} from "react-dom";
 
 const HeaderHome = () => {
 	const dispatch = useDispatch();
@@ -33,7 +34,7 @@ const HeaderHome = () => {
 		<div className='grid grid-cols-3 md:grid-cols-4 grid-rows-2'>
 			<h1 className='text-lg dark:text-light-100 md:text-xl md:col-span-2'>Invoices</h1>
 			<button
-				 className='flex justify-end items-center row-span-2'
+				 className='flex justify-end items-center row-span-2 relative'
 				 onClick={displayFilterModal}>
 				<div className='text-dark-300 dark:text-light-100 text-md/2 mr-3'>
 					Filter <span className='hidden md:inline'>by status</span>

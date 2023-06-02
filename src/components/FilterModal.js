@@ -1,5 +1,6 @@
 import {useDispatch, useSelector} from "react-redux";
 import {closeFilterModal, toggleFilter} from "../store/filterModalSlice";
+import {firstLetterToUpper} from "../utils/consts";
 
 const FilterModal = () => {
     const dispatch = useDispatch()
@@ -22,7 +23,7 @@ const FilterModal = () => {
                     checked={checked}
                     onChange={handleChange}
                 />
-                {filter}
+                {firstLetterToUpper(filter)}
             </label>
         )
     })
@@ -31,14 +32,12 @@ const FilterModal = () => {
         dispatch(closeFilterModal())
     }
 
-    if (modalStatus === false) return null;
+    if (!modalStatus) return null;
 
     return (
-        <div>
-            <form>
+            <div className='absolute bg-light-100 w-48 flex flex-col items-start p-6 rounded-lg shadow-4xl'>
                 {renderedFilters}
-            </form>
-        </div>
+            </div>
     )
 }
 
