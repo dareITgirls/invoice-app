@@ -3,12 +3,10 @@ import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { openFilterModal } from "../store/filterModalSlice";
 import FilterModal from "./FilterModal";
 
-
 const HeaderHome = () => {
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
-
 
 	const invoicesNumber = Object.keys(invoices).length;
 	let invoicesNumberInfo;
