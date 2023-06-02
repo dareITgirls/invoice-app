@@ -4,7 +4,7 @@ import imageAvatar from '../assets/imageAvatar.jpg';
 
 const Nav = () => {
 	return (
-		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-full lg:w-fit lg:flex-col lg:rounded-r-2xl'>
+		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-screen lg:w-fit lg:flex-col lg:rounded-r-2xl sticky lg:absolute top-0 left-0'>
 			<div className='relative bg-primary-200 w-18 h-18 flex items-center justify-center rounded-r-2xl after:absolute after:h-1/2 after:bg-primary-100 after:w-full after:bottom-0 after:rounded-tl-2xl after:rounded-br-2xl md:w-20 md:h-20 lg:w-26 lg:h-26'>
 				<svg className='z-10 md:scale-110 lg:scale-140' xmlns='http://www.w3.org/2000/svg' width='28' height='26'>
 					<title>Invoice app logo</title>
@@ -17,7 +17,7 @@ const Nav = () => {
 				</svg>
 			</div>
 
-			<nav className='flex items-center justify-center h-full divide-x divide-dark-600 lg:h-fit lg:flex-col lg:divide-y lg:divide-x-0'>
+			<nav className='flex items-center justify-center h-18 md:h-20 divide-x divide-dark-600 lg:h-fit lg:flex-col lg:divide-y lg:divide-x-0'>
 				<button className='px-6 h-full md:px-8 lg:py-8' type='button' aria-label='Switch color theme'>
 					<svg className='dark:hidden' width='20' height='20' xmlns='http://www.w3.org/2000/svg'>
 						<title>Switch to dark mode</title>
