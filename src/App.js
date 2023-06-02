@@ -5,12 +5,10 @@ import { fetchInvoices } from './store/invoicesActions';
 import Home from './pages/Home';
 
 function App() {
-
-    const dispatch = useDispatch()
-    useEffect(() => {
-        dispatch(fetchInvoices())
-
-    },[]);
+	const dispatch = useDispatch();
+	useEffect(() => {
+		dispatch(fetchInvoices());
+	}, []);
 
 	return <Home />;
 }
