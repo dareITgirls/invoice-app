@@ -16,8 +16,9 @@ const FilterModal = () => {
             handleToggleFilter(filter)
         }
         return (
-            <label key={filter}>
+            <label key={filter} className='text-md/1 dark:text-light-100 pb-2 last-of-type:pb-0'>
                 <input
+                    className='w-4 h-4 mr-3'
                     type="checkbox"
                     name={filter}
                     checked={checked}
@@ -35,7 +36,7 @@ const FilterModal = () => {
     if (!modalStatus) return null;
 
     return (
-            <div className='absolute bg-light-100 w-48 flex flex-col items-start p-6 rounded-lg shadow-4xl'>
+            <div className='absolute top-16 left--14 bg-light-100 dark:bg-dark-200 w-48 flex flex-col items-start p-6 rounded-lg shadow-4xl'>
                 {renderedFilters}
             </div>
     )

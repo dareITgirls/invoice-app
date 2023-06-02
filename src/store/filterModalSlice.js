@@ -13,12 +13,6 @@ const filterModalSlice = createSlice( {
     name: 'filterModal',
     initialState,
     reducers: {
-        // openFilterModal(state, action) {
-        //     state.modalStatus = true
-        // },
-        // closeFilterModal(state, action) {
-        //     state.modalStatus = false
-        // },
         toggleFilterModalOpening: (state, action) => {
           state.modalStatus = !state.modalStatus
         },
