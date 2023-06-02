@@ -55,9 +55,9 @@ export const SignupSchema =
                 .required("can't be empty"),
         }),
          items: Yup.array(Yup.object().shape({
-            name: Yup.string().required("can't be empty"),
-            quantity: Yup.number().required("can't be empty"),              
-            price: Yup.number().required("can't be empty"),
+            name: Yup.string().required(),
+            quantity: Yup.number().required(),              
+            price: Yup.number().required(),
         }),
         ),
     })

@@ -27,6 +27,18 @@ export const ItemList = () => {
         renderList()
     }
 
+    const renderMainError = () => {
+        if (Object.keys(errors).length > 0) {
+            return <p className="text-danger-150 text-base/1">All fields must be added</p>
+        }
+    }
+
+    const renderItemsError = () => {
+        if (errors.items) {
+           return  <p className="text-danger-150 text-base/1">An item must be added</p>
+       }
+    }
+
     return (
         <section className="pt-12 pb-12">
             <h2 className="text-neutral-300">Item List</h2>
@@ -34,6 +46,10 @@ export const ItemList = () => {
                 {content}
             </ul>
             <Button classname="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center my-6" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-2" src={ASSETS_LIBRARY.icons.plus} /></Button>
+            {renderMainError()}
+            {renderItemsError()}
+          
+           
         </section>
     )
 }

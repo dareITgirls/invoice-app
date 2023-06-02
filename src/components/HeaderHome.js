@@ -54,9 +54,6 @@ const HeaderHome = () => {
 			</div>
 			<p className='text-neutral-300 dark:text-light-100 text-base/1 md:hidden'>{invoicesNumber} invoices</p>
 			{invoicesNumberInfo}
-			<button onClick={openStatusFilterModal}>Filter by status</button>
-			<FilterModal/>
-			<button onClick={openNewInvoice}>New invoice</button>
 		</div>
 	);
 };
