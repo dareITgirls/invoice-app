@@ -4,6 +4,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 
 module.exports = {
+	darkMode: 'class',
 	content: ['./src/**/*.{js,jsx,ts,tsx}'],
 	theme: {
 		extend: {
@@ -13,6 +14,15 @@ module.exports = {
 
 			boxShadow: {
 				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
+			},
+
+			width: {
+				'22': '5.63rem', // 90 px for button in mobile view
+				'46': '9.375rem', // 150 px for button in desktop view
+			},
+
+			padding: {
+				'15': '3.8125rem', // 61px
 			},
 
 			fontFamily: {
