@@ -15,7 +15,7 @@ const Home = () => {
 	}
 
 	return (
-		<>		
+		<>
 			{!modalStatus &&
 				<>
 					<div className='flex flex-col lg:flex-row'>
@@ -25,11 +25,10 @@ const Home = () => {
 							<InvoiceList />
 						</main>
 					</div>
-				</>
-			}
+				</>}
 			{modalStatus && <NewInvoice />}
 		</>
 	);
-};
+}
 
 export default Home;

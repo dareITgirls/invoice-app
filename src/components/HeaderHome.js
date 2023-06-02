@@ -17,6 +17,7 @@ const HeaderHome = () => {
 	} else {
 		invoicesNumberInfo = <p>There are {invoicesNumber} total invoices</p>;
 	}
+	
 	const openNewInvoice = () => {
 		dispatch(openNewFormModal());
 	};
