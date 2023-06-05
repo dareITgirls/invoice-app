@@ -23,6 +23,6 @@ const filterModalSlice = createSlice( {
     }
 });
 
-export const {openFilterModal, closeFilterModal, toggleFilter, toggleFilterModalOpening} = filterModalSlice.actions;
+export const {toggleFilter, toggleFilterModalOpening} = filterModalSlice.actions;
 
 export default filterModalSlice.reducer

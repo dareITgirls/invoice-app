@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {closeFilterModal, toggleFilter} from "../store/filterModalSlice";
+import {toggleFilter} from "../store/filterModalSlice";
 import {firstLetterToUpper} from "../utils/consts";
 
 const FilterModal = () => {
@@ -16,9 +16,13 @@ const FilterModal = () => {
             handleToggleFilter(filter)
         }
         return (
-            <label key={filter} className='text-md/1 dark:text-light-100 pb-2 last-of-type:pb-0'>
+            <label key={filter} className='text-md/1 dark:text-light-100 pb-2 last-of-type:pb-0 cursor-pointer'>
                 <input
-                    className='w-4 h-4 mr-3'
+                    className='relative h-4 w-4 mr-3 appearance-none bg-neutral-200 rounded-sm
+                    hover:border hover:border-primary-200 focus:outline-none
+                    checked:bg-primary-200
+                    checked:
+                    cursor-pointer'
                     type="checkbox"
                     name={filter}
                     checked={checked}
@@ -28,10 +32,6 @@ const FilterModal = () => {
             </label>
         )
     })
-
-    const closeModal = () => {
-        dispatch(closeFilterModal())
-    }
 
     if (!modalStatus) return null;
 
