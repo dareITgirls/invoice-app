@@ -12,7 +12,7 @@ import {
   invoicesLoaded,
 } from "../store/invoicesSlice";
 import { store } from "../store/store";
-import Nav from "../components/Nav";
+import { Nav } from "../components/Nav";
 import { Link } from "react-router-dom";
 import Label from "../UI/Label";
 import { Button } from "../UI/Button";
