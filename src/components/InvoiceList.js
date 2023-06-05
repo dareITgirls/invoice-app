@@ -15,7 +15,7 @@ const InvoiceList = () => {
 
 	if (invoicesNumber === 0) return <EmptyInvoiceList />;
 
-	return <ul className='flex flex-col px-6 pt-8 pb-26 gap-4'>{renderedListItems}</ul>;
+	return <ul className='flex flex-col pt-8 md:pt-14 pb-26 gap-4'>{renderedListItems}</ul>;
 };
 
 export default InvoiceList;
