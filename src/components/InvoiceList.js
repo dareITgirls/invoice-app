@@ -8,7 +8,6 @@ const InvoiceList = () => {
 	const allInvoices = useSelector(state => state.invoices.entities);
 	const invoicesNumber = Object.keys(allInvoices).length;
 
-
 	const renderedListItems = invoiceIds.map(id => {
 		return <InvoiceItem key={id} id={id} />;
 	});

@@ -17,12 +17,12 @@ module.exports = {
 			},
 
 			width: {
-				'22': '5.63rem', // 90 px for button in mobile view
-				'46': '9.375rem', // 150 px for button in desktop view
+				22: '5.63rem', // 90 px for button in mobile view
+				46: '9.375rem', // 150 px for button in desktop view
 			},
 
 			padding: {
-				'15': '3.8125rem', // 61px
+				15: '3.8125rem', // 61px
 			},
 
 			fontFamily: {
@@ -112,23 +112,31 @@ module.exports = {
 				'item-sm': '50% 25% 25%',
 			},
 
+			maxWidth: {
+				'25ch': '25ch',
+			},
+
 			minHeight: {
 				33: '8.375rem', //134px
 			},
 
 			scale: {
+				80: '0.8',
 				140: '1.4',
 			},
 
 			spacing: {
+				0.5: '0.125rem', //2px
+				1.5: '0.375rem', //6px
 				3.5: '1.125rem', //18px
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
+				49.5: '12.375rem', //198px
 			},
 
 			backgroundImage: {
-				"checkboxImg": "url(assets/icon-check.svg)"
-			}
+				checkboxImg: 'url(assets/icon-check.svg)',
+			},
 		},
 	},
 	plugins: [],
