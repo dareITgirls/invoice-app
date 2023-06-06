@@ -20,7 +20,7 @@ const FilterModal = () => {
                 <input
                     className='relative h-4 w-4 mr-3 appearance-none bg-neutral-200 rounded-sm
                     hover:border hover:border-primary-200 focus:outline-none
-                    checked:bg-[url(assets/icon-check.svg)] checked:bg-no-repeat checked:bg-center checked:bg-primary-200
+                    checked:bg-checkboxImg checked:bg-no-repeat checked:bg-center checked:bg-primary-200
                     cursor-pointer'
                     type="checkbox"
                     name={filter}

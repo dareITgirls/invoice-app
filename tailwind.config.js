@@ -125,6 +125,10 @@ module.exports = {
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
 			},
+
+			backgroundImage: {
+				"checkboxImg": "url(assets/icon-check.svg)"
+			}
 		},
 	},
 	plugins: [],
