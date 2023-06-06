@@ -1,11 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
-<<<<<<< HEAD
-import { openFilterModal } from "../store/filterModalSlice";
-import FilterModal from "./FilterModal";
-=======
 import { toggleFilterModalOpening } from "../store/filterModalSlice";
->>>>>>> dfba0f5a5f3577cd221956c97bce93c66f3e27bc
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
 import FilterModal from "./FilterModal";
