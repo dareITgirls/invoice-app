@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { selectFilteredInvoiceId } from '../store/invoicesSlice';
+import { EmptyInvoiceList } from './EmptyInvoiceList';
 import InvoiceItem from './InvoiceItem';
-import EmptyInvoiceList from './EmptyInvoiceList';
 
 const InvoiceList = () => {
 	const invoiceIds = useSelector(selectFilteredInvoiceId);

@@ -1,5 +1,5 @@
 import { ReactComponent as IllustrationEmpty } from '../assets/illustration-empty.svg';
-const EmptyInvoiceList = () => {
+export const EmptyInvoiceList = () => {
 	return (
 		<section className='flex flex-col items-center justify-center mt-20 gap-6 font-bold text-center md:mt-49.5 lg:mt-36 lg:gap-7'>
 			<IllustrationEmpty className='scale-80 md:scale-100' />
@@ -18,5 +18,3 @@ const EmptyInvoiceList = () => {
 		</section>
 	);
 };
-
-export default EmptyInvoiceList;
