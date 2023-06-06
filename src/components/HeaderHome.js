@@ -20,7 +20,6 @@ const HeaderHome = () => {
 	} else {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
 	}
-
 	const openNewInvoice = () => {
 		dispatch(openNewFormModal());
 	};
