@@ -13,7 +13,7 @@ const InvoiceItem = ({ id }) => {
 	};
 
 	return (
-		<li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg'>
+		<li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg hover:border hover:border-primary-200 cursor-pointer'>
 			<table className='w-full'>
 				<tbody>
 				<tr className='grid grid-cols-2 md:grid-cols-5 p-6 gap-1'>

@@ -34,3 +34,7 @@ export const ASSETS_LIBRARY = {
         paymentDue.setDate(dayInFuture)
         return paymentDue.toISOString().split('T')[0]
     }
+
+export const firstLetterToUpper = name => {
+    return name.charAt(0).toUpperCase() + name.slice(1);
+};

@@ -14,6 +14,7 @@ module.exports = {
 
 			boxShadow: {
 				'3xl': '0 10px 10px -10px rgba(72, 84, 159, 0.100397)',
+				'4xl': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
 			},
 
 			width: {
@@ -127,6 +128,10 @@ module.exports = {
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
 			},
+
+			backgroundImage: {
+				"checkboxImg": "url(assets/icon-check.svg)"
+			}
 		},
 	},
 	plugins: [],

@@ -1,6 +1,6 @@
 //Future todo - create Wrapper component for DRY rule
 import HeaderHome from '../components/HeaderHome';
-import { useSelector } from 'react-redux';
+import {useSelector} from 'react-redux';
 import InvoiceList from '../components/InvoiceList';
 import { Nav } from '../components/Nav';
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
@@ -13,7 +13,6 @@ const Home = () => {
 	if (loadingStatus === 'loading') {
 		return <div>LOADING</div>;
 	}
-
 	return (
 		<>
 			{!modalStatus &&
