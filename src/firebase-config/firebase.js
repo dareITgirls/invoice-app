@@ -3,9 +3,9 @@ import { getFirestore } from '@firebase/firestore';
 
 const firebaseConfig = {
 
-	apiKey: "AIzaSyBRyTPvXRYW5oc6jNi3JZvR-S-oCxK7ISA",
+	apiKey: `${process.env.REACT_APP_API_KEY}`,
   
-	authDomain: "invoice-app-8401a.firebaseapp.com",
+	authDomain: `${process.env.REACT_APP_AUTH_DOMAIN}`,
   
 	projectId: "invoice-app-8401a",
   

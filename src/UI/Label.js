@@ -1,10 +1,8 @@
+import {firstLetterToUpper} from "../utils/consts";
+
 const Label = ({ status }) => {
 	let className =
 		'flex items-center justify-center gap-2 text-md/1 before:h-2 before:w-2 before:rounded-full before:block px-3.5 h-10 rounded-md';
-
-	const firstLetterToUpper = name => {
-		return name.charAt(0).toUpperCase() + name.slice(1);
-	};
 
 	if (status === 'pending') {
 		className += ' text-warning-100 before:bg-warning-100 bg-warning-150';

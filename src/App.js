@@ -1,15 +1,20 @@
-import './App.css';
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { fetchInvoices } from './store/invoicesActions';
 import Home from './pages/Home';
+import { useEffect } from 'react';
+
 
 function App() {
-	const dispatch = useDispatch();
-	useEffect(() => {
-		dispatch(fetchInvoices());
-	}, []);
 
-	return <Home />;
+  const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchInvoices())
+    },[dispatch]);
+
+  return (
+    <Home />
+  );
 }
+
 export default App;

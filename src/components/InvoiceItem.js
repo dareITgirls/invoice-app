@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import { ReactComponent as ArrowRight } from "../assets/icon-arrow-right.svg";
-
 import Label from "../UI/Label";
 import { Link } from "react-router-dom";
 
@@ -16,7 +15,7 @@ const InvoiceItem = ({ id }) => {
 
   return (
     <Link to={`/invoices/${invoice.id}`}>
-      <li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg'>
+      <li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg hover:border hover:border-primary-200 cursor-pointer'>
         <table className='w-full'>
           <tbody>
             <tr className='grid grid-cols-2 md:grid-cols-5 p-6 gap-1'>
