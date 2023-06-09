@@ -67,6 +67,15 @@ module.exports = {
 					},
 				],
 
+					'md/3': [
+					'1.125rem', //18px
+					{
+						lineHeight: '2rem', //32px
+						letterSpacing: '-0.38px',
+						fontWeight: '700',
+					},
+				],
+
 				lg: [
 					'1.5rem', //24px
 					{
@@ -119,12 +128,23 @@ module.exports = {
 				33: '8.375rem', //134px
 			},
 
+			width: {
+				'3/9': '28%',
+				33: '8.25rem', //132px
+				50: '12.5rem', //200px
+			},
+
 			scale: {
 				140: '1.4',
 			},
 
 			spacing: {
+				2.5: '0.625rem', //10px
+				2.8: '0.875rem', //14px
+				3.3: '1.0625rem', //17px
 				3.5: '1.125rem', //18px
+				13.5: '3.375rem', //54px
+				17: '4.25rem', //68px
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
 			},

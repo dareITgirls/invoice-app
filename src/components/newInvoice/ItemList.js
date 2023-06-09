@@ -40,12 +40,12 @@ export const ItemList = () => {
     }
 
     return (
-        <section className="pt-12 pb-12">
-            <h2 className="text-neutral-300">Item List</h2>
+        <section className="pt-15 pb-17">
+            <h2 className="text-neutral-300 text-md/3 pb-1">Item List</h2>
             <ul>
                 {content}
             </ul>
-            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center my-6" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-2" src={ASSETS_LIBRARY.icons.plus} /></Button>
+            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /></Button>
             {renderMainError()}
             {renderItemsError()}          
         </section>

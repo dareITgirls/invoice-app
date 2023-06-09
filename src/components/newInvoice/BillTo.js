@@ -10,9 +10,9 @@ export const BillTo = () => {
     return (
         <section>
             <h2 className="text-primary-200">Bill To</h2>
-            <Input name="clientName" id="client-name" label="Client Name" type="text" onBlur={handleBlur} />
-            <Input name="clientEmail" id="client-email" label="Client Email" type="text" onBlur={handleBlur} />
-            <Input name="clientAddress.street" id="client-street" label="Street" type="text" onBlur={handleBlur} />
+            <Input name="clientName" id="client-name" label="Client's Name" type="text" onBlur={handleBlur} />
+            <Input name="clientEmail" id="client-email" label="Client's Email" type="text" onBlur={handleBlur} />
+            <Input name="clientAddress.street" id="client-street" label="Street Address" type="text" onBlur={handleBlur} />
              <div className="md:flex md:space-x-6">
                 <div className="flex space-x-6">
                     <Input name="clientAddress.city" id="client-city" label="City" type="text" onBlur={handleBlur} />
@@ -20,7 +20,7 @@ export const BillTo = () => {
                 </div>
                 <Input name="clientAddress.country" id="client-country" label="Country" type="text" onBlur={handleBlur} />
             </div>
-            <div className="md:flex md:space-x-6">
+            <div className="pt-4 md:flex md:space-x-6">
                 <CustomDatePicker />
                 <Dropdown />
             </div>

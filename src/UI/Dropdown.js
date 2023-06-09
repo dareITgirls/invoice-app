@@ -25,8 +25,8 @@ export const Dropdown = () => {
 
     return (
         <CacheProvider value={cache}>
-            <div className=" text-base/1 flex flex-col py-3 md:w-full">
-                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-base/1">Payment terms</InputLabel>
+            <div className=" text-base/1 flex flex-col pt-4 pb-2.5 md:w-full">
+                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-base/2 pb-1">Payment Terms</InputLabel>
                 <Select
                     className=" rounded w-full cursor-pointer"
                     name="paymentTerms"

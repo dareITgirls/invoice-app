@@ -5,7 +5,7 @@ export const BillFrom = () => {
     const { handleBlur } = useFormikContext();
 
     return (
-        <section>
+        <section className="pb-7">
             <h2 className="text-primary-200">Bill From</h2>
             <Input name="senderAddress.street" id="street-address" label="Street Address" type="text" onBlur={handleBlur} />
             <div className="md:flex md:space-x-6">
