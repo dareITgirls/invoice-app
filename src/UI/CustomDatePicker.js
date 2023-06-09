@@ -32,9 +32,9 @@ export const CustomDatePicker = () => {
         <CacheProvider value={cache}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
             <div className=" text-base/1 flex flex-col pt-4 pb-2.5 md:w-full">
-                <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/2 pb-2">Invoice Date</InputLabel>
+                <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/2 pb-2 ">Invoice Date</InputLabel>
                 <DesktopDatePicker
-                    className="rounded w-full cursor-pointer"
+                    className="rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200"
                     name="createdAt"
                     id="createdAt"
                     inputFormat="DD MMM YYYY"
