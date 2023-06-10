@@ -15,9 +15,10 @@ const Home = () => {
 	}
 	return (
 		<>
+
 			{!modalStatus &&
 				<>
-					<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+					<div className='flex flex-col relative lg:flex-row lg:justify-center'>
 						<Nav />
 						<main className='px-6 md:px-12 pt-8 md:pt-15'>
 							<HeaderHome />

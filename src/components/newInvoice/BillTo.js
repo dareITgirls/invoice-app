@@ -8,8 +8,8 @@ export const BillTo = () => {
     const { handleBlur } = useFormikContext();
 
     return (
-        <section>
-            <h2 className="text-primary-200">Bill To</h2>
+        <section className="md:mt-2">
+            <h2 className="text-primary-200 md:mb-1">Bill To</h2>
             <Input name="clientName" id="client-name" label="Client's Name" type="text" onBlur={handleBlur} />
             <Input name="clientEmail" id="client-email" label="Client's Email" type="text" onBlur={handleBlur} />
             <Input name="clientAddress.street" id="client-street" label="Street Address" type="text" onBlur={handleBlur} />

@@ -9,7 +9,8 @@ export const ItemList = () => {
 
     const { values, errors } = useFormikContext();
 
-    const [content, setContent] = useState(<Item index={0} key={ Math.random()} clickHandler={() => renderList()}/>);
+    const [content, setContent] = useState(<><Item index={0} key={Math.random()} clickHandler={() => renderList()} />
+    <Item index={1} key={ Math.random()} clickHandler={() => renderList()}/></>);
 
     const emptyItem = {
         name: '',
@@ -40,8 +41,8 @@ export const ItemList = () => {
     }
 
     return (
-        <section className="pt-15 pb-17">
-            <h2 className="text-neutral-300 text-md/3 pb-1">Item List</h2>
+        <section className="pt-15 pb-17 md:pt-4">
+            <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2">Item List</h2>
             <ul>
                 {content}
             </ul>
