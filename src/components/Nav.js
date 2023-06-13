@@ -9,7 +9,7 @@ export const Nav = () => {
 	const [handleTheme, theme] = useDarkMode();
 
 	return (
-		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-screen lg:w-fit lg:flex-col lg:rounded-r-2xl sticky lg:absolute top-0 left-0'>
+		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-screen lg:w-fit lg:flex-col lg:rounded-r-2xl sticky lg:fixed top-0 left-0'>
 			<div className='relative bg-primary-200 w-18 h-18 flex items-center justify-center rounded-r-2xl after:absolute after:h-1/2 after:bg-primary-100 after:w-full after:bottom-0 after:rounded-tl-2xl after:rounded-br-2xl md:w-20 md:h-20 lg:w-26 lg:h-26'>
 				<IconLogo className='z-10 md:scale-110 lg:scale-140' />
 			</div>
