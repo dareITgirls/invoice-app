@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 module.exports = {
     "env": {
         "browser": true,
@@ -16,7 +17,12 @@ module.exports = {
         "simple-import-sort"
     ],
     "rules": {
-        "simple-import-sort/imports": "error",
-        "simple-import-sort/exports": "error"
+        "simple-import-sort/imports": "warn",
+        "simple-import-sort/exports": "warn",
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-uses-react": "off",
+        "no-unused-vars": "warn",
+        "react/prop-types": "warn",
+        "no-useless-escape": "warn"
     }
 }

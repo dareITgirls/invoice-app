@@ -1,10 +1,11 @@
-import { useDispatch } from "react-redux";
-import { fetchInvoices } from './store/invoicesActions';
-import Home from './pages/Home';
 import { useEffect } from 'react';
+import { useDispatch } from "react-redux";
+
+import { Home } from './pages/Home';
+import { fetchInvoices } from './store/invoicesActions';
 
 
-function App() {
+export const App = () => {
 
   const dispatch = useDispatch();
 
@@ -17,4 +18,3 @@ function App() {
   );
 }
 
-export default App;

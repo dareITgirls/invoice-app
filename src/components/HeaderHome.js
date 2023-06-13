@@ -1,11 +1,12 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { openNewFormModal } from '../store/newFormModalStatusSlice';
-import { toggleFilterModalOpening } from "../store/filterModalSlice";
-import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
-import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
-import FilterModal from "./FilterModal";
 
-const HeaderHome = () => {
+import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
+import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
+import { toggleFilterModalOpening } from "../store/filterModalSlice";
+import { openNewFormModal } from '../store/newFormModalStatusSlice';
+import { FilterModal } from "./FilterModal";
+
+export const HeaderHome = () => {
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
@@ -57,4 +58,3 @@ const HeaderHome = () => {
 	);
 };
 
-export default HeaderHome;

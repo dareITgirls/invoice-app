@@ -1,5 +1,5 @@
 import { ReactComponent as IllustrationEmpty } from '../assets/illustration-empty.svg';
-const EmptyInvoiceList = () => {
+export const EmptyInvoiceList = () => {
 	return (
 		<section>
 			<IllustrationEmpty />
@@ -13,4 +13,4 @@ const EmptyInvoiceList = () => {
 	);
 };
 
-export default EmptyInvoiceList;
+
