@@ -1,17 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import {
-  fetchInvoices,
-  editInvoice,
-  deleteInvoice,
-} from "../store/invoicesActions";
-import {
-  selectInvoiceById,
-  selectFilteredInvoiceId,
-  invoicesLoaded,
-} from "../store/invoicesSlice";
-import { store } from "../store/store";
+import { editInvoice, deleteInvoice } from "../store/invoicesActions";
+import { selectInvoiceById } from "../store/invoicesSlice";
 import { Nav } from "../components/Nav";
 import Label from "../UI/Label";
 import { Button } from "../UI/Button";
@@ -31,7 +22,8 @@ const InvoiceView = () => {
   };
 
   const formatedCost = (cost) => {
-    return cost.toFixed(2);
+    const parsedCost = parseFloat(cost);
+    return parsedCost.toFixed(2);
   };
 
   const viewInvoiceItems = (items) => {
@@ -78,18 +70,6 @@ const InvoiceView = () => {
       </div>
     );
   };
-
-  useEffect(() => {
-    const fetchInvoicesIfNeeded = async () => {
-      const filteredInvoiceIds = selectFilteredInvoiceId(store.getState()); // Pass the current state to the selector
-      if (filteredInvoiceIds.length === 0) {
-        const fetchedInvoices = await dispatch(fetchInvoices());
-        dispatch(invoicesLoaded(fetchedInvoices.payload));
-      }
-    };
-
-    fetchInvoicesIfNeeded();
-  }, [dispatch]);
 
   const handleChangeStatusInvoice = () => {
     const updatedStatus = invoice.status === "paid" ? "pending" : "paid";
