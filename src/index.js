@@ -21,7 +21,7 @@ import App from "./App";
 import { store } from "./store/store";
 import { Provider } from "react-redux";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import InvoiceView from "./pages/InvoiceView";
+import UpdatedInvoiceComponent from "./pages/InvoiceView";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -29,7 +29,10 @@ root.render(
     <Provider store={store}>
       <Router>
         <Routes>
-          <Route path='/invoices/:invoiceId' element={<InvoiceView />} />
+          <Route
+            path='/invoices/:invoiceId'
+            element={<UpdatedInvoiceComponent />}
+          />
           <Route path='/' element={<App />} />
         </Routes>
       </Router>

@@ -17,6 +17,8 @@ import Label from "../UI/Label";
 import { Button } from "../UI/Button";
 import BackArrow from "../assets/icon-arrow-left.svg";
 
+import UpdatedComponent from "./ErrorHandling";
+
 const InvoiceView = () => {
   const { invoiceId } = useParams();
   const dispatch = useDispatch();
@@ -260,4 +262,4 @@ const InvoiceView = () => {
   );
 };
 
-export default InvoiceView;
+export default UpdatedComponent(InvoiceView);
