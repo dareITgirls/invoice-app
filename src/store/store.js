@@ -4,9 +4,9 @@ import newFormModalStatusSlice from "./newFormModalStatusSlice";
 import filterModalSlice from "./filterModalSlice";
 
 export const store = configureStore({
-    reducer: {
-        invoices: invoicesSlice,
-        newFormModalStatus: newFormModalStatusSlice,
-        filterModal: filterModalSlice
-    },
-})
+  reducer: {
+    invoices: invoicesSlice,
+    newFormModalStatus: newFormModalStatusSlice,
+    filterModal: filterModalSlice,
+  },
+});
