@@ -1,12 +1,13 @@
 //Future todo - create Wrapper component for DRY rule
-import HeaderHome from '../components/HeaderHome';
 import {useSelector} from 'react-redux';
-import InvoiceList from '../components/InvoiceList';
+
+import { HeaderHome } from '../components/HeaderHome';
+import { InvoiceList } from '../components/InvoiceList';
 import { Nav } from '../components/Nav';
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
 
 
-const Home = () => {
+export const Home = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
@@ -31,4 +32,3 @@ const Home = () => {
 	);
 }
 
-export default Home;

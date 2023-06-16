@@ -1,25 +1,25 @@
-import { Formik, Form } from 'formik';
-import {useDispatch, useSelector} from "react-redux";
-import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { Form,Formik } from 'formik';
+import { useDispatch } from "react-redux";
+
 import { addNewInvoice } from '../../store/invoicesActions';
+import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { ASSETS_LIBRARY, getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
 import { invoiceSchema } from '../../utils/invoiceSchema';
 import { SignupSchema } from '../../utils/validation';
-import { ASSETS_LIBRARY, getItemTotal, getTotal, getPaymentDue } from '../../utils/consts';
 import { Modal } from '../Modal';
+import { Nav } from '../Nav';
 import { BillFrom } from './BillFrom';
 import { BillTo } from './BillTo';
-import { ItemList } from './ItemList';
 import { Footer } from './Footer';
-import { Nav } from '../Nav';
+import { ItemList } from './ItemList';
 
 export const NewInvoice = () => {
 
-    const modalStatus = useSelector(state => state.newFormModalStatus.status);
+    //const modalStatus = useSelector(state => state.newFormModalStatus.status);
     const dispatch = useDispatch();
 
     const discardHandler = () => {
         dispatch( closeNewFormModal());
-        return
     }
 
     const onSubmitHandler = (data) => {
@@ -54,5 +54,4 @@ export const NewInvoice = () => {
                 </Formik>
             </Modal>
     )
-
 }

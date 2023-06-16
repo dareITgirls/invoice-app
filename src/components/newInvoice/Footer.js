@@ -1,9 +1,10 @@
 import { useFormikContext } from 'formik';
 import { useDispatch } from "react-redux";
-import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+
 import { addNewInvoice } from '../../store/invoicesActions';
+import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import { Button } from '../../UI/Button';
-import { getItemTotal, getTotal, getPaymentDue } from '../../utils/consts';
+import { getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
 
 export const Footer = () => {
 
@@ -12,7 +13,6 @@ export const Footer = () => {
 
     const discardHandler = () => {
         dispatch(closeNewFormModal());
-        return
     }
 
     const saveAsDraftHandler = () => {

@@ -25,7 +25,7 @@ export const getItemTotal = (item) => {
     }
     }
 
-export const getTotal = (items) => {
+    export const getTotal = (items) => {
         return items.map((item) => item.total).reduce((sum, num) => sum + num, 0);
     }
     

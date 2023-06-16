@@ -1,7 +1,7 @@
 import { Field } from 'formik';
 
 export const ItemInput = (props) => {
-    const { label, id, name, onBlur, classes } = props;
+    const { label, id, onBlur, classes } = props;
 
     return (
         <div className={`pt-4 pb-2.5 md:pt-1 ${classes}`}>
