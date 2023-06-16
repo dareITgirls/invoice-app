@@ -82,3 +82,7 @@ Run locally
 - [@klaudia-stopczyńska](https://github.com/k-stopczynska)
 
 
+## Acknowledgements
+
+This is a solution to [Frontend Mentor](https://www.frontendmentor.io) challenge Invoice App
+
