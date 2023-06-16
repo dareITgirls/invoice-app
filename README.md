@@ -1,7 +1,7 @@
 
 # Invoice App
 
-Invoicing application that enables users to create, read, updte and delete invoices.
+Invoicing application that enables users to create, read, update and delete invoices.
 
 
 ## Features
