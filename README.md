@@ -25,7 +25,13 @@ Still under development:
 - Favicon and title changing
 
 
+## Tech Stack
 
+**Client:** React, ReduxToolkit, Formik, Yup, TailwindCSS, Jest, React Testing Library
+
+**Server:** Firebase
+
+**Project management:** JIRA
 
 
 ## Screenshots
@@ -44,16 +50,6 @@ Filter invoice list by pendings dark theme
 
 Create invoice
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AJFCJaUpup2oQJ7Y2DTHvlT6dceITMrfWIgpEO8P0ePmelandTubT6ipP_G-SSVg75XAMyn7XOjQblzhgpHfxw3Xx7wHJng8SIvmFMAIv0eToWPawib27aU=w2400)
-
-
-## Tech Stack
-
-**Client:** React, ReduxToolkit, Formik, Yup, TailwindCSS, Jest, React Testing Library
-
-**Server:** Firebase
-
-**Project management:** JIRA
-
 
 ## Demo
 
