@@ -1,18 +1,15 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate, Link } from "react-router-dom";
-import { editInvoice, deleteInvoice } from "../store/invoicesActions";
+import { useSelector } from "react-redux";
+import { useParams, Link } from "react-router-dom";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import { Nav } from "../components/Nav";
 import Label from "../UI/Label";
-import { Button } from "../UI/Button";
 import BackArrow from "../assets/icon-arrow-left.svg";
+import HeaderInvoiceView from "../components/HeaderInvoiceView";
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();
-  const dispatch = useDispatch();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
-  const navigate = useNavigate();
 
   const changeDateFormat = (givenDate) => {
     const date = new Date(givenDate).toDateString().split(" ");
@@ -71,30 +68,6 @@ const InvoiceView = () => {
     );
   };
 
-  const handleChangeStatusInvoice = () => {
-    const updatedStatus = invoice.status === "paid" ? "pending" : "paid";
-    const updatedButtonText =
-      invoice.status === "paid" ? "Mark as Paid" : "Mark as Unpaid";
-    const updatedInvoice = { ...invoice, status: updatedStatus };
-    dispatch(editInvoice(updatedInvoice));
-    const markAsPaidButton = document.getElementById("markAsPaidButton");
-    if (markAsPaidButton) {
-      markAsPaidButton.textContent = updatedButtonText;
-    }
-  };
-
-  const handleEditInvoice = async () => {
-    const updatedInvoice = { ...invoice, status: "paid" };
-    dispatch(editInvoice(updatedInvoice));
-  };
-
-  const handleDeleteInvoice = async () => {
-    if (invoice) {
-      dispatch(deleteInvoice(invoiceId));
-      navigate("/");
-    }
-  };
-
   if (!invoice) {
     return <div>Loading...</div>;
   }
@@ -117,34 +90,7 @@ const InvoiceView = () => {
             <span className='text-neutral-500 text-base/2'>Status </span>
             <Label status={invoice.status} />
           </div>
-          <div className='hidden md:flex justify-between bg-light-100 dark:bg-dark-200 w-full items-center px-10 py-5 rounded-lg'>
-            <div className='md:flex items-center'>
-              <span className='text-neutral-500 text-base/2 md:mr-5'>
-                Status{" "}
-              </span>
-              <Label status={invoice.status} />
-            </div>
-            <div>
-              <Button
-                className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 mr-3'
-                title='Edit'
-                onClick={handleEditInvoice}
-              />
-              <Button
-                className='bg-red-500 text-white rounded-full px-7 py-4 mr-3'
-                title='Delete'
-                onClick={handleDeleteInvoice}
-              />
-              <Button
-                className='bg-primary-200 text-white rounded-full px-7 py-4'
-                id='markAsPaidButton'
-                title={
-                  invoice.status === "paid" ? "Mark as Unpaid" : "Mark as Paid"
-                }
-                onClick={handleChangeStatusInvoice}
-              />
-            </div>
-          </div>
+          <HeaderInvoiceView />
           <div
             className='flex-col my-5 mx-7 bg-light-100 dark:bg-dark-200 
     rounded-lg mb-20 p-5 md:m-0 md:mt-5 md:px-10 md:py-12'
@@ -213,26 +159,6 @@ const InvoiceView = () => {
                 <span className='text-lg'>£ {formatedCost(invoice.total)}</span>
               </div>
             </div>
-          </div>
-          <div className='flex items-center justify-between fixed bottom-0 bg-light-100 dark:bg-dark-200 w-full p-5 md:hidden'>
-            <Button
-              className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 '
-              title='Edit'
-              onClick={handleEditInvoice}
-            />
-            <Button
-              className='bg-red-500 text-white rounded-full px-7 py-4'
-              title='Delete'
-              onClick={handleDeleteInvoice}
-            />
-            <Button
-              className='bg-primary-200 text-white rounded-full px-4 py-4'
-              id='markAsPaidButton'
-              title={
-                invoice.status === "paid" ? "Mark as Unpaid" : "Mark as Paid"
-              }
-              onClick={handleChangeStatusInvoice}
-            />
           </div>
         </div>
       </div>
