@@ -4,6 +4,7 @@ import { editInvoice, deleteInvoice } from "../store/invoicesActions";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
 import { Button } from "../UI/Button";
+import { toggleInvoiceStatus } from "../store/invoicesSlice";
 
 const HeaderInvoiceView = () => {
   const { invoiceId } = useParams();
@@ -12,15 +13,7 @@ const HeaderInvoiceView = () => {
   const navigate = useNavigate();
 
   const handleChangeStatusInvoice = () => {
-    const updatedStatus = invoice.status === "paid" ? "pending" : "paid";
-    const updatedButtonText =
-      invoice.status === "paid" ? "Mark as Paid" : "Mark as Unpaid";
-    const updatedInvoice = { ...invoice, status: updatedStatus };
-    dispatch(editInvoice(updatedInvoice));
-    const markAsPaidButton = document.getElementById("markAsPaidButton");
-    if (markAsPaidButton) {
-      markAsPaidButton.textContent = updatedButtonText;
-    }
+    dispatch(toggleInvoiceStatus(invoiceId));
   };
 
   const handleEditInvoice = async () => {

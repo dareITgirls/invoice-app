@@ -1,4 +1,4 @@
-import { createSlice, createSelector } from "@reduxjs/toolkit";
+import { createSlice, createSelector, createAction } from "@reduxjs/toolkit";
 import {
   addNewInvoice,
   deleteInvoice,
@@ -47,6 +47,13 @@ const invoicesSlice = createSlice({
       .addCase(deleteInvoice.fulfilled, (state, action) => {
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
+      })
+      .addCase(toggleInvoiceStatus, (state, action) => {
+        const invoiceId = action.payload;
+        const invoice = state.entities[invoiceId];
+        if (invoice) {
+          invoice.status = invoice.status === "paid" ? "pending" : "paid";
+        }
       });
   },
 });
@@ -84,3 +91,5 @@ export const selectFilteredInvoiceId = createSelector(
 export const selectInvoiceById = (state, invoiceId) => {
   return selectInvoicesEntities(state)[invoiceId];
 };
+
+export const toggleInvoiceStatus = createAction("invoices/toggleInvoiceStatus");
