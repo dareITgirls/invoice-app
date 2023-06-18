@@ -5,13 +5,45 @@
 
 .MuiInputBase-root:hover,
 .MuiInputBase-root:focus {
-	border: 1px solid #7c5dfa;
+	outline: 1px solid #7c5dfa;
+}
+
+.dark .MuiInputBase-input {
+	color: #f8f8fb;
+}
+
+.MuiPaper-root {
+	margin-top: 1rem;
+}
+
+.MuiMenuItem-root {
+	border-bottom: 1px solid #f8f8f8;
+}
+
+.dark .MuiMenuItem-root {
+	border-bottom: 1px solid #1e2139;
+}
+
+.MuiMenuItem-root:nth-last-of-type(1) {
+	border-bottom: none;
 }
 
 .MuiSvgIcon-root {
 	width: 0.9375rem;
 	height: 0.9375rem;
 	color: #7c5dfa;
+}
+
+.MuiSelect-icon {
+	color: #7c5dfa;
+	height: 50%;
+}
+
+.MuiOutlinedInput-root,
+.MuiOutlinedInput-input,
+.MuiSelect-outlined,
+.MuiInputBase-input  {
+	border: none;
 }
 
 .MuiInputBase-input,
@@ -29,7 +61,24 @@
 	font-family: 'LeagueSpartan' sans-serif;
 	padding: 0.75rem;
 	cursor: pointer;
-	background: transparent;
+}
+
+.dark .MuiMenuItem-root:focus,
+.dark .MuiMenuItem-root:hover {
+	color: #7c5dfa !important;
+}
+
+.dark .MuiButtonBase-root,
+.dark .MuiList-root,
+.dark .MuiDayCalendar-weekDayLabel,
+.dark .MuiPickersCalendarHeader-label,
+.dark .MuiPickersDay-root,
+.dark .MuiPickersSlideTransition-root,
+.dark .MuiDayCalendar-header,
+.dark .MuiPickersCalendarHeader-root,
+.dark .MuiDateCalendar-root {
+	background: #252945 !important;
+	color: #f8f8fb !important;
 }
 
 .MuiSelect-select {
@@ -59,7 +108,7 @@
 }
 
 @layer base {
-    body {
-      @apply bg-light-200 dark:bg-dark-300 font-sans;
-    }
+	body {
+		@apply bg-light-200 dark:bg-dark-300 font-sans;
+	}
 }
