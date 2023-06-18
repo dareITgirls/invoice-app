@@ -1,10 +1,6 @@
-import { createSlice, createSelector, createAction } from "@reduxjs/toolkit";
-import {
-  addNewInvoice,
-  deleteInvoice,
-  editInvoice,
-  fetchInvoices,
-} from "./invoicesActions";
+import {createSelector,createSlice} from "@reduxjs/toolkit";
+
+import {addNewInvoice, deleteInvoice, editInvoice, fetchInvoices} from "./invoicesActions";
 
 const initialState = {
   status: "idle",
