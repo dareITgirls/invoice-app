@@ -30,12 +30,12 @@ const HeaderInvoiceView = () => {
 
   return (
     <>
-      <div className='hidden md:flex justify-between bg-light-100 dark:bg-dark-200 w-full items-center px-10 py-5 rounded-lg'>
+      <div className='hidden md:flex justify-between bg-light-100 dark:bg-dark-200 w-full items-center px-5 py-5 rounded-lg'>
         <div className='md:flex items-center'>
           <span className='text-neutral-500 text-base/2 md:mr-5'>Status </span>
           <Label status={invoice.status} />
         </div>
-        <div>
+        <div className='md:flex items-center'>
           <Button
             className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 mr-3'
             title='Edit'
