@@ -51,12 +51,12 @@ export const ItemList = () => {
     }
 
     return (
-        <section className="pt-15 pb-17 md:pt-4 md:pb-0">
+        <section className="pt-15 pb-17 md:pt-4 md:pb-0 lg:pt-6">
             <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2">Item List</h2>
             <ul>  
                 {content}
             </ul>
-            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-6px]" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /></Button>
+            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /></Button>
             {renderMainError()}
             {renderItemsError()}          
         </section>
