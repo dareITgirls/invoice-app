@@ -1,4 +1,3 @@
-
 /** @type {import('tailwindcss').Config} */
 
 const defaultTheme = require('tailwindcss/defaultTheme');
@@ -23,9 +22,9 @@ module.exports = {
 			},
 
 			padding: {
-				'14.5': '3.6875rem', //59px
-				'15': '3.8125rem', // 61px
-				'39': '9.9375rem' //159px
+				14.5: '3.6875rem', //59px
+				15: '3.8125rem', // 61px
+				39: '9.9375rem', //159px
 			},
 
 			fontFamily: {
