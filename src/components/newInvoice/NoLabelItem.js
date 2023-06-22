@@ -21,7 +21,7 @@ export const NoLabelItem = (props) => {
     return (
         <li className="pb-5 md:flex md:w-full md:pb-4 md:mt-[-20px]">
             <div className={`pt-4 pb-2.5 md:w-53.5 md:mr-4 md:pt-1`}> 
-            <Field className="text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent md:mt-2" name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
+            <Field className="field" name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
         </div>
             <div className='flex flex-row items-center space-x-4'>
                 <NoLabelInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-33 md:w-11"/>
