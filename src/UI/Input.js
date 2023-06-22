@@ -24,8 +24,8 @@ export const Input = (props) => {
     }  
     
     useEffect(() => {
-        getError() && setClassesLabel('text-base/2 pb-1 text-danger-150');
-        getError() && setClassesInput('field touched && outline-danger-150 outline outline-1 outline-danger-150');
+        getError() ? setClassesLabel('text-base/2 pb-1 text-danger-150') : setClassesLabel('label');
+        getError() ? setClassesInput('field outline outline-1 outline-danger-150') : setClassesInput('field touched && outline-danger-150');
     }, [errors, touched])
 
 
