@@ -44,14 +44,17 @@ export const NewInvoice = () => {
                     await onSubmitHandler(values);   
                     resetForm();
                 }}>
-
+                {({ errors, touched }) => (
                     <Form action="POST" className="p-6 md:pt-12.5 md:pl-13.5 md:pr-14 lg:pl-[136px] lg:pr-14">
                         <BillFrom />
                         <BillTo />
                         <ItemList />
                         <Footer />
                     </Form>
+                )}
                 </Formik>
+
+
             </Modal>
     )
 }

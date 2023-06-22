@@ -116,3 +116,7 @@
 .field {
 	@apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent hover:cursor-pointer hover:outline hover:outline-1 hover:outline-primary-200
 }
+
+.label {
+	@apply text-neutral-500 text-base/2 pb-1
+}
