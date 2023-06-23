@@ -1,12 +1,14 @@
 import { useFormikContext, Field } from 'formik';
+import { useErrorDisplay } from '../../hooks/useErrorDisplay';
 import { NoLabelInput } from "../../UI/NoLabelInput";
 import { ASSETS_LIBRARY } from '../../utils/consts';
 
 export const NoLabelItem = (props) => {
 
+    const { index, clickHandler, name } = props;
     const { handleBlur, values, setFieldValue } = useFormikContext();
+    // const { classesInput } = useErrorDisplay(name);
 
-    const { index, clickHandler } = props;
 
     const getItemTotal = (item) => {
         return item ? (item.quantity * item.price).toFixed(2) : null;

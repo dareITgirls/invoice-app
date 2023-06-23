@@ -1,10 +1,12 @@
 import { useFormikContext, Field } from 'formik';
+import { useErrorDisplay } from '../../hooks/useErrorDisplay';
 import { ItemInput } from '../../UI/ItemInput';
 import { ASSETS_LIBRARY } from '../../utils/consts';
 
 export const Item = (props) => {
 
     const { handleBlur, values, setFieldValue } = useFormikContext();
+    const { classesInput, classesLabel } = useErrorDisplay(name)
 
     const { index, clickHandler } = props;
 
@@ -22,9 +24,9 @@ export const Item = (props) => {
         <li className="pb-5 md:flex md:w-full md:pb-4">
             <div className={`pt-4 pb-2.5 md:w-53.5 md:mr-4 md:pt-1`}>
                 <div className="flex justify-between pb-1">
-                    <label className="text-neutral-500 text-base/2 pb-2 md:pb-1 lg:pt-1" htmlFor="item-name">Item Name</label>
+                    <label className={classesLabel} htmlFor="item-name">Item Name</label>
                 </div>
-            <Field className="field" name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
+                <Field className={ classesInput } name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
         </div>
             <div className='flex flex-row items-center space-x-4'>
                 <ItemInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-33 md:w-11"/>
