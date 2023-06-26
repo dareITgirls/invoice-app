@@ -1,10 +1,11 @@
-import { useSelector, useDispatch } from "react-redux";
-import { useParams, useNavigate } from "react-router-dom";
-import { editInvoice, deleteInvoice } from "../store/invoicesActions";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router-dom";
+
+import { deleteInvoice, editInvoice } from "../store/invoicesActions";
 import { selectInvoiceById } from "../store/invoicesSlice";
-import Label from "../UI/Label";
-import { Button } from "../UI/Button";
 import { toggleInvoiceStatus } from "../store/invoicesSlice";
+import { Button } from "../UI/Button";
+import Label from "../UI/Label";
 
 const HeaderInvoiceView = () => {
   const { invoiceId } = useParams();
@@ -47,7 +48,7 @@ const HeaderInvoiceView = () => {
             onClick={handleDeleteInvoice}
           />
           <Button
-            className='bg-primary-200 text-white rounded-full px-7 py-4'
+            className='bg-primary-200 text-white rounded-full px-7 py-4 w-34'
             id='markAsPaidButton'
             title={
               invoice.status === "paid" ? "Mark as Unpaid" : "Mark as Paid"
