@@ -120,3 +120,12 @@
 .label {
 	@apply text-neutral-500 text-base/2 pb-1
 }
+
+#root {
+	z-index: 1
+}
+
+#modal {
+	z-index: 9999
+}
+
