@@ -33,6 +33,15 @@ module.exports = {
 			},
 
 			fontSize: {
+
+				'custom/1': [
+					'0.6875rem', //11px
+					{
+						letterSpacing: '-0.1px',
+						fontWeight: '500',
+					},
+				],
+
 				'base/1': [
 					'0.8125rem', //13px
 					{

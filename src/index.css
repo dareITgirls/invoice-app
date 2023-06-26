@@ -4,8 +4,18 @@
 @tailwind variants;
 
 .MuiInputBase-root:hover,
-.MuiInputBase-root:focus {
+.MuiInputBase-root:focus,
+.dark .MuiInputBase-root:hover,
+.dark .MuiInputBase-root:focus {
 	outline: 1px solid #7c5dfa;
+}
+
+.MuiInputBase-root {
+	outline: 1px solid #dfe3fa;
+}
+
+.MuiInputBase-root {
+	background: white;
 }
 
 .dark .MuiInputBase-input {
@@ -39,13 +49,6 @@
 	height: 50%;
 }
 
-.MuiOutlinedInput-root,
-.MuiOutlinedInput-input,
-.MuiSelect-outlined,
-.MuiInputBase-input  {
-	border: none;
-}
-
 .MuiInputBase-input,
 .MuiDayCalendar-weekDayLabel,
 .MuiPickersCalendarHeader-label,
@@ -67,7 +70,7 @@
 .dark .MuiMenuItem-root:hover {
 	color: #7c5dfa !important;
 }
-
+.dark .MuiInputBase-root,
 .dark .MuiButtonBase-root,
 .dark .MuiList-root,
 .dark .MuiDayCalendar-weekDayLabel,
@@ -79,6 +82,12 @@
 .dark .MuiDateCalendar-root {
 	background: #252945 !important;
 	color: #f8f8fb !important;
+}
+
+.dark .MuiOutlinedInput-notchedOutline,
+.dark .MuiInputBase-root {
+	border: none;
+	outline: none
 }
 
 .MuiSelect-select {
@@ -107,6 +116,12 @@
 	color: #dfe3fa !important;
 }
 
+.MuiOutlinedInput-notchedOutline,
+.MuiOutlinedInput-input {
+	outline: none;
+	border: none;
+}
+
 @layer base {
 	body {
 		@apply bg-light-200 dark:bg-dark-300 font-sans;
@@ -114,18 +129,17 @@
 }
 
 .field {
-	@apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent hover:cursor-pointer hover:outline hover:outline-1 hover:outline-primary-200
+	@apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent hover:cursor-pointer hover:outline hover:outline-1 hover:outline-primary-200;
 }
 
 .label {
-	@apply text-neutral-500 text-base/2 pb-1
+	@apply text-neutral-500 text-base/2 pb-1;
 }
 
 #root {
-	z-index: 1
+	z-index: 1;
 }
 
 #modal {
-	z-index: 2
+	z-index: 2;
 }
-
