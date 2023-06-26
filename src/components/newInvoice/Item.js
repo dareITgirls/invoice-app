@@ -1,14 +1,15 @@
 import { useFormikContext, Field } from 'formik';
 import { useErrorDisplay } from '../../hooks/useErrorDisplay';
 import { ItemInput } from '../../UI/ItemInput';
-import { ASSETS_LIBRARY } from '../../utils/consts';
+import { ReactComponent as IconDelete } from '../../assets/icon-delete.svg';
+
 
 export const Item = (props) => {
-
+    const { index, clickHandler } = props;
     const { handleBlur, values, setFieldValue } = useFormikContext();
     const { classesInput, classesLabel } = useErrorDisplay(name)
 
-    const { index, clickHandler } = props;
+
 
     const getItemTotal = (item) => {
         return item ? (item.quantity * item.price).toFixed(2) : null;
@@ -35,7 +36,9 @@ export const Item = (props) => {
                     <p className="text-neutral-500 text-base/2 pb-1">Total: </p>
                     <p className="text-dark-400 text-md/1 p-4 border rounded w-full mr-13.5 dark:bg-dark-100 dark:text-light-200 border-transparent md:mr-0 md:py-4 md:px-0 md:mt-2">{getItemTotal(values.items[index])}</p>
                 </div>              
-                <button type="button" onClick={() => deleteItemHandler(index)} className='pt-2 px-2 mt-6 md:pr-0 md:pl-6 md:mt-4 lg:mt-5 lg:pl-9'><img className="w-7 md:w-3 lg:w-[14px]" src={ASSETS_LIBRARY.icons.delete} /></button>
+                <button type="button" onClick={() => deleteItemHandler(index)} className='pt-2 px-2 mt-6 md:pr-0 md:pl-6 md:mt-4 lg:mt-5 lg:pl-9'>
+                    <IconDelete />
+                </button>
             </div>
         </li >
     )

@@ -1,8 +1,8 @@
 import { useFormikContext } from 'formik';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 import { Button } from '../../UI/Button';
-import { ASSETS_LIBRARY } from '../../utils/consts';
+import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 import { Item } from './Item';
 import { NoLabelItem } from './NoLabelItem';
 
@@ -47,7 +47,7 @@ export const ItemList = () => {
     const renderItemsError = () => {
         if (errors.items) {
            return  <p className="text-danger-150 text-base/1">An item must be added</p>
-       }
+        }
     }
 
     return (
@@ -56,7 +56,10 @@ export const ItemList = () => {
             <ul>  
                 {content}
             </ul>
-            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} ><img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /></Button>
+            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} >
+                {/* <img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /> */}
+                <IconPlus className="scale-75 mb-1"/>
+            </Button>
             {renderMainError()}
             {renderItemsError()}          
         </section>

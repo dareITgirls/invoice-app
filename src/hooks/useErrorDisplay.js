@@ -5,11 +5,16 @@ export const useErrorDisplay = (name) => {
     const { errors, touched } = useFormikContext();
     const [classesInput, setClassesInput] = useState('field touched && outline-danger-150');
     const [classesLabel, setClassesLabel] = useState('label');
-        const splitName = (name) => {
-        return name.includes('.') ? name.split('.') : name
+    const splitName = (name) => {  
+        return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : name
     }
 
     const getError = () => {
+        // if (splitName(name).length > 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
+        //     if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
+        //         return true
+        //     }
+        // }
         if (splitName(name).length > 1 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
             if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
                 return true
