@@ -30,9 +30,9 @@ export const Item = (props) => {
                 <Field className={classesInput} name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
             </div>
             <div className='flex flex-row items-center space-x-4 w-[100%]'>
-                <ItemInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-[56%] md:w-[20%]"/>
-                <ItemInput name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-[85%] md:w-[46%]"/>
-                <div className=" w-[26%] md:w-[20%] pt-4 pb-2.5 md:pt-1">
+                <ItemInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-[56%] md:w-[20%] lg:w-[25%]"/>
+                <ItemInput name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-[85%] md:w-[46%] lg:w-[58%]"/>
+                <div className=" w-[26%] md:w-[20%] lg:w-[10%] pt-4 pb-2.5 md:pt-1">
                     <p className="text-neutral-500 text-base/2 pb-1">Total: </p>
                     <p className="text-dark-400 text-md/1 p-4 border rounded w-full mr-13.5 dark:bg-dark-100 dark:text-light-200 border-transparent md:mr-0 md:py-4 md:px-0 md:mt-2">{getItemTotal(values.items[index])}</p>
                 </div>              
