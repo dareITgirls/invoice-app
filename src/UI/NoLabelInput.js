@@ -7,7 +7,7 @@ export const NoLabelInput = (props) => {
 
     return (
         <div className={`pt-4 pb-2.5 md:pt-1 ${classes}`}>
-            <Field className={classesInput} {...props} onBlurCapture={onBlur} />
+            <Field className={`md:mt-1 ${classesInput}`} {...props} onBlurCapture={onBlur} />
         </div>
     )
 }
