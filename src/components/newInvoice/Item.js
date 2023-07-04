@@ -23,16 +23,16 @@ export const Item = (props) => {
 
     return (
         <li className="pb-5 md:flex md:w-full md:pb-4">
-            <div className={`pt-4 pb-2.5 md:w-53.5 md:mr-4 md:pt-1`}>
-                <div className="flex justify-between pb-1">
+            <div className={`pt-4 pb-2 md:w-53.5 md:mr-4 md:pt-1`}>
+                <div className="flex justify-between pb-2">
                     <label className={classesLabel} htmlFor="item-name">Item Name</label>
                 </div>
-                <Field className={ classesInput } name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
-        </div>
-            <div className='flex flex-row items-center space-x-4'>
-                <ItemInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-33 md:w-11"/>
-                <ItemInput name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} classes=" w-50 md:w-[100px]"/>
-                <div className="pt-4 pb-2.5 md:pt-1">
+                <Field className={classesInput} name={`items[${index}].name`} id="item-name" label="Item Name" type="text" onBlur={handleBlur} />
+            </div>
+            <div className='flex flex-row items-center space-x-4 w-[100%]'>
+                <ItemInput name={`items[${index}].quantity`} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-[56%] md:w-11"/>
+                <ItemInput name={`items[${index}].price`} id="price" label="Price" type="number" onBlur={handleBlur} classes=" w-[85%] md:w-[100px]"/>
+                <div className=" w-[26%] pt-4 pb-2.5 md:pt-1">
                     <p className="text-neutral-500 text-base/2 pb-1">Total: </p>
                     <p className="text-dark-400 text-md/1 p-4 border rounded w-full mr-13.5 dark:bg-dark-100 dark:text-light-200 border-transparent md:mr-0 md:py-4 md:px-0 md:mt-2">{getItemTotal(values.items[index])}</p>
                 </div>              

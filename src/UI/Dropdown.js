@@ -26,8 +26,8 @@ export const Dropdown = () => {
 
     return (
         <CacheProvider value={cache}>
-            <div className=" text-base/1 flex flex-col pt-4 pb-2.5 md:w-full md:mt-1">
-                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-custom/1 pb-1 md:pb-2">Payment Terms</InputLabel>
+            <div className=" text-[11px] flex flex-col pt-[18px] pb-2.5 md:w-full md:mt-1">
+                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-custom/1 pb-2 md:pb-2">Payment Terms</InputLabel>
                 <Select
                     className="rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200"
                     name="paymentTerms"

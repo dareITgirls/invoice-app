@@ -30,7 +30,7 @@ export const ItemList = () => {
     }
 
         const renderList = () => {
-        setContent(values.items.map((item, index) => index === 0 ? <Item index={0} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ? <Item index={index} key={Math.random()} clickHandler={() => renderList()} /> : <NoLabelItem index={index} key={ Math.random()} clickHandler={() => renderList()}/>))
+        setContent(values.items.map((_, index) => index === 0 ? <Item index={0} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ? <Item index={index} key={Math.random()} clickHandler={() => renderList()} /> : <NoLabelItem index={index} key={ Math.random()} clickHandler={() => renderList()}/>))
     }
 
     const addNewItemHandler = () => {
@@ -41,12 +41,16 @@ export const ItemList = () => {
     const renderMainError = () => {
         if (Object.keys(errors).length > 0) {
             return <p className="text-danger-150 text-base/1">All fields must be added</p>
+        } else {
+            return null
         }
     }
 
     const renderItemsError = () => {
         if (errors.items) {
            return  <p className="text-danger-150 text-base/1">An item must be added</p>
+        } else {
+            return null;
         }
     }
 
@@ -57,7 +61,6 @@ export const ItemList = () => {
                 {content}
             </ul>
             <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} >
-                {/* <img className="pr-1 pb-1 w-3" src={ASSETS_LIBRARY.icons.plus} /> */}
                 <IconPlus className="scale-75 mb-1"/>
             </Button>
             {renderMainError()}
