@@ -8,13 +8,8 @@ import { useFormikContext } from 'formik';
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { today } from '../utils/invoiceSchema';
 import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
+import { cache } from '../utils/consts';
 
-//resetting most of mui styles
-const cache = createCache({
-  key: 'css',
-  prepend: true,
-});
 
 export const CustomDatePicker = () => {
 
@@ -30,7 +25,7 @@ export const CustomDatePicker = () => {
     return (
         <CacheProvider value={cache}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div className="text-[11px] flex flex-col pt-4 pb-2.5 md:w-full md:mt-1">
+            <div className="text-custom/1 flex flex-col pt-4 pb-2.5 md:w-full md:mt-1">
                 <InputLabel htmlFor='createdAt' className="text-neutral-500 text-custom/1 pb-2 ">Invoice Date</InputLabel>
                 <DesktopDatePicker
                     className="rounded w-full cursor-pointer dark:bg-dark-100"

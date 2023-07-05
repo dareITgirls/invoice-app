@@ -4,13 +4,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { useFormikContext } from 'formik';
 import { useState } from 'react';
-
-//resetting most of mui styles
-const cache = createCache({
-  key: 'css',
-  prepend: true,
-});
-
+import { cache } from '../utils/consts';
 
 
 export const Dropdown = () => {
@@ -26,7 +20,7 @@ export const Dropdown = () => {
 
     return (
         <CacheProvider value={cache}>
-            <div className=" text-[11px] flex flex-col pt-[18px] pb-2.5 md:w-full md:mt-1">
+            <div className="custom/1 flex flex-col pt-[18px] pb-2.5 md:w-full md:mt-1">
                 <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-custom/1 pb-2 md:pb-2">Payment Terms</InputLabel>
                 <Select
                     className="rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200"

@@ -1,6 +1,5 @@
 import { Form,Formik } from 'formik';
 import { useDispatch } from "react-redux";
-
 import { addNewInvoice } from '../../store/invoicesActions';
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import { ASSETS_LIBRARY, getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
@@ -14,7 +13,6 @@ import { ItemList } from './ItemList';
 
 export const NewInvoice = () => {
 
-    //const modalStatus = useSelector(state => state.newFormModalStatus.status);
     const dispatch = useDispatch();
 
     const discardHandler = () => {

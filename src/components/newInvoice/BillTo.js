@@ -21,7 +21,7 @@ export const BillTo = () => {
                 </div>
                 <Input name="clientAddress.country" id="client-country" label="Country" type="text" onBlur={handleBlur} />
             </div>
-            <div className="pt-[18px] md:flex md:space-x-6">
+            <div className="pt-3.5 md:flex md:space-x-6">
                 <CustomDatePicker />
                 <Dropdown />
             </div>

@@ -1,3 +1,4 @@
+import createCache from '@emotion/cache';
 export const invoices = "invoices";
 
 export const ASSETS_LIBRARY = {
@@ -40,3 +41,8 @@ export const getItemTotal = (item) => {
 export const firstLetterToUpper = name => {
     return name.charAt(0).toUpperCase() + name.slice(1);
 };
+
+export const cache = createCache({
+  key: 'css',
+  prepend: true,
+});

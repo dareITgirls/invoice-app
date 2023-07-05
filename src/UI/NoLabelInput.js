@@ -2,7 +2,7 @@ import { Field } from 'formik';
 import { useErrorDisplay } from '../hooks/useErrorDisplay';
 
 export const NoLabelInput = (props) => {
-    const { id, onBlur, classes, name } = props;
+    const { onBlur, classes, name } = props;
      const { classesInput } = useErrorDisplay(name);
 
     return (

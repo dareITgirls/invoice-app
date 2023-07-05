@@ -29,7 +29,7 @@ export const ItemList = () => {
         total: 0.00
     }
 
-        const renderList = () => {
+    const renderList = () => {
         setContent(values.items.map((_, index) => index === 0 ? <Item index={0} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ? <Item index={index} key={Math.random()} clickHandler={() => renderList()} /> : <NoLabelItem index={index} key={ Math.random()} clickHandler={() => renderList()}/>))
     }
 
