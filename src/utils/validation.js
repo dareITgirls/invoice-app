@@ -56,8 +56,8 @@ export const SignupSchema =
         }),
          items: Yup.array(Yup.object().shape({
             name: Yup.string().required(),
-            quantity: Yup.number().required(),              
-            price: Yup.number().required(),
+            quantity: Yup.number().min(1).required(),              
+            price: Yup.number().min(0.1).required(),
         }),
         ),
     })

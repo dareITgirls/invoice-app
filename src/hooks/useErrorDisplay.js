@@ -11,12 +11,14 @@ export const useErrorDisplay = (name) => {
     }
 
     const getError = () => {
-        // if (splitName(name).length > 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
-        //     if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
-        //         return true
-        //     }
-        // }
-        if (splitName(name).length > 1 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
+        if (splitName(name).length > 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
+            if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
+                if (touched[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]] && errors[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]]) {
+                    return true
+                }
+            }
+        }
+        if (splitName(name).length > 1 && splitName(name) <= 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
             if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
                 return true
             }
