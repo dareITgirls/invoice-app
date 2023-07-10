@@ -17,10 +17,10 @@ export const BillTo = () => {
             <Input name="clientAddress.street" variant="full" id="client-street" label="Street Address" type="text" onBlur={handleBlur} />
              <Container>
                 <Wrapper>
-                    <Input classes="w-full" variant="full" name="clientAddress.city" id="client-city" label="City" type="text" onBlur={handleBlur} />
-                    <Input classes="w-full" variant="full" name="clientAddress.postCode" id="client-post-code" label="Post Code" type="text" onBlur={handleBlur} />
+                    <Input classes="w-full" variant="item" name="clientAddress.city" id="client-city" label="City" type="text" onBlur={handleBlur} />
+                    <Input classes="w-full" variant="item" name="clientAddress.postCode" id="client-post-code" label="Post Code" type="text" onBlur={handleBlur} />
                 </Wrapper>
-                <Input classes="md:w-2/4" variant="full" name="clientAddress.country" id="client-country" label="Country" type="text" onBlur={handleBlur} />
+                <Input classes="md:w-2/4" variant="item" name="clientAddress.country" id="client-country" label="Country" type="text" onBlur={handleBlur} />
             </Container>
             <div className="pt-3.5 md:flex md:space-x-6">
                 <CustomDatePicker />
