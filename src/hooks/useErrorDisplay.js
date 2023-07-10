@@ -7,11 +7,11 @@ export const useErrorDisplay = (name) => {
     const [classesLabel, setClassesLabel] = useState('label');
     
     const splitName = (name) => { 
-        console.log(name)
         return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : name
     }
 
     const getError = () => {
+        console.log(splitName(name));
         if (splitName(name).length > 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
             if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
                 if (touched[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]] && errors[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]]) {
@@ -19,7 +19,8 @@ export const useErrorDisplay = (name) => {
                 }
             }
         }
-        if (splitName(name).length > 1 && splitName(name) <= 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
+        if (splitName(name).length > 1 && splitName(name).length <= 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
+            console.log('error in address')
             if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
                 return true
             }
