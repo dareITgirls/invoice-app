@@ -7,28 +7,23 @@ export const useErrorDisplay = (name) => {
     const [classesLabel, setClassesLabel] = useState('label');
     
     const splitName = (name) => { 
-        return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : name
+        return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : [name];
     }
 
+    let splitted = splitName(name);
+
     const getError = () => {
-        console.log(splitName(name));
-        if (splitName(name).length > 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
-            if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
-                if (touched[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]] && errors[splitName(name)[0]][splitName(name)[1]][splitName(name)[3]]) {
-                    return true
-                }
+     
+            if (splitted.length > 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]] && touched[splitted[0]][splitted[1]][splitted[3]] && errors[splitted[0]][splitted[1]][splitted[3]]) {
+                return true;
             }
-        }
-        if (splitName(name).length > 1 && splitName(name).length <= 2 && touched[splitName(name)[0]] && errors[splitName(name)[0]]) {
-            console.log('error in address')
-            if (touched[splitName(name)[0]][splitName(name)[1]] && errors[splitName(name)[0]][splitName(name)[1]]) {
+            if (splitted.length === 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]]) {
+                return true;
+            }
+            if (touched[splitted] && errors[splitted]) {
                 return true
             }
-        }
-        if (touched[splitName(name)] && errors[splitName(name)]) {
-            return true
-        }
-    }  
+        }  
     
     useEffect(() => {
         getError() ? setClassesLabel('text-base/2 pb-1 text-danger-150') : setClassesLabel('label');
