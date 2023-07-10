@@ -49,8 +49,6 @@ export const NewInvoice = () => {
                     </Form>
                 )}
                 </Formik>
-
-
-            </Modal>
+        </Modal>
     )
 }

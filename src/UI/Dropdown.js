@@ -1,4 +1,3 @@
-import createCache from '@emotion/cache';
 import { CacheProvider } from '@emotion/react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { InputLabel, MenuItem, Select } from '@mui/material';
@@ -10,7 +9,6 @@ import { cache } from '../utils/consts';
 export const Dropdown = () => {
 
     const { setFieldValue, handleBlur } = useFormikContext();
-    //state only for mui satisfaction
     const [value, setValue] = useState(30);
     
     const changeValueHandler = (e) => {
@@ -20,10 +18,10 @@ export const Dropdown = () => {
 
     return (
         <CacheProvider value={cache}>
-            <div className="custom/1 flex flex-col pt-[18px] pb-2.5 md:w-full md:mt-1">
-                <InputLabel htmlFor="payment-terms" className="text-neutral-500 text-custom/1 pb-2 md:pb-2">Payment Terms</InputLabel>
+            <div className="custom-container">
+                <InputLabel htmlFor="payment-terms" className="custom-label">Payment Terms</InputLabel>
                 <Select
-                    className="rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200"
+                    className="custom-wrapper"
                     name="paymentTerms"
                     id="payment-terms"
                     value={value}

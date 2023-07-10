@@ -136,6 +136,18 @@
 	@apply text-neutral-500 text-base/2 pb-1;
 }
 
+.custom-container {
+	@apply flex flex-col pt-4 pb-2.5 md:w-full md:mt-1
+}
+
+.custom-wrapper {
+	@apply rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200
+}
+
+.custom-label {
+	@apply text-neutral-500 text-custom/1 pb-2
+}
+
 #root {
 	z-index: 1;
 }

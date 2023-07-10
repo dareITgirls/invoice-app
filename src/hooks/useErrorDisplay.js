@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
 import { useFormikContext } from 'formik';
+import { useEffect, useState } from 'react';
 
 export const useErrorDisplay = (name) => {
     const { errors, touched } = useFormikContext();
     const [classesInput, setClassesInput] = useState('field touched && outline-danger-150');
     const [classesLabel, setClassesLabel] = useState('label');
     
-    const splitName = (name) => {  
+    const splitName = (name) => { 
+        console.log(name)
         return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : name
     }
 

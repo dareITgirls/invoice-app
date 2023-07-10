@@ -1,10 +1,9 @@
 import { useFormikContext } from 'formik';
-import { useState } from 'react';
-
+import { useState, useEffect } from 'react';
 import { Button } from '../../UI/Button';
 import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 import { Item } from './Item';
-import { NoLabelItem } from './NoLabelItem';
+
 
 
 export const ItemList = () => {
@@ -15,12 +14,11 @@ export const ItemList = () => {
 
     const { values, errors } = useFormikContext();
     const [res, setRes] = useState(getClientRes());
-    const [content, setContent] = useState(res < 768 ? 
-      <>   <Item index={0} itemName={`items[0].name`} itemQty={`items[0].quantity`} itemPrice={`items[0].price`} key={Math.random()} clickHandler={() => renderList()} />
-            <Item itemName={`items[1].name`} itemQty={`items[1].quantity`} itemPrice={`items[1].price`} index={1} key={Math.random()} clickHandler={() => renderList()} /></> : 
-        <> <Item itemName={`items[0].name`} itemQty={`items[0].quantity`} itemPrice={`items[0].price`} index={0} key={Math.random()} clickHandler={() => renderList()} />
-          <NoLabelItem index={1} itemName={`items[1].name`} itemQty={`items[1].quantity`} itemPrice={`items[1].price`} key={ Math.random()} clickHandler={() => renderList()}/></>
-  );
+    const [content, setContent] = useState();
+
+    useEffect(() => {
+        renderList();
+    }, [])
 
     const emptyItem = {
         name: '',
@@ -31,9 +29,9 @@ export const ItemList = () => {
 
     const renderList = () => {
         setContent(values.items.map((_, index) => index === 0 ?
-            <Item index={0} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ?
-                <Item index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> :
-                <NoLabelItem index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} />))
+            <Item variant="item" index={0} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ?
+                <Item variant="item" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> :
+                <Item variant="no-label" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} />))
     }
 
     const addNewItemHandler = () => {
