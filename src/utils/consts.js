@@ -1,26 +1,10 @@
+import createCache from '@emotion/cache';
 export const invoices = "invoices";
 
-export const ASSETS_LIBRARY = {
-    icons: {
-        arrowDown: './assets/icon-arrow-down.svg',
-        arrowLeft: './assets/icon-arrow-left.svg',
-        arrowRight: './assets/icon-arrow-right.svg',
-        calendar: './assets/icon-calendar.svg',
-        check: './assets/icon-check.svg',
-        delete: './assets/icon-delete.svg',
-        moon: './assets/icon-moon.svg',
-        plus: './assets/icon-plus.svg',
-        sun: './assets/icon-sun.svg',
-    },
-    images: {
-        empty: './assets/illustration-empty.svg',
-        avatar: './assets/image-avatar.jpg',
-        logo: './assets/logo.svg'
-    }
-}
-
-    export const getItemTotal = (item) => {
+export const getItemTotal = (item) => {
+    if (item) {
         return (item.quantity * item.price).toFixed(2)
+    }
     }
 
     export const getTotal = (items) => {
@@ -38,3 +22,25 @@ export const ASSETS_LIBRARY = {
 export const firstLetterToUpper = name => {
     return name.charAt(0).toUpperCase() + name.slice(1);
 };
+
+export const cache = createCache({
+  key: 'css',
+  prepend: true,
+});
+
+export const getError = (splitted, errors, touched) => {
+     
+        if (splitted.length > 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]] && touched[splitted[0]][splitted[1]][splitted[3]] && errors[splitted[0]][splitted[1]][splitted[3]]) {
+                return true;
+            }
+        if (splitted.length === 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]]) {
+                return true;
+            }
+        if (touched[splitted] && errors[splitted]) {
+                return true
+        }
+} 
+    
+export const splitName = (name) => { 
+        return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : [name];
+    }
