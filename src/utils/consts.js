@@ -1,25 +1,6 @@
 import createCache from '@emotion/cache';
 export const invoices = "invoices";
 
-export const ASSETS_LIBRARY = {
-    icons: {
-        arrowDown: './assets/icon-arrow-down.svg',
-        arrowLeft: './assets/icon-arrow-left.svg',
-        arrowRight: './assets/icon-arrow-right.svg',
-        calendar: './assets/icon-calendar.svg',
-        check: './assets/icon-check.svg',
-        delete: './assets/icon-delete.svg',
-        moon: './assets/icon-moon.svg',
-        plus: './assets/icon-plus.svg',
-        sun: './assets/icon-sun.svg',
-    },
-    images: {
-        empty: './assets/illustration-empty.svg',
-        avatar: './assets/image-avatar.jpg',
-        logo: './assets/logo.svg'
-    }
-}
-
 export const getItemTotal = (item) => {
     if (item) {
         return (item.quantity * item.price).toFixed(2)

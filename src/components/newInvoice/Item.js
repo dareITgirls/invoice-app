@@ -27,9 +27,9 @@ export const Item = (props) => {
         <li className={classesItemContainer}>
             <Input name={itemName} variant={inputName} id="item-name" label="Item Name" type="text" onBlur={handleBlur}  classes=" pb-2 md:mr-4 md:pt-1 md:w-3.2/4"/>
             <div className='flex flex-row items-center space-x-4 w-full'>
-                <Input name={itemQty} variant={variant} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-[20%] md:w-1/5 lg:w-[30%]"/>
-                <Input name={itemPrice} variant={variant} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-[30%] md:w-2.3/5 lg:w-[63%]"/>
-                <Input name="itemTotal" variant={variant} id="total" label="Total:" value={ getItemTotal(values.items[index])} classes="w-[27%] lg:w-[38%]"/>
+                <Input name={itemQty} variant={variant} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-1/5 lg:w-0.9/3"/>
+                <Input name={itemPrice} variant={variant} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-0.9/3 md:w-2.3/5 lg:w-3/5"/>
+                <Input name="itemTotal" variant={variant} id="total" label="Total:" value={ getItemTotal(values.items[index])} classes="w-1.1/4 lg:w-1.2/3"/>
                 <button type="button" onClick={() => deleteItemHandler(index)} className={classesButton}>
                     <IconDelete />
                 </button>

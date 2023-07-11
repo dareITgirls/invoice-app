@@ -2,6 +2,7 @@ import { ErrorMessage, Field } from 'formik';
 import { useErrorDisplay } from '../hooks/useErrorDisplay';
 
 export const Input = (props) => {
+
     const { label, id, name, onBlur, classes, variant } = props;
     const { classesLabel, classesInput } = useErrorDisplay(name);
 
@@ -11,7 +12,7 @@ export const Input = (props) => {
 
     let classesInputVariant = variant !== 'no-label' ? classesInput : ` md:mt-1 ${classesInput}`;
 
-    let classesContainer = variant === 'full' ? `pt-4 pb-2.5 ${classes}` : variant === 'item-name' ? `pt-4 pb-2.5 md:pt-2 ${classes}` : `pt-4 pb-2.5 md:pt-2 ${classes}`;
+    let classesContainer = variant === 'full' ? `pt-4 pb-2.5 ${classes}` : `pt-4 pb-2.5 md:pt-2 ${classes}`;
 
     let classesWrapper = variant === 'full' ? 'flex justify-between' : variant === 'item' | variant === 'item-name' ? 'flex justify-between' :'hidden';
 

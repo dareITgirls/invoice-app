@@ -3,6 +3,7 @@
 @tailwind utilities;
 @tailwind variants;
 
+
 .MuiInputBase-root:hover,
 .MuiInputBase-root:focus,
 .dark .MuiInputBase-root:hover,
@@ -145,7 +146,7 @@
 }
 
 .custom-label {
-	@apply text-neutral-500 text-custom/1 pb-2;
+	@apply text-neutral-500 text-base/2 pb-2 font-sans;
 }
 
 #root {

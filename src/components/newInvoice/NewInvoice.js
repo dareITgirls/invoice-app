@@ -2,7 +2,8 @@ import { Form,Formik } from 'formik';
 import { useDispatch } from "react-redux";
 import { addNewInvoice } from '../../store/invoicesActions';
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
-import { ASSETS_LIBRARY, getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
+import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
+import { getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
 import { invoiceSchema } from '../../utils/invoiceSchema';
 import { SignupSchema } from '../../utils/validation';
 import { Modal } from '../Modal';
@@ -26,7 +27,7 @@ export const NewInvoice = () => {
 
     return (  
         <Modal>  
-            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-3/9 md:hidden" type="button" title="Go back" onClick={discardHandler}><img src={ASSETS_LIBRARY.icons.arrowLeft} alt='left arrow'/>Go back</button>
+            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-3/9 md:hidden" type="button" title="Go back" onClick={discardHandler}><IconArrowLeft/>Go back</button>
             <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">New Invoice</h1>
                 <Formik
                     initialValues={invoiceSchema}
