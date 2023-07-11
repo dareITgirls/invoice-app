@@ -8,10 +8,9 @@ import { Item } from './Item';
 
 
 export const ItemList = () => {
-        let res = window.screen.width;
+    let res = window.screen.width;
 
     const { values, errors, touched } = useFormikContext();
-    // const [res, setRes] = useState(getClientRes());
     const [content, setContent] = useState();
     const [mainErrors, setMainErrors] = useState([]);
     const [itemErrors, setItemErrors] = useState([]);
@@ -21,9 +20,8 @@ export const ItemList = () => {
         items.push(`items[${i}].name`, `items[${i}].quantity`, `items[${i}].price`);
     }
 
-    const names = ['createdAt', 'description', 'clientName', 'clientEmail', 'senderAddress.street', 'senderAddress.city', 'senderAddress.country', 'senderAddress.postCode'
-        , 'clientAddress.street', 'clientAddress.city', 'clientAddress.country', 'clientAddress.postCode'];
- 
+    const names = ['createdAt', 'description', 'clientName', 'clientEmail', 'senderAddress.street', 'senderAddress.city', 'senderAddress.country', 'senderAddress.postCode', 'clientAddress.street', 'clientAddress.city', 'clientAddress.country', 'clientAddress.postCode'];
+
     const mainResult = [];
     const itemResult = [];
 
@@ -40,7 +38,7 @@ export const ItemList = () => {
         }
         setItemErrors(itemResult)
     }, [errors, touched]);
-    let classesMainError = mainErrors.includes(true) ? "text-danger-150 text-base/1" : 'hidden';
+    let classesMainError = mainErrors.includes(true) || itemErrors.includes(true)  ? "text-danger-150 text-base/1" : 'hidden';
     let classesItemError = itemErrors.includes(true) ? "text-danger-150 text-base/1" : 'hidden';
 
     const emptyItem = {
@@ -52,8 +50,10 @@ export const ItemList = () => {
 
     const renderList = () => {
         setContent(values.items.map((_, index) => index === 0 ?
-            <Item variant="item" index={0} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> : res < 768 ?
-                <Item variant="item" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} /> :
+                <Item variant="item" index={0} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} />
+            : res < 768 ?
+                <Item variant="item" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} />
+            :
                 <Item variant="no-label" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={Math.random()} clickHandler={() => renderList()} />))
     }
 
@@ -63,13 +63,14 @@ export const ItemList = () => {
     }
 
     return (
-        <section className="pt-15 pb-17 md:pt-4 md:pb-0 lg:pt-6">
-            <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2">Item List</h2>
+        <section className="pt-15 pb-17 md:pt-4 md:pb-0 lg:pt-[26px] lg:mb-[-3px]">
+            <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2 lg:pb-[6px]">Item List</h2>
             <ul>  
                 {content}
             </ul>
-            <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} >
-                <IconPlus className="scale-75 mb-1"/>
+            <Button styles="bg-neutral-100 text-neutral-300 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
+            md:mb-11  lg:mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} >
+                <IconPlus className="scale-75 mb-2"/>
             </Button>
             <p className={classesMainError}>All fields must be added</p>
             <p className={classesItemError}>An item must be added</p>

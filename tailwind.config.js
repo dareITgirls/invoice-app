@@ -35,8 +35,9 @@ module.exports = {
 			fontSize: {
 
 				'custom/1': [
-					'0.6875rem', //11px
+					'0.75rem', //12px
 					{
+						lineHeight: '0.9375rem',
 						letterSpacing: '-0.1px',
 						fontWeight: '500',
 					},
@@ -53,6 +54,15 @@ module.exports = {
 				'base/2': [
 					'0.8125rem', //13px
 					{
+						letterSpacing: '-0.1px',
+						fontWeight: '500',
+					},
+				],
+
+				'base/3': [
+					'0.8125rem', //13px
+					{
+						lineHeight: '0.9375rem',
 						letterSpacing: '-0.1px',
 						fontWeight: '500',
 					},
@@ -94,6 +104,15 @@ module.exports = {
 					},
 				],
 
+					'lg/2': [
+					'1.5rem', //24px
+					{
+						lineHeight: '2rem', //32px
+						letterSpacing: '-0.5px',
+						fontWeight: '700',
+					},
+				],
+
 				xl: [
 					'2.25rem', //36px
 					{
@@ -115,6 +134,7 @@ module.exports = {
 				'danger-150': '#EC5757',
 				'light-100': '#FFFFFF',
 				'light-200': '#F8F8FB',
+				'neutral-100': '#F9FAFE',
 				'neutral-200': '#DFE3FA',
 				'neutral-250': '#DFE3FA0F', //neutral-200 with opacity 0.06
 				'neutral-300': '#888EB0',

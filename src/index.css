@@ -58,11 +58,11 @@
 .MuiPickersDay-root {
 	font-size: 0.9375rem;
 	line-height: 0.9375rem;
-	letter-spacing: -0.25px;
+	letter-spacing: -0.1px;
 	font-weight: bold;
 	color: #0c0e16;
 	font-family: 'LeagueSpartan' sans-serif;
-	padding: 0.75rem;
+	padding: 0.8rem 1.25rem;
 	cursor: pointer;
 }
 
@@ -87,7 +87,7 @@
 .dark .MuiOutlinedInput-notchedOutline,
 .dark .MuiInputBase-root {
 	border: none;
-	outline: none
+	outline: none;
 }
 
 .MuiSelect-select {
@@ -133,19 +133,19 @@
 }
 
 .label {
-	@apply text-neutral-500 text-base/2 pb-1;
+	@apply text-neutral-500 text-base/3 ;
 }
 
 .custom-container {
-	@apply flex flex-col pt-4 pb-2.5 md:w-full md:mt-1
+	@apply flex flex-col pt-8 mb-[-5px] md:w-full md:mt-2;
 }
 
 .custom-wrapper {
-	@apply rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200
+	@apply rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200;
 }
 
 .custom-label {
-	@apply text-neutral-500 text-custom/1 pb-2
+	@apply text-neutral-500 text-custom/1 pb-2;
 }
 
 #root {

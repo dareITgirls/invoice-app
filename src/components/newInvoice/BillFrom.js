@@ -8,15 +8,15 @@ export const BillFrom = () => {
     const { handleBlur } = useFormikContext();
 
     return (
-        <section className="pb-7 lg:mt-[-2px]">
-            <h2 className="text-primary-200 lg:text-md/2">Bill From</h2>
+        <section className="pb-8">
+            <h2 className="text-primary-200 text-md/1 pb-[10px]">Bill From</h2>
             <Input variant="full" name="senderAddress.street" id="street-address" label="Street Address" type="text" onBlur={handleBlur} />
             <Container>
                 <Wrapper>
-                    <Input classes="w-full" variant="item" name="senderAddress.city"  id="city" label="City" type="text" onBlur={handleBlur} />
-                    <Input classes="w-full" variant="item" name="senderAddress.postCode"  id="post-code" label="Post Code" type="text" onBlur={handleBlur} />
+                    <Input classes="w-full" variant="full" name="senderAddress.city"  id="city" label="City" type="text" onBlur={handleBlur} />
+                    <Input classes="w-full" variant="full" name="senderAddress.postCode"  id="post-code" label="Post Code" type="text" onBlur={handleBlur} />
                 </Wrapper>
-                <Input classes="md:w-2/4" variant="item" name="senderAddress.country" id="country" label="Country" type="text" onBlur={handleBlur} />
+                <Input classes="md:w-2.3/5" variant="full" name="senderAddress.country" id="country" label="Country" type="text" onBlur={handleBlur} />
             </Container>
         </section>
     )
