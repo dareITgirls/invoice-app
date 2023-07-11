@@ -46,3 +46,20 @@ export const cache = createCache({
   key: 'css',
   prepend: true,
 });
+
+export const getError = (splitted, errors, touched) => {
+     
+        if (splitted.length > 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]] && touched[splitted[0]][splitted[1]][splitted[3]] && errors[splitted[0]][splitted[1]][splitted[3]]) {
+                return true;
+            }
+        if (splitted.length === 2 && touched[splitted[0]] && errors[splitted[0]] && touched[splitted[0]][splitted[1]] && errors[splitted[0]][splitted[1]]) {
+                return true;
+            }
+        if (touched[splitted] && errors[splitted]) {
+                return true
+        }
+} 
+    
+export const splitName = (name) => { 
+        return name.includes('[') ? name = name.replace(/\[|\]/g, '.').split('.') : name.includes('.') ? name.split('.') : [name];
+    }

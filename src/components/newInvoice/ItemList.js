@@ -1,5 +1,6 @@
 import { useFormikContext } from 'formik';
 import { useState, useEffect } from 'react';
+import { getError, splitName } from '../../utils/consts';
 import { Button } from '../../UI/Button';
 import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 import { Item } from './Item';
@@ -7,18 +8,40 @@ import { Item } from './Item';
 
 
 export const ItemList = () => {
-    const getClientRes = () => {
-        const resolution = window.screen.width;
-        return resolution;
+        let res = window.screen.width;
+
+    const { values, errors, touched } = useFormikContext();
+    // const [res, setRes] = useState(getClientRes());
+    const [content, setContent] = useState();
+    const [mainErrors, setMainErrors] = useState([]);
+    const [itemErrors, setItemErrors] = useState([]);
+
+    const items = [];
+    for (let i = 0; i < values.items.length; i++) {
+        items.push(`items[${i}].name`, `items[${i}].quantity`, `items[${i}].price`);
     }
 
-    const { values, errors } = useFormikContext();
-    const [res, setRes] = useState(getClientRes());
-    const [content, setContent] = useState();
+    const names = ['createdAt', 'description', 'clientName', 'clientEmail', 'senderAddress.street', 'senderAddress.city', 'senderAddress.country', 'senderAddress.postCode'
+        , 'clientAddress.street', 'clientAddress.city', 'clientAddress.country', 'clientAddress.postCode'];
+ 
+    const mainResult = [];
+    const itemResult = [];
 
     useEffect(() => {
-        renderList();
-    }, [])
+        renderList(); 
+        for (let i = 0; i < names.length; i++) {
+        let splitted = splitName(names[i]);
+        mainResult.push(getError(splitted, errors, touched));
+        }
+        setMainErrors(mainResult);
+        for (let i = 0; i < items.length; i++) {
+        let splitted = splitName(items[i]);
+        itemResult.push(getError(splitted, errors, touched));
+        }
+        setItemErrors(itemResult)
+    }, [errors, touched]);
+    let classesMainError = mainErrors.includes(true) ? "text-danger-150 text-base/1" : 'hidden';
+    let classesItemError = itemErrors.includes(true) ? "text-danger-150 text-base/1" : 'hidden';
 
     const emptyItem = {
         name: '',
@@ -39,22 +62,6 @@ export const ItemList = () => {
         renderList();
     }
 
-    const renderMainError = () => {
-        if (Object.keys(errors).length > 0) {
-            return <p className="text-danger-150 text-base/1">All fields must be added</p>
-        } else {
-            return null
-        }
-    }
-
-    const renderItemsError = () => {
-        if (errors.items) {
-           return  <p className="text-danger-150 text-base/1">An item must be added</p>
-        } else {
-            return null;
-        }
-    }
-
     return (
         <section className="pt-15 pb-17 md:pt-4 md:pb-0 lg:pt-6">
             <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2">Item List</h2>
@@ -64,8 +71,8 @@ export const ItemList = () => {
             <Button styles="bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-5 mb-6 md:mt-[-8px] lg:mb-0" type="button" title="Add New Item" onClick={addNewItemHandler} >
                 <IconPlus className="scale-75 mb-1"/>
             </Button>
-            {renderMainError()}
-            {renderItemsError()}          
+            <p className={classesMainError}>All fields must be added</p>
+            <p className={classesItemError}>An item must be added</p>
         </section>
     )
 }
