@@ -6,7 +6,7 @@ export const Input = (props) => {
     const { label, id, name, onBlur, classes, variant } = props;
     const { classesLabel, classesInput } = useErrorDisplay(name);
 
-    let classesError = variant === 'full' ? "text-danger-150 text-base/1" : 'hidden';
+    let classesError = variant === 'full' ? "text-danger-150 text-base/2" : 'hidden';
 
     let classesLabelVariant = variant === 'item' ? `pb-2 md:mb-2 ${classesLabel}` : variant === 'full' ? `pb-2 ${classesLabel}` : variant === 'item-name' ? `pb-4 md:pb-2 md:mb-2 ${classesLabel}` : 'hidden'; 
 

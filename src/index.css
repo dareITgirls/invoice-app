@@ -3,7 +3,6 @@
 @tailwind utilities;
 @tailwind variants;
 
-
 .MuiInputBase-root:hover,
 .MuiInputBase-root:focus,
 .dark .MuiInputBase-root:hover,
@@ -133,8 +132,27 @@
 	@apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent hover:cursor-pointer hover:outline hover:outline-1 hover:outline-primary-200;
 }
 
+.field:-webkit-autofill,
+.field:-webkit-autofill:hover,
+.field:-webkit-autofill:focus {
+	filter: none;
+	background-color: white;
+	box-shadow: 0 0 0 100px white inset;
+	-webkit-text-fill-color: #0C0E16;
+}
+
+.dark .field:-webkit-autofill,
+.dark .field:-webkit-autofill:hover,
+.dark .field:-webkit-autofill:focus {
+	filter: none;
+	background-color: #252945;
+	box-shadow: 0 0 0 100px #252945 inset;
+	border: none;
+	-webkit-text-fill-color: #F8F8FB;
+}
+
 .label {
-	@apply text-neutral-500 text-base/3 ;
+	@apply text-neutral-500 text-base/3;
 }
 
 .custom-container {

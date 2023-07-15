@@ -31,7 +31,7 @@ export const Item = (props) => {
                 <Input name={itemPrice} variant={variant} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-0.9/3 md:w-2.3/5 lg:w-3/5"/>
                 <Input name="itemTotal" variant={variant} id="total" label="Total:" value={ getItemTotal(values.items[index])} classes="w-1.1/4 lg:w-1.2/3"/>
                 <button type="button" onClick={() => deleteItemHandler(index)} className={classesButton}>
-                    <IconDelete />
+                    <IconDelete className="fill-neutral-300 hover:fill-danger-150"/>
                 </button>
             </div>
         </li >
