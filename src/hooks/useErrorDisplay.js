@@ -11,7 +11,7 @@ export const useErrorDisplay = (name) => {
     
         useEffect(() => {
             if (getError(splitted, errors, touched)) {
-                setClassesLabel('text-base/2 text-danger-150');
+                setClassesLabel('text-base/2 text-danger-150 mt-[-4px]');
                 setClassesInput('field outline outline-1 outline-danger-150');
             } else {
                 setClassesLabel('label');
