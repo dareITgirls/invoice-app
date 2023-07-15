@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { splitName, getError } from '../utils/consts';
 
 export const useErrorDisplay = (name) => {
-    const { errors, touched, values } = useFormikContext();
+    const { errors, touched } = useFormikContext();
     const [classesInput, setClassesInput] = useState('field touched && outline-danger-150');
     const [classesLabel, setClassesLabel] = useState('label');
 

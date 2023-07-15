@@ -68,8 +68,8 @@ export const ItemList = () => {
             <ul>  
                 {content}
             </ul>
-            <Button styles="bg-neutral-100 dark:bg-dark-100 text-neutral-300 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
-            md:mb-11  lg:mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} >
+            <Button styles="bg-neutral-100 dark:bg-dark-100 hover:bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
+            md:mb-[80px]  lg:mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} >
                 <IconPlus className="scale-75 mb-2"/>
             </Button>
             <p className={classesMainError}>All fields must be added</p>

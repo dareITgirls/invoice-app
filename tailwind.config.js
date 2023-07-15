@@ -13,7 +13,7 @@ module.exports = {
 
       boxShadow: {
         "3xl": "0 10px 10px -10px rgba(72, 84, 159, 0.100397)",
-        "4xl": "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
+		  "4xl": "0px 4px 4px 0px rgba(0, 0, 0, 0.25)",
       },
 
 			width: {
