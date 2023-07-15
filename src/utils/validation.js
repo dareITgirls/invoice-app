@@ -54,10 +54,10 @@ export const SignupSchema =
                 .matches(postCodeRegex, "please, provide valid post code")
                 .required("can't be empty"),
         }),
-         items: Yup.array(Yup.object().shape({
-            name: Yup.string().required(),
-            quantity: Yup.number().min(1).required(),              
-            price: Yup.number().min(0.1).required(),
+         items: Yup.array().of(Yup.object().shape({
+            name: Yup.string().min(3).max(12).required(),
+            quantity: Yup.number().min(1).max(100).required(),              
+            price: Yup.number().min(0.1).max(10000).required(),
         }),
         ),
     })
