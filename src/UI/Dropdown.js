@@ -2,14 +2,20 @@ import { CacheProvider } from '@emotion/react';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { InputLabel, MenuItem, Select } from '@mui/material';
 import { useFormikContext } from 'formik';
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { selectInvoiceById } from "../store/invoicesSlice";
 import { cache } from '../utils/consts';
 
 
 export const Dropdown = () => {
+    const { invoiceId } = useParams();
+    const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
+    const terms  = invoice.paymentTerms ? invoice.paymentTerms : 30
 
     const { setFieldValue, handleBlur } = useFormikContext();
-    const [value, setValue] = useState(30);
+    const [value, setValue] = useState(terms);
     
     const changeValueHandler = (e) => {
         setValue(e.target.value);

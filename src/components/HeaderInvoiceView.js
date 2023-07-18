@@ -4,6 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { deleteInvoice, editInvoice } from "../store/invoicesActions";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import { toggleInvoiceStatus } from "../store/invoicesSlice";
+import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from "../UI/Button";
 import Label from "../UI/Label";
 
@@ -14,13 +15,18 @@ const HeaderInvoiceView = () => {
   const navigate = useNavigate();
 
   const handleChangeStatusInvoice = () => {
-    dispatch(toggleInvoiceStatus(invoiceId));
-  };
-
-  const handleEditInvoice = async () => {
-    const updatedInvoice = { ...invoice, status: "paid" };
+  const updatedInvoice = { ...invoice, status: "paid" };
     dispatch(editInvoice(updatedInvoice));
   };
+
+  // const handleEditInvoice = async () => {
+  //   // const updatedInvoice = { ...invoice, status: "paid" };
+  //   // dispatch(editInvoice(updatedInvoice));
+  // };
+
+  const openEditInvoice = () => {
+		dispatch(openNewFormModal());
+	};
 
   const handleDeleteInvoice = async () => {
     if (invoice) {
@@ -40,7 +46,7 @@ const HeaderInvoiceView = () => {
           <Button
             className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 mr-3'
             title='Edit'
-            onClick={handleEditInvoice}
+            onClick={openEditInvoice}
           />
           <Button
             className='bg-red-500 text-white rounded-full px-7 py-4 mr-3'
@@ -61,7 +67,7 @@ const HeaderInvoiceView = () => {
         <Button
           className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 '
           title='Edit'
-          onClick={handleEditInvoice}
+          onClick={openEditInvoice}
         />
         <Button
           className='bg-red-500 text-white rounded-full px-7 py-4'

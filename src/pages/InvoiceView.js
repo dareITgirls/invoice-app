@@ -7,10 +7,12 @@ import Label from "../UI/Label";
 import BackArrow from "../assets/icon-arrow-left.svg";
 import HeaderInvoiceView from "../components/HeaderInvoiceView";
 import InvoiceDetails from "../components/InvoiceDetails";
+import { EditInvoice } from '../components/EditInvoice';
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
+  const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
   if (!invoice) {
     return <div>Loading...</div>;
@@ -38,6 +40,7 @@ const InvoiceView = () => {
           <InvoiceDetails />
         </div>
       </div>
+      {modalStatus && <EditInvoice />}
     </>
   );
 };
