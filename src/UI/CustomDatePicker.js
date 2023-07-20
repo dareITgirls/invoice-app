@@ -17,7 +17,7 @@ import { cache } from '../utils/consts';
 export const CustomDatePicker = () => {
     const { invoiceId } = useParams();
     const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
-    const date  = invoice.createdAt ? invoice.createdAt : today
+    const date  = invoice ? invoice.createdAt : today
     const { setFieldValue, handleBlur } = useFormikContext();
     const [value, setValue] = useState(dayjs(date));
    

@@ -1,4 +1,7 @@
 import { useFormikContext } from 'formik';
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
+import { selectInvoiceById } from "../../store/invoicesSlice";
 import { useState, useEffect } from 'react';
 import { getError, splitName } from '../../utils/consts';
 import { Button } from '../../UI/Button';
@@ -9,11 +12,15 @@ import { Item } from './Item';
 
 export const ItemList = () => {
     let res = window.screen.width;
+    const { invoiceId } = useParams();
+    const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
 
-    const { values, errors, touched } = useFormikContext();
+    const {values, errors, touched } = useFormikContext();
     const [content, setContent] = useState();
     const [mainErrors, setMainErrors] = useState([]);
     const [itemErrors, setItemErrors] = useState([]);
+    const [invoiceItems, setInvoiceItems] = useState([]);
+
 
     const items = [];
     for (let i = 0; i < values.items.length; i++) {
@@ -58,7 +65,8 @@ export const ItemList = () => {
     }
 
     const addNewItemHandler = () => {
-        values.items.push(emptyItem);
+            (values.items).push(emptyItem);
+
         renderList();
     }
 
