@@ -4,7 +4,7 @@ import {useSelector} from 'react-redux';
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
 import { Nav } from '../components/Nav';
-import { NewInvoice } from "../components/newInvoice/NewInvoice";
+import { NewInvoice } from "../components/forms/NewInvoice";
 
 
 export const Home = () => {

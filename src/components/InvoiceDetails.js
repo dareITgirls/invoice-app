@@ -1,17 +1,12 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { selectInvoiceById } from "../store/invoicesSlice";
+import { changeDateFormat } from '../utils/consts'
 
 const InvoiceDetails = () => {
   const { invoiceId } = useParams();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
 
-  const changeDateFormat = (givenDate) => {
-    const date = new Date(givenDate).toDateString().split(" ");
-    const formatedDate = `${date[2]} ${date[1]} ${date[3]}`;
-
-    return formatedDate;
-  };
   const formatedCost = (cost) => {
     const parsedCost = parseFloat(cost);
     return parsedCost.toFixed(2);

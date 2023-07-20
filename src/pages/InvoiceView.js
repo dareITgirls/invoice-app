@@ -7,7 +7,7 @@ import Label from "../UI/Label";
 import BackArrow from "../assets/icon-arrow-left.svg";
 import HeaderInvoiceView from "../components/HeaderInvoiceView";
 import InvoiceDetails from "../components/InvoiceDetails";
-import { EditInvoice } from '../components/EditInvoice';
+import { EditInvoice } from '../components/forms/EditInvoice';
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();

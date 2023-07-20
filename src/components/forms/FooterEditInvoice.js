@@ -1,7 +1,7 @@
 import { useFormikContext } from 'formik';
 import { useDispatch } from "react-redux";
-import { closeNewFormModal } from "../store/newFormModalStatusSlice";
-import { Button } from '../UI/Button';
+import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { Button } from '../../UI/Button';
 
 export const FooterEditInvoice = () => {
 
