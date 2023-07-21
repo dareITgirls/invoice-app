@@ -1,10 +1,9 @@
+import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import ExpandMore from '@mui/icons-material/ExpandMore';
+import { InputLabel,MenuItem, Select } from '@mui/material';
 import { useFormikContext } from 'formik';
 import { useState } from 'react';
-import { Select, MenuItem, InputLabel } from '@mui/material';
-import ExpandMore from '@mui/icons-material/ExpandMore';
-import ExpandLess from '@mui/icons-material/ExpandLess';
-import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
 
 //resetting most of mui styles
 const cache = createCache({

@@ -7,9 +7,9 @@ import {
   setDoc,
   updateDoc,
 } from "firebase/firestore";
-import { db } from "../config/firebase";
+
+import { db } from "../firebase-config/firebase";
 import { invoices } from "../utils/consts";
-import { radioClasses } from "@mui/material";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchInvoices",

@@ -1,16 +1,17 @@
 import { useSelector } from "react-redux";
-import { selectInvoiceById } from "../store/invoicesSlice";
-import { ReactComponent as ArrowRight } from "../assets/icon-arrow-right.svg";
-import Label from "../UI/Label";
 import { Link } from "react-router-dom";
 
-const InvoiceItem = ({ id }) => {
+import { ReactComponent as ArrowRight } from "../assets/icon-arrow-right.svg";
+import { selectInvoiceById } from "../store/invoicesSlice";
+import Label from "../UI/Label";
+
+// eslint-disable-next-line react/prop-types
+export const InvoiceItem = ({ id }) => {
   const invoice = useSelector((state) => selectInvoiceById(state, id));
 
   const changeDateFormat = (givenDate) => {
     const date = new Date(givenDate).toDateString().split(" ");
-    const formattedDate = `${date[2]} ${date[1]} ${date[3]}`;
-    return formattedDate;
+    return `${date[2]} ${date[1]} ${date[3]}`;
   };
 
   return (
@@ -43,5 +44,3 @@ const InvoiceItem = ({ id }) => {
     </Link>
   );
 };
-
-export default InvoiceItem;

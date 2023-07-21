@@ -1,6 +1,7 @@
 //Future todo - create Wrapper component for DRY rule
-import HeaderHome from "../components/HeaderHome";
 import { useSelector } from "react-redux";
+
+import HeaderHome from "../components/HeaderHome";
 import InvoiceList from "../components/InvoiceList";
 import { Nav } from "../components/Nav";
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
