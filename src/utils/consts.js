@@ -24,7 +24,7 @@ export const ASSETS_LIBRARY = {
     }
 
     export const getTotal = (items) => {
-        return items.map((item) => item.total).reduce((sum, num) => sum + num, 0).toFixed(2);
+        return items.map((item) => item.total).reduce((sum, num) => sum + num, 0);
     }
     
     export const getPaymentDue = (createdAt, paymentTerms) => {

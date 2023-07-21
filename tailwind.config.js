@@ -1,5 +1,7 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 
+// eslint-disable-next-line no-undef
 const defaultTheme = require("tailwindcss/defaultTheme");
 
 module.exports = {
@@ -114,18 +116,26 @@ module.exports = {
         "item-sm": "50% 25% 25%",
       },
 
+      maxWidth: {
+        "25ch": "25ch",
+      },
+
       minHeight: {
         33: "8.375rem", //134px
       },
 
       scale: {
+        80: "0.8",
         140: "1.4",
       },
 
       spacing: {
+        0.5: "0.125rem", //2px
+        1.5: "0.375rem", //6px
         3.5: "1.125rem", //18px
         18: "4.5rem", //72px
         26: "6.5rem", //104px
+        49.5: "12.375rem", //198px
       },
 
       backgroundImage: {

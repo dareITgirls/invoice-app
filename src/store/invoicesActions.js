@@ -1,14 +1,8 @@
-import { createAsyncThunk } from "@reduxjs/toolkit";
-import {
-  collection,
-  deleteDoc,
-  doc,
-  getDocs,
-  setDoc,
-  updateDoc,
-} from "firebase/firestore";
-import { db } from "../config/firebase";
-import { invoices } from "../utils/consts";
+import {createAsyncThunk} from "@reduxjs/toolkit";
+import {collection, deleteDoc, doc, getDocs, setDoc, updateDoc} from "firebase/firestore";
+
+import {db} from "../firebase-config/firebase";
+import {invoices} from "../utils/consts";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchInvoices",

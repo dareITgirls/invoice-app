@@ -1,7 +1,7 @@
 import { Field } from 'formik';
 
 export const ItemInput = (props) => {
-    const { label, id, name, onBlur, classes } = props;
+    const { label, id, onBlur, classes } = props;
 
     return (
         <div className={`py-3 ${classes}`}>
