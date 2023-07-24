@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
+import ErrorHandler from "../pages/Error";
 import { deleteInvoice, editInvoice } from "../store/invoicesActions";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import { toggleInvoiceStatus } from "../store/invoicesSlice";
@@ -79,4 +80,4 @@ const HeaderInvoiceView = () => {
   );
 };
 
-export default HeaderInvoiceView;
+export default ErrorHandler(HeaderInvoiceView);

@@ -7,7 +7,7 @@ import InvoiceDetails from "../components/InvoiceDetails";
 import { Nav } from "../components/Nav";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
-import UpdatedComponent from "./ErrorHandling";
+import ErrorHandler from "./Error";
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();
@@ -43,4 +43,4 @@ const InvoiceView = () => {
   );
 };
 
-export default UpdatedComponent(InvoiceView);
+export default ErrorHandler(InvoiceView);

@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
+import ErrorHandler from "../pages/Error";
 import { selectInvoiceById } from "../store/invoicesSlice";
 
 const InvoiceDetails = () => {
@@ -135,4 +137,4 @@ const InvoiceDetails = () => {
   );
 };
 
-export default InvoiceDetails;
+export default ErrorHandler(InvoiceDetails);

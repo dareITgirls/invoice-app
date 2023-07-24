@@ -2,12 +2,19 @@ import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 
 import { ReactComponent as ArrowRight } from "../assets/icon-arrow-right.svg";
+import ErrorHandler from "../pages/Error";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
 
 // eslint-disable-next-line react/prop-types
 export const InvoiceItem = ({ id }) => {
   const invoice = useSelector((state) => selectInvoiceById(state, id));
+
+  // const throwError = () => {
+  //   throw new Error("testowy");
+  // };
+
+  // throwError();
 
   const changeDateFormat = (givenDate) => {
     const date = new Date(givenDate).toDateString().split(" ");
@@ -44,3 +51,5 @@ export const InvoiceItem = ({ id }) => {
     </Link>
   );
 };
+
+export default ErrorHandler(InvoiceItem);
