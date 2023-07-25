@@ -6,7 +6,7 @@ import { AlertModal } from '../components/AlertModal';
 import { deleteInvoice, editInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { toggleInvoiceStatus } from '../store/invoicesSlice';
-import { closeNewFormModal,openNewFormModal } from '../store/newFormModalStatusSlice';
+import { closeNewFormModal, openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
 
@@ -77,7 +77,7 @@ const HeaderInvoiceView = () => {
 					onClick={handleChangeStatusInvoice}
 				/>
 			</div>
-			{modalStatus && createPortal(<AlertModal onClose={closeModal} />, document.body)}
+			{modalStatus && createPortal(<AlertModal onClose={closeModal} onDelete={handleDeleteInvoice} />, document.body)}
 		</>
 	);
 };
