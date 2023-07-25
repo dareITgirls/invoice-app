@@ -7,7 +7,7 @@ import { toggleInvoiceStatus } from "../store/invoicesSlice";
 import { Button } from "../UI/Button";
 import Label from "../UI/Label";
 
-const HeaderInvoiceView = () => {
+export function HeaderInvoiceView() {
   const { invoiceId } = useParams();
   const dispatch = useDispatch();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
@@ -77,6 +77,4 @@ const HeaderInvoiceView = () => {
       </div>
     </>
   );
-};
-
-export default HeaderInvoiceView;
+}

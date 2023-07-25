@@ -1,13 +1,12 @@
-import React from "react";
 import { useSelector } from "react-redux";
-import { useParams, Link } from "react-router-dom";
-import { selectInvoiceById } from "../store/invoicesSlice";
+import { Link, useParams } from "react-router-dom";
+
+import BackArrow from "../assets/icon-arrow-left.svg";
+import { HeaderInvoiceView } from "../components/HeaderInvoiceView";
+import { InvoiceDetails } from "../components/InvoiceDetails";
 import { Nav } from "../components/Nav";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
-import BackArrow from "../assets/icon-arrow-left.svg";
-import HeaderInvoiceView from "../components/HeaderInvoiceView";
-import InvoiceDetails from "../components/InvoiceDetails";
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();

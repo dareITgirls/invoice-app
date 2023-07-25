@@ -1,8 +1,15 @@
-import {createAsyncThunk} from "@reduxjs/toolkit";
-import {collection, deleteDoc, doc, getDocs, setDoc, updateDoc} from "firebase/firestore";
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import {
+  collection,
+  deleteDoc,
+  doc,
+  getDocs,
+  setDoc,
+  updateDoc,
+} from "firebase/firestore";
 
-import {db} from "../firebase-config/firebase";
-import {invoices} from "../utils/consts";
+import { db } from "../firebase-config/firebase";
+import { invoices } from "../utils/consts";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchInvoices",
@@ -27,15 +34,25 @@ export const addNewInvoice = createAsyncThunk(
 export const editInvoice = createAsyncThunk(
   "invoices/editInvoice",
   async (invoiceToEdit) => {
-    await updateDoc(doc(db, invoices, invoiceToEdit.id), invoiceToEdit);
-    return invoiceToEdit;
+    try {
+      await updateDoc(doc(db, invoices, invoiceToEdit.id), invoiceToEdit);
+      return invoiceToEdit;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
 export const deleteInvoice = createAsyncThunk(
   "invoices/deleteInvoice",
   async (invoiceID) => {
-    await deleteDoc(doc(db, invoices, invoiceID));
-    return invoiceID;
+    try {
+      await deleteDoc(doc(db, invoices, null));
+      // TODO: change null to invoiceID
+      return invoiceID;
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
   }
 );

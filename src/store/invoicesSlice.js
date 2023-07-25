@@ -1,4 +1,4 @@
-import { createSelector, createSlice, createAction } from "@reduxjs/toolkit";
+import { createAction, createSelector, createSlice } from "@reduxjs/toolkit";
 
 import {
   addNewInvoice,
