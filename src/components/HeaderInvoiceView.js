@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
 
-import ErrorHandler from "../pages/Error";
 import { deleteInvoice, editInvoice } from "../store/invoicesActions";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import { toggleInvoiceStatus } from "../store/invoicesSlice";
 import { Button } from "../UI/Button";
 import Label from "../UI/Label";
 
-const HeaderInvoiceView = () => {
+export function HeaderInvoiceView() {
   const { invoiceId } = useParams();
   const dispatch = useDispatch();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
@@ -78,6 +77,4 @@ const HeaderInvoiceView = () => {
       </div>
     </>
   );
-};
-
-export default ErrorHandler(HeaderInvoiceView);
+}

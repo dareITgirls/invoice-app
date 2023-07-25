@@ -1,6 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import ErrorHandler from "../pages/Error";
 import { toggleFilter } from "../store/filterModalSlice";
 import { firstLetterToUpper } from "../utils/consts";
 
@@ -45,5 +44,3 @@ export const FilterModal = () => {
     </div>
   );
 };
-
-export default ErrorHandler(FilterModal);

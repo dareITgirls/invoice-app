@@ -1,6 +1,5 @@
 import { useSelector } from "react-redux";
 
-import ErrorHandler from "../pages/Error";
 import { selectFilteredInvoiceId } from "../store/invoicesSlice";
 import { EmptyInvoiceList } from "./EmptyInvoiceList";
 import { InvoiceItem } from "./InvoiceItem";
@@ -22,5 +21,3 @@ export const InvoiceList = () => {
     </ul>
   );
 };
-
-export default ErrorHandler(InvoiceList);

@@ -2,12 +2,11 @@ import { useSelector } from "react-redux";
 import { Link, useParams } from "react-router-dom";
 
 import BackArrow from "../assets/icon-arrow-left.svg";
-import HeaderInvoiceView from "../components/HeaderInvoiceView";
-import InvoiceDetails from "../components/InvoiceDetails";
+import { HeaderInvoiceView } from "../components/HeaderInvoiceView";
+import { InvoiceDetails } from "../components/InvoiceDetails";
 import { Nav } from "../components/Nav";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
-import ErrorHandler from "./Error";
 
 const InvoiceView = () => {
   const { invoiceId } = useParams();
@@ -43,4 +42,4 @@ const InvoiceView = () => {
   );
 };
 
-export default ErrorHandler(InvoiceView);
+export default InvoiceView;

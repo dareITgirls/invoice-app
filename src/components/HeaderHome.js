@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { ReactComponent as IconArrowDown } from "../assets/icon-arrow-down.svg";
 import { ReactComponent as IconPlus } from "../assets/icon-plus.svg";
-import ErrorHandler from "../pages/Error";
 import { toggleFilterModalOpening } from "../store/filterModalSlice";
 import { openNewFormModal } from "../store/newFormModalStatusSlice";
 import { FilterModal } from "./FilterModal";
@@ -74,5 +73,3 @@ export const HeaderHome = () => {
     </div>
   );
 };
-
-export default ErrorHandler(HeaderHome);

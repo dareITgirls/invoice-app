@@ -1,11 +1,9 @@
 //Future todo: consider what to do with a user avatar - what functionality should it has?
-
 import { ReactComponent as IconMoon } from "../assets/icon-moon.svg";
 import { ReactComponent as IconSun } from "../assets/icon-sun.svg";
 import imageAvatar from "../assets/imageAvatar.jpg";
 import { ReactComponent as IconLogo } from "../assets/logo.svg";
 import { useDarkMode } from "../hooks/useDarkMode";
-import ErrorHandler from "../pages/Error";
 
 export const Nav = () => {
   const [handleTheme, theme] = useDarkMode();
@@ -43,5 +41,3 @@ export const Nav = () => {
     </header>
   );
 };
-
-export default ErrorHandler(Nav);

@@ -1,7 +1,6 @@
 import { Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 
-import ErrorHandler from "../../pages/Error";
 import { addNewInvoice } from "../../store/invoicesActions";
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import {
@@ -73,5 +72,3 @@ export const NewInvoice = () => {
     </Modal>
   );
 };
-
-export default ErrorHandler(NewInvoice);

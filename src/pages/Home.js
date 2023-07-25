@@ -7,15 +7,9 @@ import { Nav } from "../components/Nav";
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
 import ErrorHandler from "./Error";
 
-const Home = () => {
+export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
   const modalStatus = useSelector((state) => state.newFormModalStatus.status);
-
-  // const throwError = () => {
-  //   throw new Error("testowy");
-  // };
-
-  // throwError();
 
   if (loadingStatus === "loading") {
     return <div>LOADING</div>;

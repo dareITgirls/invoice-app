@@ -1,7 +1,5 @@
 import ReactDOM from "react-dom";
 
-import ErrorHandler from "../pages/Error";
-
 export const Modal = (props) => {
   const { children } = props;
 
@@ -15,5 +13,3 @@ export const Modal = (props) => {
     document.getElementById("modal")
   );
 };
-
-export default ErrorHandler(Modal);

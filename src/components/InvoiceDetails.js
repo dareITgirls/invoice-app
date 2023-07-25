@@ -1,10 +1,9 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
-import ErrorHandler from "../pages/Error";
 import { selectInvoiceById } from "../store/invoicesSlice";
 
-const InvoiceDetails = () => {
+export const InvoiceDetails = () => {
   const { invoiceId } = useParams();
   const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
 
@@ -136,5 +135,3 @@ const InvoiceDetails = () => {
     </div>
   );
 };
-
-export default ErrorHandler(InvoiceDetails);
