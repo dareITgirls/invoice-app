@@ -96,6 +96,7 @@ module.exports = {
         "danger-150": "#EC5757",
         "light-100": "#FFFFFF",
         "light-200": "#F8F8FB",
+        "neutral-100": "#F9FAFE",
         "neutral-200": "#DFE3FA",
         "neutral-250": "#DFE3FA0F", //neutral-200 with opacity 0.06
         "neutral-300": "#888EB0",
