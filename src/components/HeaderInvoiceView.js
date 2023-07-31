@@ -12,9 +12,13 @@ import Label from '../UI/Label';
 
 const HeaderInvoiceView = () => {
 	const { invoiceId } = useParams();
+
 	const dispatch = useDispatch();
+
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
+
 	const navigate = useNavigate();
+
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
 	const handleChangeStatusInvoice = () => {
@@ -29,6 +33,7 @@ const HeaderInvoiceView = () => {
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
+			discardHandler();
 			navigate('/');
 		}
 	};
@@ -37,7 +42,7 @@ const HeaderInvoiceView = () => {
 		dispatch(openNewFormModal());
 	};
 
-	const closeModal = () => {
+	const discardHandler = () => {
 		dispatch(closeNewFormModal());
 	};
 
@@ -48,15 +53,15 @@ const HeaderInvoiceView = () => {
 					<span className='text-neutral-500 text-base/2 md:mr-5'>Status </span>
 					<Label status={invoice.status} />
 				</div>
-				<div className='md:flex items-center'>
+				<div className='md:flex items-center gap-2'>
 					<Button
-						className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 mr-3'
+						styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white'
 						title='Edit'
 						onClick={handleEditInvoice}
 					/>
-					<Button className='bg-red-500 text-white rounded-full px-7 py-4 mr-3' title='Delete' onClick={showModal} />
+					<Button styles='bg-red-500 text-white' title='Delete' onClick={showModal} />
 					<Button
-						className='bg-primary-200 text-white rounded-full px-7 py-4 w-34'
+						styles='bg-primary-200 text-white'
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 						onClick={handleChangeStatusInvoice}
@@ -65,22 +70,34 @@ const HeaderInvoiceView = () => {
 			</div>
 			<div className='flex items-center justify-between fixed bottom-0 bg-light-100 dark:bg-dark-200 w-full p-5 md:hidden'>
 				<Button
-					className='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white rounded-full px-7 py-4 '
+					styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white'
 					title='Edit'
 					onClick={handleEditInvoice}
 				/>
-				<Button className='bg-red-500 text-white rounded-full px-7 py-4' title='Delete' onClick={handleDeleteInvoice} />
+				<Button styles='bg-red-500' title='Delete' onClick={showModal} />
 				<Button
-					className='bg-primary-200 text-white rounded-full px-4 py-4'
+					styles='bg-primary-200 text-white'
 					id='markAsPaidButton'
 					title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 					onClick={handleChangeStatusInvoice}
 				/>
 			</div>
-			{modalStatus && createPortal(<AlertModal onClose={closeModal} onDelete={handleDeleteInvoice} />, document.body)}
+			{modalStatus &&
+				createPortal(
+					<AlertModal>
+						<Button
+							onClick={discardHandler}
+							styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200'
+							title='Cancel'
+							type='button'
+						/>
+
+						<Button onClick={handleDeleteInvoice} styles='bg-danger-150 text-light-100' title='Delete' type='button' />
+					</AlertModal>,
+					document.body
+				)}
 		</>
 	);
 };
 
 export default HeaderInvoiceView;
-// onClick={handleDeleteInvoice}
