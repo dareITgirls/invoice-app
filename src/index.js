@@ -8,7 +8,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { App } from "./App";
 import InvoiceView from "./pages/InvoiceView";
 import { store } from "./store/store";
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>

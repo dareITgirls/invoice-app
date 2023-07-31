@@ -5,7 +5,6 @@ import { HeaderHome } from "../components/HeaderHome";
 import { InvoiceList } from "../components/InvoiceList";
 import { Nav } from "../components/Nav";
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
-import ErrorHandler from "./Error";
 
 export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
@@ -32,5 +31,3 @@ export const Home = () => {
     </>
   );
 };
-
-export default ErrorHandler(Home);
