@@ -53,13 +53,16 @@ const HeaderInvoiceView = () => {
 					<span className='text-neutral-500 text-base/2 md:mr-5'>Status </span>
 					<Label status={invoice.status} />
 				</div>
+
 				<div className='md:flex items-center gap-2'>
 					<Button
 						styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white'
 						title='Edit'
 						onClick={handleEditInvoice}
 					/>
+
 					<Button styles='bg-red-500 text-white' title='Delete' onClick={showModal} />
+
 					<Button
 						styles='bg-primary-200 text-white'
 						id='markAsPaidButton'
@@ -68,13 +71,16 @@ const HeaderInvoiceView = () => {
 					/>
 				</div>
 			</div>
+
 			<div className='flex items-center justify-between fixed bottom-0 bg-light-100 dark:bg-dark-200 w-full p-5 md:hidden'>
 				<Button
 					styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white'
 					title='Edit'
 					onClick={handleEditInvoice}
 				/>
+
 				<Button styles='bg-red-500' title='Delete' onClick={showModal} />
+
 				<Button
 					styles='bg-primary-200 text-white'
 					id='markAsPaidButton'
@@ -82,6 +88,7 @@ const HeaderInvoiceView = () => {
 					onClick={handleChangeStatusInvoice}
 				/>
 			</div>
+
 			{modalStatus &&
 				createPortal(
 					<AlertModal>

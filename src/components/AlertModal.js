@@ -3,7 +3,6 @@ export const AlertModal = props => {
 	// eslint-disable-next-line react/prop-types
 	const {children} = props;
 	
-
 	return (
 		<div className='absolute bg-dark-750 w-screen h-screen top-0 left-0'>
 			<div
