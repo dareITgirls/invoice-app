@@ -1,5 +1,6 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+
 import { selectInvoiceById } from "../store/invoicesSlice";
 
 const InvoiceDetails = () => {
@@ -64,7 +65,7 @@ const InvoiceDetails = () => {
 
   return (
     <div
-      className='flex-col my-5 mx-7 bg-light-100 dark:bg-dark-200 
+      className='flex-col mx-7 my-4 bg-light-100 dark:bg-dark-200 
     rounded-lg mb-20 p-5 md:m-0 md:mt-5 md:px-10 md:py-12'
     >
       <div className='md:flex flex-row md:justify-between md:pb-5'>
@@ -126,7 +127,7 @@ const InvoiceDetails = () => {
       </div>
       <div className='flex-col my-5 bg-neutral-100 dark:bg-dark-100 rounded-lg mt-10 md:mt-0'>
         {viewInvoiceItems(invoice.items)}
-        <div className='bg-dark-500 text-light-100 dark:bg-dark-400 flex justify-between items-center px-5 py-6 rounded-b-lg md:px-10 md:py-8'>
+        <div className='bg-dark-500 text-light-100 dark:bg-dark-400 flex justify-between items-center px-5 py-7 rounded-b-lg md:px-10 md:py-8'>
           <p className='text-base/2'>Amount Due</p>
           <span className='text-lg'>£ {formatedCost(invoice.total)}</span>
         </div>
