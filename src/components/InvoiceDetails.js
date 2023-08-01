@@ -65,7 +65,7 @@ const InvoiceDetails = () => {
 
   return (
     <div
-      className='flex-col mx-7 my-4 bg-light-100 dark:bg-dark-200 
+      className='flex-col w-full my-4 bg-light-100 dark:bg-dark-200 
     rounded-lg mb-20 p-5 md:m-0 md:mt-5 md:px-10 md:py-12'
     >
       <div className='md:flex flex-row md:justify-between md:pb-5'>
