@@ -104,6 +104,7 @@ module.exports = {
 				'warning-150': '#FF8f000F', //secondary-100 with opacity 0.06
 				'success-100': '#33D69F',
 				'success-150': '#33D69F0F', //success-100 with opacity 0.06
+				'danger-50': '#FF9797',
 				'danger-100': '#9277FF',
 				'danger-150': '#EC5757',
 				'light-100': '#FFFFFF',
