@@ -1,4 +1,3 @@
-import { createPortal } from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 
@@ -18,8 +17,6 @@ const HeaderInvoiceView = () => {
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 
 	const navigate = useNavigate();
-
-	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
 	const handleChangeStatusInvoice = () => {
 		dispatch(toggleInvoiceStatus(invoiceId));
@@ -71,7 +68,6 @@ const HeaderInvoiceView = () => {
 					/>
 				</div>
 			</div>
-
 			<div className='flex items-center justify-between fixed bottom-0 bg-light-100 dark:bg-dark-200 w-full p-5 md:hidden'>
 				<Button
 					styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white'
@@ -89,20 +85,16 @@ const HeaderInvoiceView = () => {
 				/>
 			</div>
 
-			{modalStatus &&
-				createPortal(
-					<AlertModal>
-						<Button
-							onClick={discardHandler}
-							styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200'
-							title='Cancel'
-							type='button'
-						/>
+			<AlertModal>
+				<Button
+					onClick={discardHandler}
+					styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500'
+					title='Cancel'
+					type='button'
+				/>
 
-						<Button onClick={handleDeleteInvoice} styles='bg-danger-150 text-light-100' title='Delete' type='button' />
-					</AlertModal>,
-					document.body
-				)}
+				<Button onClick={handleDeleteInvoice} styles='bg-danger-150 text-light-100 hover:bg-danger-50 dark:hover:bg-danger-50' title='Delete' type='button' />
+			</AlertModal>
 		</>
 	);
 };
