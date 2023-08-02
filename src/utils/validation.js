@@ -9,7 +9,7 @@ export const SignupSchema =
             .required("can't be empty"),
         description: Yup.string()
             .min(1, "Description is too short")
-            .max(25, "Description is too long")
+            .max(55, "Description is too long")
             .required("can't be empty"),
         paymentTerms: Yup.string()
             .required("can't be empty"),
@@ -23,15 +23,15 @@ export const SignupSchema =
         senderAddress: Yup.object().shape({
             street: Yup.string()
                 .min(2, "Street is too short")
-                .max(24, 'Street is too long')
+                .max(55, 'Street is too long')
                 .required("can't be empty"),
             city: Yup.string()
                 .min(2, "City is too short")
-                .max(12, 'City is too long')
+                .max(55, 'City is too long')
                 .required("can't be empty"),
             country: Yup.string()
                 .min(2, "Country is too short")
-                .max(12, 'Country is too long')
+                .max(35, 'Country is too long')
                 .required("can't be empty"),
             postCode: Yup.string()
                 .matches(postCodeRegex, "Please, provide valid post code")
@@ -42,15 +42,15 @@ export const SignupSchema =
         clientAddress: Yup.object().shape({
             street: Yup.string()
                 .min(2, "Street is too short")
-                .max(24, 'Street is too long')
+                .max(55, 'Street is too long')
                 .required("can't be empty"),
             city: Yup.string()
                 .min(2, "City is too short")
-                .max(12, 'City is too long')
+                .max(55, 'City is too long')
                 .required("can't be empty"),
             country: Yup.string()
                 .min(2, "Country is too short")
-                .max(12, 'Country is too long')
+                .max(35, 'Country is too long')
                 .required("can't be empty"),
             postCode: Yup.string()
                 .matches(postCodeRegex, "please, provide valid post code")

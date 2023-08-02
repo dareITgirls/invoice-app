@@ -16,7 +16,7 @@ export const ItemList = () => {
             </ul>
             <Button styles="bg-neutral-100 dark:bg-dark-100 hover:bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
             md:mb-[80px]  lg:mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} >
-                <IconPlus className="scale-75 mb-2"/>
+                <IconPlus className="scale-75 mb-[2px] mr-1"/>
             </Button>
             <p className={classesMainError}>All fields must be added</p>
             <p className={classesItemError}>An item must be added</p>
