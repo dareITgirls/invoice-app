@@ -85,7 +85,7 @@ const HeaderInvoiceView = () => {
 				/>
 			</div>
 
-			<AlertModal>
+			<AlertModal invoiceId={invoiceId}>
 				<Button
 					onClick={discardHandler}
 					styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500'

@@ -7,7 +7,7 @@ ReactModal.setAppElement('#root');
 
 export const AlertModal = props => {
 	// eslint-disable-next-line react/prop-types
-	const { children } = props;
+	const { children, invoiceId } = props;
 
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 	const dispatch = useDispatch();
@@ -45,7 +45,7 @@ export const AlertModal = props => {
 				<p
 					className='text-base/2 text-neutral-300 dark:text-neutral-200 font-medium leading-[1.375rem]'
 					id='full_description'>
-					Are you sure you want to delete invoice #XM9141? This action cannot be undone.
+					Are you sure you want to delete invoice #{invoiceId}? This action cannot be undone.
 				</p>
 
 				<div className='flex gap-2 self-end mt-1'>{children}</div>
