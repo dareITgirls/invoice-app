@@ -14,7 +14,7 @@ export const InvoiceList = () => {
 		return <InvoiceItem key={id} id={id} />;
 	});
 
-	if ((loadingStatus !== "loading") && (invoicesNumber === 0)) return <EmptyInvoiceList />;
+	if ((loadingStatus !== "none") && (invoicesNumber === 0)) return <EmptyInvoiceList />;
 
 	return <ul className='flex flex-col pt-8 md:pt-14 pb-26 gap-4'>{renderedListItems}</ul>;
 };
