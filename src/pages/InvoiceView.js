@@ -2,12 +2,10 @@
 import { useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 
-import BackArrow from '../assets/icon-arrow-left.svg';
 import HeaderInvoiceView from '../components/HeaderInvoiceView';
 import InvoiceDetails from '../components/InvoiceDetails';
 import { Nav } from '../components/Nav';
 import { selectInvoiceById } from '../store/invoicesSlice';
-import Label from '../UI/Label';
 
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
@@ -21,13 +19,13 @@ const InvoiceView = () => {
 
 	return (
 		<div inert={modalStatus ? '' : undefined}>
-			<Nav />
-				<div className='text-dark-300 dark:text-light-100 flex items-center justify-center my-0'>
-					<div className='flex flex-col w-full sm:w-4/5 md:m-0 xl:w-1/2'>
+			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+				<Nav />
+				<main className='px-6 md:px-12 pt-8 md:pt-15'>
 						<HeaderInvoiceView />
 						<InvoiceDetails />
-					</div>
-				</div>
+				</main>
+			</div>
 		</div>
 	);
 };
