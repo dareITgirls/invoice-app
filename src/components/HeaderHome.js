@@ -23,7 +23,7 @@ export const HeaderHome = () => {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
 	}
 	const openNewInvoice = () => {
-		if (loadingStatus === 'false') {
+		if (loadingStatus !== 'loading') {
 			dispatch(openNewFormModal());
 		}
 	};
