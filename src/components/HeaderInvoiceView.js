@@ -68,7 +68,7 @@ const HeaderInvoiceView = () => {
 						onClick={handleEditInvoice}/>
 					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showModal} />
 					<Button
-						styles='bg-primary-200 text-white hover:bg-danger-100 px-7'
+						styles='bg-primary-200 text-white hover:bg-danger-100 px-4 w-2/4'
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 						onClick={handleChangeStatusInvoice}/>
