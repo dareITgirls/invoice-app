@@ -21,7 +21,7 @@ const InvoiceView = () => {
 		<div inert={modalStatus ? '' : undefined}>
 			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 				<Nav />
-				<main className='px-6 md:px-12 pt-8 md:pt-15'>
+				<main className='px-6 md:px-12 pt-8 md:pt-15 lg:pt[72px] lg:px-0 lg:ml-4 lg:w-[788px]'>
 						<HeaderInvoiceView />
 						<InvoiceDetails />
 				</main>

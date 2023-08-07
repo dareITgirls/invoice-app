@@ -52,7 +52,7 @@ const HeaderInvoiceView = () => {
 					<span className='text-dark-300 dark:text-light-100 text-md/1 ml-3'>Go back</span>
 				</div>
 			</Link>
-			<div className='flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5 sm:hidden'>
+			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
 				<span className='text-neutral-500 text-base/2'>Status</span>
 				<Label status={invoice.status} />
 			</div>
@@ -68,7 +68,7 @@ const HeaderInvoiceView = () => {
 						onClick={handleEditInvoice}/>
 					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showModal} />
 					<Button
-						styles='bg-primary-200 text-white hover:bg-danger-100 px-4 w-2/4'
+						styles='bg-primary-200 text-white hover:bg-danger-100 w-36 md:px-4'
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 						onClick={handleChangeStatusInvoice}/>

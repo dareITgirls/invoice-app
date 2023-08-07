@@ -20,7 +20,7 @@ export const Home = () => {
 				<>
 					<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 						<Nav />
-						<main className='px-6 md:px-12 pt-8 md:pt-15'>
+						<main className='px-6 md:px-12 pt-8 md:pt-15 lg:pt[72px] lg:ml-4 lg:px-0'>
 							<HeaderHome />
 							<InvoiceList />
 						</main>
