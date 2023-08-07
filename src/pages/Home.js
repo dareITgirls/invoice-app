@@ -5,6 +5,8 @@ import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
 import { Nav } from '../components/Nav';
 import { NewInvoice } from "../components/newInvoice/NewInvoice";
+import {MainContentWrapper} from "../UI/MainContentWrapper";
+import React from "react";
 
 
 export const Home = () => {
@@ -20,10 +22,10 @@ export const Home = () => {
 				<>
 					<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 						<Nav />
-						<main className='px-6 md:px-12 pt-8 md:pt-15 lg:pt[72px] lg:ml-4 lg:px-0'>
+						<MainContentWrapper>
 							<HeaderHome />
 							<InvoiceList />
-						</main>
+						</MainContentWrapper>
 					</div>
 				</>}
 			{modalStatus && <NewInvoice />}

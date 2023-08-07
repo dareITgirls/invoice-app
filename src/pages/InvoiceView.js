@@ -6,6 +6,7 @@ import HeaderInvoiceView from '../components/HeaderInvoiceView';
 import InvoiceDetails from '../components/InvoiceDetails';
 import { Nav } from '../components/Nav';
 import { selectInvoiceById } from '../store/invoicesSlice';
+import {MainContentWrapper} from "../UI/MainContentWrapper";
 
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
@@ -21,10 +22,10 @@ const InvoiceView = () => {
 		<div inert={modalStatus ? '' : undefined}>
 			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 				<Nav />
-				<main className='px-6 md:px-12 pt-8 md:pt-15 lg:pt[72px] lg:px-0 lg:ml-4 lg:w-[788px]'>
+				<MainContentWrapper styles='lg:w-[788px]'>
 						<HeaderInvoiceView />
 						<InvoiceDetails />
-				</main>
+				</MainContentWrapper>
 			</div>
 		</div>
 	);
