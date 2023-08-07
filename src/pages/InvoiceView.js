@@ -1,6 +1,6 @@
 // import React from "react";
 import { useSelector } from 'react-redux';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import HeaderInvoiceView from '../components/HeaderInvoiceView';
 import InvoiceDetails from '../components/InvoiceDetails';
@@ -11,12 +11,9 @@ import {MainContentWrapper} from "../UI/MainContentWrapper";
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
-
-	if (!invoice) {
-		return <div>Loading...</div>;
-	}
-
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
+
+	if (!invoice) return <div>Loading...</div>;
 
 	return (
 		<div inert={modalStatus ? '' : undefined}>

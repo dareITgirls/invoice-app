@@ -58,10 +58,10 @@ const HeaderInvoiceView = () => {
 			</div>
 			<div className="fixed bottom-0 left-0 sm:static flex items-center justify-between bg-light-100 dark:bg-dark-200 w-full p-5 sm:px-8 rounded-lg">
 				<div className='hidden sm:flex items-center'>
-					<span className='text-neutral-500 text-base/2 md:mr-5'>Status </span>
+					<span className='text-neutral-500 text-base/2 sm:mr-5'>Status </span>
 					<Label status={invoice.status} />
 				</div>
-				<div className="flex w-full sm:w-auto justify-between items-center">
+				<div className="flex w-full sm:w-auto justify-center items-center">
 					<Button
 						styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white hover:bg-neutral-200 px-6 mr-2'
 						title='Edit'
