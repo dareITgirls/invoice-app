@@ -19,7 +19,6 @@ export const Home = () => {
 		<>
 			{!modalStatus &&
 				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
-					<Nav />
 					<MainContentWrapper>
 						<HeaderHome />
 						<InvoiceList />
