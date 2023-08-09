@@ -15,10 +15,8 @@ export const useListItems = () => {
     }
 
         const renderList = () => {
-        setContent(values.items.map((_, index) => index === 0 ?
+        setContent(values.items.map((_, index) => index === 0 || res < 768 ?
                 <Item variant="item" index={0} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={`items[${index}].name`} clickHandler={() => renderList()} />
-            : res < 768 ?
-                <Item variant="item" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={`items[${index}].name`} clickHandler={() => renderList()} />
             :
                 <Item variant="no-label" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={`items[${index}].name`} clickHandler={() => renderList()} />))
     }
