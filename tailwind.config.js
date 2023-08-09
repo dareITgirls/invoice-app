@@ -21,6 +21,7 @@ module.exports = {
 			width: {
 				22: '5.63rem', // 90 px for button in mobile view
 				46: '9.375rem', // 150 px for button in desktop view
+				'2xl': '49rem', // 788 px for the mainContentWrapper
 			},
 
 			padding: {
@@ -28,6 +29,7 @@ module.exports = {
 				14.5: '3.6875rem', //59px
 				15: '3.8125rem', // 61px
 				39: '9.9375rem', //159px
+				18: '4.5rem', //72px
 			},
 
 			fontFamily: {
