@@ -15,6 +15,7 @@ export const Footer = () => {
     }
 
     const saveAsDraftHandler = () => {
+        console.log(values.id);
         values.status = 'draft';
         values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms);
         if (values.items.length > 0) {
