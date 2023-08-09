@@ -7,6 +7,7 @@ import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { FilterModal } from './FilterModal';
 
 export const HeaderHome = () => {
+	const loadingStatus = useSelector(state => state.invoices.status);
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
@@ -22,7 +23,9 @@ export const HeaderHome = () => {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
 	}
 	const openNewInvoice = () => {
-		dispatch(openNewFormModal());
+		if (loadingStatus !== 'loading') {
+			dispatch(openNewFormModal());
+		}
 	};
 
 	const displayFilter = () => {

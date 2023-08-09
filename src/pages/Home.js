@@ -5,6 +5,7 @@ import { MainContentWrapper} from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
 import {NewInvoice} from "../components/newInvoice/NewInvoice";
+import {Loader} from "../UI/Loader";
 import React from "react";
 
 
@@ -12,9 +13,6 @@ export const Home = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
-	if (loadingStatus === 'loading') {
-		return <div>LOADING</div>;
-	}
 	return (
 		<>
 			{!modalStatus &&
@@ -22,7 +20,7 @@ export const Home = () => {
 					<Nav/>
 					<MainContentWrapper>
 						<HeaderHome />
-						<InvoiceList />
+						{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
 					</MainContentWrapper>
 				</div>}
 			{modalStatus && <NewInvoice />}
