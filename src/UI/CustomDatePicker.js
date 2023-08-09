@@ -1,27 +1,26 @@
-import { useState } from 'react';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'; 
-import dayjs from 'dayjs'
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import { DesktopDatePicker } from '@mui/x-date-pickers';
 import { InputLabel } from '@mui/material';
-import { useFormikContext } from 'formik';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { today } from '../utils/invoiceSchema';
 import { CacheProvider } from '@emotion/react';
-import createCache from '@emotion/cache';
+import { useFormikContext } from 'formik';
+import dayjs from 'dayjs';
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
+import { useState } from 'react';
+import { selectInvoiceById } from "../store/invoicesSlice";
+import { today } from '../utils/invoiceSchema';
+import { cache } from '../utils/consts';
 
-//resetting most of mui styles
-const cache = createCache({
-  key: 'css',
-  prepend: true,
-});
 
 export const CustomDatePicker = () => {
-
+    const { invoiceId } = useParams();
+    const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
+    const date  = invoice ? invoice.createdAt : today
     const { setFieldValue, handleBlur } = useFormikContext();
-    //state only for mui satisfaction
-    const [value, setValue] = useState(dayjs(today));
-    
+    const [value, setValue] = useState(dayjs(date));
+   
     const changeDateHandler = (newValue) => {
         setValue(newValue);
         setFieldValue('createdAt', newValue);
@@ -30,23 +29,23 @@ export const CustomDatePicker = () => {
     return (
         <CacheProvider value={cache}>
             <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div className=" text-base/1 flex flex-col py-3 md:w-full">
-                <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</InputLabel>
-                <DesktopDatePicker
-                    className="rounded w-full cursor-pointer"
-                    name="createdAt"
-                    id="createdAt"
-                    inputFormat="DD MMM YYYY"
-                    views={["day"]}
-                    showDaysOutsideCurrentMonth={true}
-                    components={{
+                <div className="custom-container">
+                    <InputLabel htmlFor='createdAt' className="custom-label">Invoice Date</InputLabel>
+                    <DesktopDatePicker
+                        className="custom-wrapper"
+                        name="createdAt"
+                        id="createdAt"
+                        inputFormat="DD MMM YYYY"
+                        views={["day"]}
+                        showDaysOutsideCurrentMonth={true}
+                        components={{
                         openPickerIcon: CalendarTodayIcon,
-                    }}
-                    value={value}
-                    onChange={(newValue) => { changeDateHandler(newValue) }}
-                    onBlur={handleBlur}
+                        }}
+                        value={value}
+                        onChange={(newValue) => { changeDateHandler(newValue) }}
+                        onBlur={handleBlur}
                     />
-            </div>
+                </div>
             </LocalizationProvider>
         </CacheProvider>
     )
