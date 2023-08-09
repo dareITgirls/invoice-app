@@ -1,53 +1,57 @@
-import { useState } from 'react';
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'; 
-import dayjs from 'dayjs'
-import { DesktopDatePicker } from '@mui/x-date-pickers';
-import { InputLabel } from '@mui/material';
-import { useFormikContext } from 'formik';
-import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
-import { today } from '../utils/invoiceSchema';
-import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import { CacheProvider } from '@emotion/react';
+import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
+import { InputLabel } from '@mui/material';
+import { LocalizationProvider } from '@mui/x-date-pickers';
+import { DesktopDatePicker } from '@mui/x-date-pickers';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import dayjs from 'dayjs';
+import { useFormikContext } from 'formik';
+import { useState } from 'react';
+
+import { today } from '../utils/invoiceSchema';
 
 //resetting most of mui styles
 const cache = createCache({
-  key: 'css',
-  prepend: true,
+	key: 'css',
+	prepend: true,
 });
 
 export const CustomDatePicker = () => {
+	const { setFieldValue, handleBlur } = useFormikContext();
+	//state only for mui satisfaction
+	const [value, setValue] = useState(dayjs(today));
 
-    const { setFieldValue, handleBlur } = useFormikContext();
-    //state only for mui satisfaction
-    const [value, setValue] = useState(dayjs(today));
-    
-    const changeDateHandler = (newValue) => {
-        setValue(newValue);
-        setFieldValue('createdAt', newValue);
-    }
+	const changeDateHandler = newValue => {
+		setValue(newValue);
+		setFieldValue('createdAt', newValue);
+	};
 
-    return (
-        <CacheProvider value={cache}>
-            <LocalizationProvider dateAdapter={AdapterDayjs}>
-            <div className=" text-base/1 flex flex-col py-3 md:w-full">
-                <InputLabel htmlFor='createdAt' className="text-neutral-500 text-base/1">Invoice date</InputLabel>
-                <DesktopDatePicker
-                    className="rounded w-full cursor-pointer"
-                    name="createdAt"
-                    id="createdAt"
-                    inputFormat="DD MMM YYYY"
-                    views={["day"]}
-                    showDaysOutsideCurrentMonth={true}
-                    components={{
-                        openPickerIcon: CalendarTodayIcon,
-                    }}
-                    value={value}
-                    onChange={(newValue) => { changeDateHandler(newValue) }}
-                    onBlur={handleBlur}
-                    />
-            </div>
-            </LocalizationProvider>
-        </CacheProvider>
-    )
-}
+	return (
+		<CacheProvider value={cache}>
+			<LocalizationProvider dateAdapter={AdapterDayjs}>
+				<div className=' text-base/1 flex flex-col py-3 md:w-full'>
+					<InputLabel htmlFor='createdAt' className='text-neutral-500 text-base/1'>
+						Invoice date
+					</InputLabel>
+					<DesktopDatePicker
+						className='rounded w-full cursor-pointer'
+						name='createdAt'
+						id='createdAt'
+						inputFormat='DD MMM YYYY'
+						views={['day']}
+						showDaysOutsideCurrentMonth={true}
+						components={{
+							openPickerIcon: CalendarTodayIcon,
+						}}
+						value={value}
+						onChange={newValue => {
+							changeDateHandler(newValue);
+						}}
+						onBlur={handleBlur}
+					/>
+				</div>
+			</LocalizationProvider>
+		</CacheProvider>
+	);
+};
