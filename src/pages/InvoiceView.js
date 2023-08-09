@@ -19,7 +19,7 @@ const InvoiceView = () => {
 		<div inert={modalStatus ? '' : undefined}>
 			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 				<Nav />
-				<MainContentWrapper styles='lg:w-[788px]'>
+				<MainContentWrapper styles='lg:w-2xl'>
 						<HeaderInvoiceView />
 						<InvoiceDetails />
 				</MainContentWrapper>
