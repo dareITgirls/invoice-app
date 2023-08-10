@@ -2,11 +2,8 @@ import { useFormikContext } from 'formik';
 import { useDispatch } from "react-redux";
 import { addNewInvoice } from '../../store/invoicesActions';
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
-import { createInvoiceId } from '../../utils/consts';
+import { calculateInvoiceValues } from '../../utils/consts';
 import { Button } from '../../UI/Button';
-import { getItemTotal, getPaymentDue, getTotal } from '../../utils/consts';
-
-
 
 export const FooterNewInvoice = () => {
 
@@ -18,14 +15,9 @@ export const FooterNewInvoice = () => {
     }
 
     const saveAsDraftHandler = () => {
-        values.id = createInvoiceId();
         values.status = 'draft';
-        values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms);
-        if (values.items.length > 0) {
-            values.items.map((item) => item.total = getItemTotal(item))
-            values.total = getTotal(values.items);
-        } 
-        
+        calculateInvoiceValues(values);
+
         dispatch(addNewInvoice(values));
         resetForm();
         dispatch(closeNewFormModal());

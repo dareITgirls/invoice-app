@@ -6,8 +6,7 @@ import { editInvoice } from "../../store/invoicesActions";
 import { selectInvoiceById } from "../../store/invoicesSlice";
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
-import { getItemTotal, getPaymentDue, getTotal } from '../../utils/consts';
-import { createInvoiceId } from '../../utils/consts';
+import { calculateInvoiceValues } from '../../utils/consts';
 import { SignupSchema } from '../../utils/validation';
 import { invoiceSchema } from '../../utils/invoiceSchema';
 import { Modal } from '../Modal';
@@ -39,7 +38,6 @@ export const FormTemplate = (props) => {
     }
 
     const onSubmitHandler = (data) => {
-        console.log(data);
         type === 'edit' ? dispatch(editInvoice(data)) : dispatch(addNewInvoice(data));
         dispatch(closeNewFormModal());
     }
@@ -54,10 +52,7 @@ export const FormTemplate = (props) => {
                     validateOnBlur={true}
                     validateOnChange={true}
                     onSubmit={async (values, { resetForm }) => {
-                        values.id === '' ? values.id = createInvoiceId() : values.id;
-                        values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
-                        values.items.map((item) => item.total = getItemTotal(item))
-                        values.total = getTotal(values.items);
+                        calculateInvoiceValues(values);
                         await onSubmitHandler(values);   
                         resetForm();
                     }}>

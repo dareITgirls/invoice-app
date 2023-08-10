@@ -1,17 +1,17 @@
 import createCache from '@emotion/cache';
 export const invoices = "invoices";
 
-export const getItemTotal = (item) => {
+const getItemTotal = (item) => {
     if (item) {
         return (item.quantity * item.price).toFixed(2)
         }
     }
 
-export const getTotal = (items) => {
+const getTotal = (items) => {
     return items.map((item) => item.total).reduce((sum, num) => (parseFloat(sum) + parseFloat(num)).toFixed(2));
 }
     
-export const getPaymentDue = (createdAt, paymentTerms) => {
+const getPaymentDue = (createdAt, paymentTerms) => {
     const paymentDue = new Date();
     const date = new Date(createdAt)
     const dayInFuture = date.getDate() + Number(paymentTerms)
@@ -52,7 +52,7 @@ export const splitName = (name) => {
     return formatedDate;
 };
   
-   export const getRandomNumber = (min, max) => {
+   const getRandomNumber = (min, max) => {
     const minValue = Math.ceil(min);
     const maxValue = Math.floor(max);
     return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
@@ -62,5 +62,15 @@ export const splitName = (name) => {
 
    export const createInvoiceId = () => {
         return `${alphabet[getRandomNumber(0, alphabet.length - 1)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
+}
+
+    export const calculateInvoiceValues = (values) => {
+        values.id === '' ? values.id = createInvoiceId() : values.id;
+        values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
+        if (values.items.length > 0) {
+        values.items.map((item) => item.total = getItemTotal(item))
+        values.total = getTotal(values.items);
+        }
+    return values;
 }
 
