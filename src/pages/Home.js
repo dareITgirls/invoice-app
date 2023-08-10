@@ -1,10 +1,11 @@
-//Future todo - create Wrapper component for DRY rule
 import {useSelector} from 'react-redux';
 
+import { Nav} from "../components/Nav";
+import { MainContentWrapper} from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
-import { Nav } from '../components/Nav';
 import { NewInvoice } from "../components/forms/NewInvoice";
+
 
 
 export const Home = () => {
@@ -16,13 +17,14 @@ export const Home = () => {
 	}
 	return (
 		<>
-					<div className='flex flex-col relative lg:flex-row lg:justify-center'>
-						<Nav />
-						<main className='px-6 md:px-12 pt-8 md:pt-15'>
-							<HeaderHome />
-							<InvoiceList />
-						</main>
-					</div>
+			{!modalStatus &&
+				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+					<Nav/>
+					<MainContentWrapper>
+						<HeaderHome />
+						<InvoiceList />
+					</MainContentWrapper>
+				</div>}
 			{modalStatus && <NewInvoice />}
 		</>
 	);
