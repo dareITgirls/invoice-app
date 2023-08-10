@@ -58,6 +58,10 @@
 	color: #dfe3fa !important;
 }
 
+.MuiCircularProgress-root {
+	color: #7c5dfa !important
+}
+
 .ReactModal__Overlay {
     opacity: 0;
     transition: opacity 500ms ease-in-out;

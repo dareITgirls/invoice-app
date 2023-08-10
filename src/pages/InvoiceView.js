@@ -7,13 +7,13 @@ import InvoiceDetails from '../components/InvoiceDetails';
 import { Nav } from '../components/Nav';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import {MainContentWrapper} from "../UI/MainContentWrapper";
+import {Loader} from "../UI/Loader";
+import React from "react";
 
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
-
-	if (!invoice) return <div>Loading...</div>;
 
 	return (
 		<div inert={modalStatus ? '' : undefined}>
@@ -21,7 +21,7 @@ const InvoiceView = () => {
 				<Nav />
 				<MainContentWrapper styles='lg:w-2xl'>
 						<HeaderInvoiceView />
-						<InvoiceDetails />
+					{ !invoice ? <Loader/> : <InvoiceDetails />}
 				</MainContentWrapper>
 			</div>
 		</div>

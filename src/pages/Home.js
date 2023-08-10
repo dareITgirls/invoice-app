@@ -1,9 +1,10 @@
 import {useSelector} from 'react-redux';
 
-import { Nav} from "../components/Nav";
-import { MainContentWrapper} from "../UI/MainContentWrapper";
+import { Nav } from "../components/Nav";
+import { MainContentWrapper } from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
+import { Loader } from "../UI/Loader";
 import { NewInvoice } from "../components/forms/NewInvoice";
 
 
@@ -12,9 +13,6 @@ export const Home = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
-	if (loadingStatus === 'loading') {
-		return <div>LOADING</div>;
-	}
 	return (
 		<>
 			{!modalStatus &&
@@ -22,7 +20,7 @@ export const Home = () => {
 					<Nav/>
 					<MainContentWrapper>
 						<HeaderHome />
-						<InvoiceList />
+						{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
 					</MainContentWrapper>
 				</div>}
 			{modalStatus && <NewInvoice />}
