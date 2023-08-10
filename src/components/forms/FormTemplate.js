@@ -6,7 +6,8 @@ import { editInvoice } from "../../store/invoicesActions";
 import { selectInvoiceById } from "../../store/invoicesSlice";
 import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
-import { getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
+import { getItemTotal, getPaymentDue, getTotal } from '../../utils/consts';
+import { createInvoiceId } from '../../utils/consts';
 import { SignupSchema } from '../../utils/validation';
 import { invoiceSchema } from '../../utils/invoiceSchema';
 import { Modal } from '../Modal';
@@ -38,7 +39,7 @@ export const FormTemplate = (props) => {
     }
 
     const onSubmitHandler = (data) => {
-        type === 'edit' ? dispatch(editInvoice(data)) : dispatch(addNewInvoice(data))
+        type === 'edit' ? dispatch(editInvoice(data)) : dispatch(addNewInvoice(data));
         dispatch(closeNewFormModal());
     }
 
@@ -52,17 +53,18 @@ export const FormTemplate = (props) => {
                     validateOnBlur={true}
                     validateOnChange={true}
                     onSubmit={async (values, { resetForm }) => {
-                    values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
-                    values.items.map((item) => item.total = getItemTotal(item))
-                    values.total = getTotal(values.items);
-                    await onSubmitHandler(values);   
-                    resetForm();
-                }}>
+                        values.id = createInvoiceId();
+                        values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
+                        values.items.map((item) => item.total = getItemTotal(item))
+                        values.total = getTotal(values.items);
+                        await onSubmitHandler(values);   
+                        resetForm();
+                    }}>
                     <Form action="POST" className="px-6 py-5 md:pt-[52px] md:pl-13.5 md:pr-14 lg:pr-14 lg:pt-[50px]">
                         <BillFrom />
                         <BillTo />
-                    <ItemList />
-                    {type === 'new' ? <FooterNewInvoice /> :
+                        <ItemList />
+                        {type === 'new' ? <FooterNewInvoice /> :
                         <FooterEditInvoice /> }
                     </Form>
                 </Formik>

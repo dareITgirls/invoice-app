@@ -50,4 +50,17 @@ export const splitName = (name) => {
     const formatedDate = `${date[2]} ${date[1]} ${date[3]}`;
 
     return formatedDate;
-  };
+};
+  
+   export const getRandomNumber = (min, max) => {
+    const minValue = Math.ceil(min);
+    const maxValue = Math.floor(max);
+    return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
+    };
+
+    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+   export const createInvoiceId = () => {
+        return `${alphabet[getRandomNumber(0, alphabet.length - 1)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
+}
+
