@@ -25,6 +25,7 @@ export const FooterNewInvoice = () => {
             values.items.map((item) => item.total = getItemTotal(item))
 
             values.total = getTotal(values.items);
+            console.log(values.total);
         } 
         dispatch(addNewInvoice(values));
         resetForm();

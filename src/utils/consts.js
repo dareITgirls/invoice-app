@@ -8,7 +8,7 @@ export const getItemTotal = (item) => {
     }
 
 export const getTotal = (items) => {
-    return items.map((item) => item.total).reduce((sum, num) => parseFloat(sum) + parseFloat(num));
+    return items.map((item) => item.total).reduce((sum, num) => (parseFloat(sum) + parseFloat(num)).toFixed(2));
 }
     
 export const getPaymentDue = (createdAt, paymentTerms) => {
