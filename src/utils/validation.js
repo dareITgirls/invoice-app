@@ -1,7 +1,7 @@
 import * as Yup from "yup";
 
 const emailRegex = /^\w+([\.-]?\w+)+@\w+([\.:]?\w+)+(\.[a-zA-Z0-9]{1,3})+$/;
-const postCodeRegex = /\d{2}-\d{3}/;
+const postCodeRegex = /[a-zA-Z0-9 ]*$/;
 
 export const SignupSchema =
      Yup.object().shape({
@@ -9,7 +9,7 @@ export const SignupSchema =
             .required("can't be empty"),
         description: Yup.string()
             .min(1, "Description is too short")
-            .max(12, "Description is too long")
+            .max(25, "Description is too long")
             .required("can't be empty"),
         paymentTerms: Yup.string()
             .required("can't be empty"),
@@ -35,6 +35,8 @@ export const SignupSchema =
                 .required("can't be empty"),
             postCode: Yup.string()
                 .matches(postCodeRegex, "Please, provide valid post code")
+                .min(2, "Zipcode too short")
+                .max(10, "Zipcode too long")
                 .required("can't be empty"),
         }),
         clientAddress: Yup.object().shape({
@@ -52,16 +54,17 @@ export const SignupSchema =
                 .required("can't be empty"),
             postCode: Yup.string()
                 .matches(postCodeRegex, "please, provide valid post code")
+                .min(2, "Zipcode too short")
+                .max(10, "Zipcode too long")
                 .required("can't be empty"),
         }),
-         items: Yup.array(Yup.object().shape({
-            name: Yup.string().required(),
-            quantity: Yup.number().required(),              
-            price: Yup.number().required(),
+         items: Yup.array().of(Yup.object().shape({
+            name: Yup.string().min(3).max(25).required(),
+            quantity: Yup.number().min(1).max(100).required(),              
+            price: Yup.number().min(0.1).max(10000).required(),
         }),
         ),
     })
- //})
     
 
  

@@ -1,11 +1,11 @@
 import {useSelector} from 'react-redux';
 
-import {Nav} from "../components/Nav";
+import { Nav} from "../components/Nav";
 import { MainContentWrapper} from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
-import {NewInvoice} from "../components/newInvoice/NewInvoice";
-import React from "react";
+import { NewInvoice } from "../components/forms/NewInvoice";
+
 
 
 export const Home = () => {
