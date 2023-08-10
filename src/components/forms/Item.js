@@ -3,15 +3,15 @@ import { Input } from '../../UI/Input';
 import { ReactComponent as IconDelete } from '../../assets/icon-delete.svg';
 
 
-export const Item = (props) => {
-    const { index, clickHandler, itemName, itemQty, itemPrice, variant } = props;
+export const Item = ({ index, clickHandler, itemName, itemQty, itemPrice, variant }) => {
+    
     const { handleBlur, values, setFieldValue } = useFormikContext();
 
     const getItemTotal = (item) => {
         return item ? (item.quantity * item.price).toFixed(2) : null;
     }
 
-    const deleteItemHandler = (index) => {
+    const handleDeletingItem = (index) => {
         values.items.splice(index, 1);
         setFieldValue('items', values.items);
         clickHandler();
@@ -30,7 +30,7 @@ export const Item = (props) => {
                 <Input name={itemQty} variant={variant} id="Qty" label="Qty." type="number" onBlur={handleBlur}  classes="w-1/5 lg:w-0.9/3"/>
                 <Input name={itemPrice} variant={variant} id="price" label="Price" type="number" onBlur={handleBlur} classes="w-0.9/3 md:w-2.3/5 lg:w-3/5"/>
                 <Input name="itemTotal" variant={variant} id="total" label="Total:" value={ getItemTotal(values.items[index])} classes="w-1.1/4 lg:w-1.2/3"/>
-                <button type="button" onClick={() => deleteItemHandler(index)} className={classesButton}>
+                <button type="button" onClick={() => handleDeletingItem(index)} className={classesButton}>
                     <IconDelete className="fill-neutral-300 hover:fill-danger-150"/>
                 </button>
             </div>

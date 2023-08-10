@@ -21,12 +21,12 @@ export const useListItems = () => {
                 <Item variant="no-label" index={index} itemName={`items[${index}].name`} itemQty={`items[${index}].quantity`} itemPrice={`items[${index}].price`} key={`items[${index}].name`} clickHandler={() => renderList()} />))
     }
 
-        const addNewItemHandler = () => {
+        const handleAddingNewItem = () => {
         (values.items).push(emptyItem);
         renderList();
     }
 
     useEffect(() => { renderList() }, [])
     
-    return { content, addNewItemHandler }
+    return { content, handleAddingNewItem }
 }

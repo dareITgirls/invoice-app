@@ -6,7 +6,7 @@ import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 export const ItemList = () => {
 
     const { classesMainError, classesItemError } = useErrors();
-    const { content, addNewItemHandler } = useListItems();
+    const { content, handleAddingNewItem } = useListItems();
 
     return (
         <section className="pt-15 pb-17 md:pt-4 md:pb-0 lg:pt-[26px] lg:mb-[-3px]">
@@ -15,7 +15,7 @@ export const ItemList = () => {
                 {content}
             </ul>
             <Button styles="bg-neutral-100 dark:bg-dark-100 hover:bg-neutral-200 text-neutral-300 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
-            md:mb-[80px]  lg:mb-6" type="button" title="Add New Item" onClick={addNewItemHandler} >
+            md:mb-[80px]  lg:mb-6" type="button" title="Add New Item" onClick={handleAddingNewItem} >
                 <IconPlus className="scale-75 mb-[2px] mr-1"/>
             </Button>
             <p className={classesMainError}>All fields must be added</p>
