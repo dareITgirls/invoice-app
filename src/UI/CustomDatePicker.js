@@ -6,16 +6,21 @@ import { InputLabel } from '@mui/material';
 import { CacheProvider } from '@emotion/react';
 import { useFormikContext } from 'formik';
 import dayjs from 'dayjs';
+import { useSelector } from "react-redux";
+import { useParams } from 'react-router-dom';
 import { useState } from 'react';
+import { selectInvoiceById } from "../store/invoicesSlice";
 import { today } from '../utils/invoiceSchema';
 import { cache } from '../utils/consts';
 
 
 export const CustomDatePicker = () => {
-
+    const { invoiceId } = useParams();
+    const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
+    const date  = invoice ? invoice.createdAt : today
     const { setFieldValue, handleBlur } = useFormikContext();
-    const [value, setValue] = useState(dayjs(today));
-    
+    const [value, setValue] = useState(dayjs(date));
+   
     const changeDateHandler = (newValue) => {
         setValue(newValue);
         setFieldValue('createdAt', newValue);

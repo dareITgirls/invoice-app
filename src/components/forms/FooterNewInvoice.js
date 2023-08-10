@@ -5,7 +5,7 @@ import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
 import { Button } from '../../UI/Button';
 import { getItemTotal, getPaymentDue,getTotal } from '../../utils/consts';
 
-export const Footer = () => {
+export const FooterNewInvoice = () => {
 
     const { setFieldValue, values, resetForm } = useFormikContext();
     const dispatch = useDispatch();
@@ -21,7 +21,7 @@ export const Footer = () => {
         if (values.items.length > 0) {
             values.items.map((item) => item.total === getItemTotal(item))
             values.total = getTotal(values.items);
-        }   
+        } 
         dispatch(addNewInvoice(values));
         resetForm();
         dispatch(closeNewFormModal());

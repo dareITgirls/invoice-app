@@ -1,5 +1,7 @@
-import { initializeApp } from 'firebase/app';
+/* eslint-disable no-undef */
+
 import { getFirestore } from '@firebase/firestore';
+import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
 
