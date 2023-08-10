@@ -23,10 +23,9 @@ export const FooterNewInvoice = () => {
         values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms);
         if (values.items.length > 0) {
             values.items.map((item) => item.total = getItemTotal(item))
-
             values.total = getTotal(values.items);
-            console.log(values.total);
         } 
+        
         dispatch(addNewInvoice(values));
         resetForm();
         dispatch(closeNewFormModal());

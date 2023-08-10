@@ -39,6 +39,7 @@ export const FormTemplate = (props) => {
     }
 
     const onSubmitHandler = (data) => {
+        console.log(data);
         type === 'edit' ? dispatch(editInvoice(data)) : dispatch(addNewInvoice(data));
         dispatch(closeNewFormModal());
     }
@@ -53,7 +54,7 @@ export const FormTemplate = (props) => {
                     validateOnBlur={true}
                     validateOnChange={true}
                     onSubmit={async (values, { resetForm }) => {
-                        values.id = createInvoiceId();
+                        values.id === '' ? values.id = createInvoiceId() : values.id;
                         values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
                         values.items.map((item) => item.total = getItemTotal(item))
                         values.total = getTotal(values.items);
