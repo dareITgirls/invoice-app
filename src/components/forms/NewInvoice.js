@@ -21,7 +21,6 @@ export const NewInvoice = () => {
     }
 
     const onSubmitHandler = (data) => {
-        console.log(data);
         dispatch(addNewInvoice(data));
         dispatch(closeNewFormModal());
     }
