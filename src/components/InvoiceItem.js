@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
+import { changeDateFormat } from '../utils/consts'
 import { ReactComponent as ArrowRight } from "../assets/icon-arrow-right.svg";
 import { selectInvoiceById } from "../store/invoicesSlice";
 import Label from "../UI/Label";
@@ -8,11 +8,6 @@ import Label from "../UI/Label";
 // eslint-disable-next-line react/prop-types
 export const InvoiceItem = ({ id }) => {
   const invoice = useSelector((state) => selectInvoiceById(state, id));
-
-  const changeDateFormat = (givenDate) => {
-    const date = new Date(givenDate).toDateString().split(" ");
-    return `${date[2]} ${date[1]} ${date[3]}`;
-  };
 
   return (
     <Link to={`/invoices/${invoice.id}`}>
