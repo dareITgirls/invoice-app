@@ -15,10 +15,11 @@ export const FooterNewInvoice = () => {
     }
 
     const saveAsDraftHandler = () => {
+        console.log(values.id);
         values.status = 'draft';
         values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms);
         if (values.items.length > 0) {
-            values.items.map((item) => item.total = getItemTotal(item))
+            values.items.map((item) => item.total === getItemTotal(item))
             values.total = getTotal(values.items);
         } 
         dispatch(addNewInvoice(values));
@@ -27,7 +28,7 @@ export const FooterNewInvoice = () => {
     }
 
     return (
-        <footer className="flex items-center justify-between rounded-xl bg-white dark:bg-dark-300  md:fixed md:w-[72.8%] md:pr-[56px] md:bottom-0 md:pb-4 lg:static lg:w-full lg:pr-0 lg:mt-0 lg:mb-3">
+        <footer className="flex items-center justify-center gap-4 rounded-xl w-full pr-12 bg-white dark:bg-dark-300 fixed md:w-[80%] md:justify-between md:px-[56px] md:ml-[-54px] bottom-0 pb-4 lg:static lg:ml-0 lg:pl-0 lg:w-full lg:pr-0 lg:mt-0 lg:mb-3">
             <Button styles="bg-neutral-100 text-neutral-500" type="button" title="Discard" onClick={discardHandler} />
             <Button styles="bg-dark-500  text-neutral-300 dark:bg-dark-200 dark:text-neutral-200 md:hidden" type="button" title="Save as Draft" onClick={saveAsDraftHandler} />
             <Button styles="bg-primary-200 text-white md:hidden" type="submit" title="Save & Send" onClick={() => setFieldValue('status', 'pending')} />

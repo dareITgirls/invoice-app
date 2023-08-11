@@ -53,6 +53,15 @@ module.exports = {
 					},
 				],
 
+					'base/3': [
+					'0.8125rem', //13px
+					{
+						lineHeight: '0.9375rem',
+						letterSpacing: '-0.1px',
+						fontWeight: '500',
+					},
+				],
+
 				'md/1': [
 					'0.9375rem', //15px
 					{
@@ -67,6 +76,15 @@ module.exports = {
 					{
 						lineHeight: '1.5rem', //24px
 						letterSpacing: '-0.25px',
+						fontWeight: '700',
+					},
+				],
+
+					'md/3': [
+					'1.125rem', //18px
+					{
+						lineHeight: '2rem', //32px
+						letterSpacing: '-0.38px',
 						fontWeight: '700',
 					},
 				],
@@ -145,11 +163,19 @@ module.exports = {
 			},
 
 			spacing: {
+					2.5: '0.625rem', //10px
+				2.8: '0.875rem', //14px
+				3.3: '1.0625rem', //17px
 				0.5: '0.125rem', //2px
 				1.5: '0.375rem', //6px
 				3.5: '1.125rem', //18px
+				12.5: '3.125rem', //50px
+				13.5: '3.375rem', //54px
+				14: '3.5rem', //56px
+				17: '4.25rem', //68px
 				18: '4.5rem', //72px
 				26: '6.5rem', //104px
+				27: '6.75rem', //108px
 				49.5: '12.375rem', //198px
 			},
 

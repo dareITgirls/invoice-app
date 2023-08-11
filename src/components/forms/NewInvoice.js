@@ -21,14 +21,13 @@ export const NewInvoice = () => {
     }
 
     const onSubmitHandler = (data) => {
-        console.log(data);
         dispatch(addNewInvoice(data));
         dispatch(closeNewFormModal());
     }
 
     return (  
         <Modal >  
-            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-3/9 md:hidden" type="button" title="Go back" onClick={discardHandler}><IconArrowLeft/>Go back</button>
+            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-1/3 h-1 md:hidden" type="button" title="Go back" onClick={discardHandler}><IconArrowLeft/>Go back</button>
             <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">New Invoice</h1>
                 <Formik
                     initialValues={invoiceSchema}

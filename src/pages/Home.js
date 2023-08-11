@@ -15,14 +15,14 @@ export const Home = () => {
 
 	return (
 		<>
-			{!modalStatus &&
+			
 				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 					<Nav/>
 					<MainContentWrapper>
 						<HeaderHome />
 						{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
 					</MainContentWrapper>
-				</div>}
+				</div>
 			{modalStatus && <NewInvoice />}
 		</>
 	);
