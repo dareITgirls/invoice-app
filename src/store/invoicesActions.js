@@ -14,17 +14,21 @@ import { invoices } from "../utils/consts";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchInvoices",
-  async () => {
+  async (obj, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
     try {
       const querySnapshot = await getDocs(collection(db, invoices));
-      const data = [];
-      querySnapshot.forEach((doc) => {
+      if (querySnapshot.empty) {
+         return rejectWithValue('bubka')
+      }
+        const data = [];
+        querySnapshot.forEach((doc) => {
         data.push(doc.data());
-      });
-      return data;
+        });
+      return fulfillWithValue(data);
+      
     } catch (error) {
       console.error("Error fetching invoices:", error);
-      throw error;
+         throw rejectWithValue(error.message)
     }
   }
 );

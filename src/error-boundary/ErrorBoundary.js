@@ -1,11 +1,12 @@
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
 
-import { ErrorExampleComponentTest } from "./ErrorExampleComponentTest";
+import { ErrorExample } from "./ErrorExample";
 
-const ErrorBoundary = ({ children }) => {
+export const ErrorBoundary = ({ children }) => {
+
   const errorFallback = ({ error }) => {
-    if (error.code === "permission-denied") {
-      return <ErrorExampleComponentTest error={error} />;
+    if (error) {
+      return <ErrorExample error={error} />;
     } else {
       return <div>Oops! Something went wrong.</div>;
     }
@@ -18,4 +19,4 @@ const ErrorBoundary = ({ children }) => {
   );
 };
 
-export default ErrorBoundary;
+

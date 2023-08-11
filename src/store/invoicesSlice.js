@@ -29,6 +29,9 @@ const invoicesSlice = createSlice({
       .addCase(fetchInvoices.pending, (state, action) => {
         state.status = "loading";
       })
+      .addCase(fetchInvoices.rejected, (state, action) => {
+        state.status = action.payload
+      })
       .addCase(fetchInvoices.fulfilled, (state, action) => {
         const newEntities = {};
         action.payload.forEach((invoice) => {
