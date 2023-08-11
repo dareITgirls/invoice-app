@@ -1,12 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg'
-import { ReactComponent as IconPlus } from '../assets/icon-plus.svg'
-import { toggleFilterModalOpening } from "../store/filterModalSlice";
+import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
+import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
+import { toggleFilterModalOpening } from '../store/filterModalSlice';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
-import { FilterModal } from "./FilterModal";
+import { FilterModal } from './FilterModal';
 
 export const HeaderHome = () => {
+	const loadingStatus = useSelector(state => state.invoices.status);
 	const dispatch = useDispatch();
 
 	const invoices = useSelector(state => state.invoices.entities);
@@ -22,7 +23,9 @@ export const HeaderHome = () => {
 		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
 	}
 	const openNewInvoice = () => {
-		dispatch(openNewFormModal());
+		if (loadingStatus !== 'loading') {
+			dispatch(openNewFormModal());
+		}
 	};
 
 	const displayFilter = () => {
@@ -43,7 +46,7 @@ export const HeaderHome = () => {
 				<button
 					className='flex row-span-2 w-22 h-11 md:w-46 md:h-12 ml-5 justify-around items-center md:self-center bg-primary-200 rounded-3xl'
 					onClick={openNewInvoice}>
-					<div className='flex justify-center items-center w-8 h-8 bg-light-100 rounded-full p-2'>
+					<div className='flex justify-center items-center w-8 h-8 bg-light-100 rounded-full p-2 ml-2'>
 						<IconPlus />
 					</div>
 					<p className='text-light-100 text-md/2 pl-1 pr-3'>
@@ -56,4 +59,3 @@ export const HeaderHome = () => {
 		</div>
 	);
 };
-
