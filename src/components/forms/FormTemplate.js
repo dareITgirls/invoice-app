@@ -42,7 +42,7 @@ export const FormTemplate = ({ type }) => {
 
     return (  
         <Modal >  
-            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-3/9 md:hidden" type="button" title="Go back" onClick={handleDiscard}><IconArrowLeft/>Go back</button>
+            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-1/3 md:hidden" type="button" title="Go back" onClick={handleDiscard}><IconArrowLeft/>Go back</button>
             <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">{type === 'new' ? 'New Invoice' : `Edit #${getInvoiceValues().id}`}</h1>
                 <Formik
                     initialValues={type === 'new' ? invoiceSchema : getInvoiceValues()}
