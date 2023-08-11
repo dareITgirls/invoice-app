@@ -6,8 +6,10 @@ import { deleteInvoice, editInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { toggleInvoiceStatus } from '../store/invoicesSlice';
 import { closeNewFormModal, openNewFormModal } from '../store/newFormModalStatusSlice';
+import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
+import { EditInvoice } from './forms/EditInvoice';
 import BackArrow from "../assets/icon-arrow-left.svg";
 
 const HeaderInvoiceView = () => {
@@ -24,8 +26,8 @@ const HeaderInvoiceView = () => {
 	};
 
 	const handleEditInvoice = async () => {
-		const updatedInvoice = { ...invoice, status: 'paid' };
-		dispatch(editInvoice(updatedInvoice));
+		dispatch(openNewFormModal());
+		console.log('starting to edit...')
 	};
 
 	const handleDeleteInvoice = async () => {
@@ -37,11 +39,11 @@ const HeaderInvoiceView = () => {
 	};
 
 	const showModal = () => {
-		dispatch(openNewFormModal());
+		dispatch(openAlertModal());
 	};
 
 	const discardHandler = () => {
-		dispatch(closeNewFormModal());
+		dispatch(closeAlertModal());
 	};
 
 	return (
