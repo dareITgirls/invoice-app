@@ -42,11 +42,11 @@ Still under development:
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AIL4fc_UvNPGQGDTI_YuV50aVEiA60p3_GN7HgR5t9lXDqrsA3a3jzZuwn0Xzun8Xg21FkxrHnhVldlx5uO_TaMVh0DXv9caEH5C2Raxe9Ls-vhWJOH6mg=w2400)
 - Invoice details
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AIL4fc863oWIgGTwqDi01gO0gCR9WJjdz0JFkpxIpsMsUCbA--OJOkIQQfFy36o8JY93uqbfSkSWN8AdD0BN3RMNsFu01CQBoZZbN4ad2nhga0HTHbT0YA=w2400)
--Invoices filter
+- Invoices filter
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AIL4fc921GKB7Sk9ElkB895XBxdiJaMIOf4yy6sJhQr5PuYZbeiRKOrMUyB6oHHixcGBMgL7cl__5QrdtiGWI6deZK66pk2j7Q1GQdxWjXxoBGmzYfJsxA=w2400)
--Invoice form
+- Invoice form
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AIL4fc8ygcqsZKY99eD-hGlw-za4Zlv4xpgw3j3jWqLwafavXwxVEr2h8Oeyx1zHS4IwZVJIhO_xSbLl__hWHF01VNp4KAoH_gwsdFQTwbrvnNqRynIBMQ=w2400)
--Confirmation deletion modal
+- Confirmation deletion modal
 ![App Screenshot](https://lh3.googleusercontent.com/pw/AIL4fc_9mofcoEOA6bdl-JYbtPK4W7K4ZZ2-c3mx0BPyBuq48Q-g-StZvvZzJcVDBMgmQnXKvanUc-kLiFEJ2uzDo3RWMUcJUQP_GBWH_keoTZNxUg7s4g=w2400)
 
 
