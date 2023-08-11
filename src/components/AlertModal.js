@@ -1,7 +1,7 @@
 import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { closeNewFormModal } from '../store/newFormModalStatusSlice';
+import { closeAlertModal } from '../store/alertModalStatusSlice';
 
 ReactModal.setAppElement('#root');
 
@@ -9,11 +9,11 @@ export const AlertModal = props => {
 	// eslint-disable-next-line react/prop-types
 	const { children, invoiceId } = props;
 
-	const modalStatus = useSelector(state => state.newFormModalStatus.status);
+	const modalStatus = useSelector(state => state.alertModalStatus.status);
 	const dispatch = useDispatch();
 
 	const discardHandler = () => {
-		dispatch(closeNewFormModal());
+		dispatch(closeAlertModal());
 	};
 
 	return (

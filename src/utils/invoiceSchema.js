@@ -1,19 +1,7 @@
-   export const getRandomNumber = (min, max) => {
-    const minValue = Math.ceil(min);
-    const maxValue = Math.floor(max);
-    return Math.floor(Math.random() * (maxValue - minValue + 1)) + minValue;
-    };
-
-    const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-
-    const createInvoiceId = () => {
-        return `${alphabet[getRandomNumber(0, alphabet.length - 1)]}${alphabet[getRandomNumber(0, alphabet.length)]}${getRandomNumber(1, 9999)}`  
-}
-    
 export const today = new Date().toISOString().split('T')[0];
 
 export const invoiceSchema = {
-    id: createInvoiceId(),
+    id: "",
     createdAt: today,
     description: "",
     paymentTerms: "30",
@@ -35,12 +23,6 @@ export const invoiceSchema = {
     },
     items: [
         {
-            name: "",
-            quantity: 0,
-            price: 0,
-            total: 0
-        },
-          {
             name: "",
             quantity: 0,
             price: 0,

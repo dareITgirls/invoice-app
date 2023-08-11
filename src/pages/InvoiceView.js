@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import HeaderInvoiceView from '../components/HeaderInvoiceView';
 import InvoiceDetails from '../components/InvoiceDetails';
 import { Nav } from '../components/Nav';
+import { EditInvoice } from '../components/forms/EditInvoice';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import {MainContentWrapper} from "../UI/MainContentWrapper";
 import {Loader} from "../UI/Loader";
@@ -16,15 +17,18 @@ const InvoiceView = () => {
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
 	return (
-		<div inert={modalStatus ? '' : undefined}>
-			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
-				<Nav />
-				<MainContentWrapper styles='lg:w-2xl'>
+		<>
+			<div inert={modalStatus ? '' : undefined}>
+				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+					<Nav />
+					<MainContentWrapper styles='lg:w-2xl'>
 						<HeaderInvoiceView />
-					{ !invoice ? <Loader/> : <InvoiceDetails />}
-				</MainContentWrapper>
+						{ !invoice ? <Loader/> : <InvoiceDetails />}
+					</MainContentWrapper>
+				</div>
 			</div>
-		</div>
+			{modalStatus && <EditInvoice />}
+		</>
 	);
 };
 

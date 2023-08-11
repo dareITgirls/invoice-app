@@ -21,7 +21,7 @@ export const CustomDatePicker = () => {
     const { setFieldValue, handleBlur } = useFormikContext();
     const [value, setValue] = useState(dayjs(date));
    
-    const changeDateHandler = (newValue) => {
+    const handleChangingDate = (newValue) => {
         setValue(newValue);
         setFieldValue('createdAt', newValue);
     }
@@ -42,7 +42,7 @@ export const CustomDatePicker = () => {
                         openPickerIcon: CalendarTodayIcon,
                         }}
                         value={value}
-                        onChange={(newValue) => { changeDateHandler(newValue) }}
+                        onChange={(newValue) => { handleChangingDate(newValue) }}
                         onBlur={handleBlur}
                     />
                 </div>

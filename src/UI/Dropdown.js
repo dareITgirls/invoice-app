@@ -17,7 +17,7 @@ export const Dropdown = () => {
     const { setFieldValue, handleBlur } = useFormikContext();
     const [value, setValue] = useState(terms);
     
-    const changeValueHandler = (e) => {
+    const handleChangingValue = (e) => {
         setValue(e.target.value);
         setFieldValue('paymentTerms', e.target.value);
     }
@@ -31,7 +31,7 @@ export const Dropdown = () => {
                     name="paymentTerms"
                     id="payment-terms"
                     value={value}
-                    onChange={(e) => { changeValueHandler(e) }}
+                    onChange={(e) => { handleChangingValue(e) }}
                     onBlur={handleBlur}
                     IconComponent={ExpandMoreIcon}
              
