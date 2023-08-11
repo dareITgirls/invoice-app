@@ -1,15 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import {Link, useNavigate, useParams} from 'react-router-dom';
-
 import { AlertModal } from '../components/AlertModal';
 import { deleteInvoice, editInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { toggleInvoiceStatus } from '../store/invoicesSlice';
-import { closeNewFormModal, openNewFormModal } from '../store/newFormModalStatusSlice';
+import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
-import { EditInvoice } from './forms/EditInvoice';
 import BackArrow from "../assets/icon-arrow-left.svg";
 
 const HeaderInvoiceView = () => {
@@ -27,7 +25,6 @@ const HeaderInvoiceView = () => {
 
 	const handleEditInvoice = async () => {
 		dispatch(openNewFormModal());
-		console.log('starting to edit...')
 	};
 
 	const handleDeleteInvoice = async () => {
