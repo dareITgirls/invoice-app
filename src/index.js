@@ -18,7 +18,7 @@ root.render(
 				<Routes>
 					<Route path='/invoices/:invoiceId' element={<InvoiceView />} />
 					<Route path='/' element={<App />} />
-					<Route path='*' element={<Error />} />
+					<Route path='*' element={<Error title='The page you’re looking for can’t be found.' />} />
 				</Routes>
 			</Router>
 		</Provider>
