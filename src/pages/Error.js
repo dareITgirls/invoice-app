@@ -3,10 +3,11 @@ import { ReactComponent as NotFoundImg } from '../assets/not-found.svg';
 import { Nav } from '../components/Nav';
 import { GoBack } from '../UI/GoBack';
 import { MainContentWrapper } from '../UI/MainContentWrapper';
+import { PageContentWrapper } from '../UI/PageContentWrapper';
 
 export const Error = props => {
 	return (
-		<div className='flex flex-col lg:flex-row lg:justify-center'>
+		<PageContentWrapper>
 			<Nav />
 
 			<MainContentWrapper styles='lg:w-2xl'>
@@ -20,6 +21,6 @@ export const Error = props => {
 					<NotFoundImg />
 				</div>
 			</MainContentWrapper>
-		</div>
+		</PageContentWrapper>
 	);
 };
