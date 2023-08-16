@@ -18,7 +18,7 @@ export const fetchInvoices = createAsyncThunk(
     try {
       const querySnapshot = await getDocs(collection(db, invoices));
       if (querySnapshot.empty) {
-         return rejectWithValue('bubka')
+         return rejectWithValue('Ooops, there was a problem with fetching invoices...')
       }
         const data = [];
         querySnapshot.forEach((doc) => {
