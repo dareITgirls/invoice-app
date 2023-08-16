@@ -1,12 +1,12 @@
 import {useSelector} from 'react-redux';
 
-import {Nav} from "../components/Nav";
-import { MainContentWrapper} from "../UI/MainContentWrapper";
+import { Nav } from "../components/Nav";
+import { MainContentWrapper } from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
-import {NewInvoice} from "../components/newInvoice/NewInvoice";
-import {Loader} from "../UI/Loader";
-import React from "react";
+import { Loader } from "../UI/Loader";
+import { NewInvoice } from "../components/forms/NewInvoice";
+
 
 
 export const Home = () => {
@@ -15,14 +15,14 @@ export const Home = () => {
 
 	return (
 		<>
-			{!modalStatus &&
+			
 				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
 					<Nav/>
 					<MainContentWrapper>
 						<HeaderHome />
 						{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
 					</MainContentWrapper>
-				</div>}
+				</div>
 			{modalStatus && <NewInvoice />}
 		</>
 	);
