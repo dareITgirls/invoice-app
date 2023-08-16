@@ -25,12 +25,12 @@ module.exports = {
 			},
 
 			padding: {
-        13: '3.25rem', //52px
-				14.5: '3.6875rem', //59px
-				15: '3.8125rem', // 61px
-				39: '9.9375rem', //159px
-				18: '4.5rem', //72px
-			},
+						13: '3.25rem', //52px
+						14.5: '3.6875rem', //59px
+						15: '3.8125rem', // 61px
+						39: '9.9375rem', //159px
+						18: '4.5rem', //72px
+					},
 
 			fontFamily: {
 				sans: ['League Spartan', ...defaultTheme.fontFamily.sans],
