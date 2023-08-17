@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
-import { getFirestore } from "@firebase/firestore";
-import { initializeApp } from "firebase/app";
+
+import { getFirestore } from '@firebase/firestore';
+import { initializeApp } from 'firebase/app';
 
 const firebaseConfig = {
   apiKey: `${process.env.REACT_APP_API_KEY}`,

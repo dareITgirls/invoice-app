@@ -8,7 +8,6 @@ import { Home } from "./pages/Home";
 import { fetchInvoices } from "./store/invoicesActions";
 
 export const App = () => {
-
   const dispatch = useDispatch();
   const loadingStatus = useSelector((state) => state.invoices.status);
   const error = useSelector((state) => state.invoices.error);

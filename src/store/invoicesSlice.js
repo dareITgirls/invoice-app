@@ -8,7 +8,7 @@ import {
 } from "./invoicesActions";
 
 const initialState = {
-  status: "idle",
+  status: "none",
   entities: {},
   error: false
 };

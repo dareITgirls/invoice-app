@@ -16,6 +16,7 @@ export const InvoiceList = () => {
 
   if (invoicesNumber === 0 && appStatus === 'idle') return <EmptyInvoiceList />;
 
+
   return (
     <ul className='flex flex-col pt-8 md:pt-14 pb-26 gap-4'>
       {renderedListItems}
