@@ -10,6 +10,7 @@ import {
 const initialState = {
   status: "idle",
   entities: {},
+  error: false
 };
 
 const invoicesSlice = createSlice({
@@ -30,7 +31,8 @@ const invoicesSlice = createSlice({
         state.status = "loading";
       })
       .addCase(fetchInvoices.rejected, (state, action) => {
-        state.status = action.payload
+        state.status = 'rejected';
+        state.error = {message: action.payload};
       })
       .addCase(fetchInvoices.fulfilled, (state, action) => {
         const newEntities = {};

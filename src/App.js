@@ -8,17 +8,35 @@ import { Home } from "./pages/Home";
 import { fetchInvoices } from "./store/invoicesActions";
 
 export const App = () => {
-  const [error, setError] = useState(null)
+
   const dispatch = useDispatch();
   const loadingStatus = useSelector((state) => state.invoices.status);
+  const error = useSelector((state) => state.invoices.error);
 
   useEffect(() => {
-    dispatch(fetchInvoices())
+      dispatch(fetchInvoices());
+
   }, [dispatch]);
 
+  function ErrorFallback({ error, resetErrorBoundary }) {
   return (
-    <ErrorBoundary fallback={<div className="text-xl text-red-500">there is an error</div>}>
-      <Home />
+    <div role="alert">
+      <p>Something went wrong:</p>
+      <pre>{error.message}</pre>
+      <button onClick={resetErrorBoundary}>Try again</button>
+    </div>
+  )
+}
+
+  function logErrorToService(error) {
+  console.error("Caught an error:", error);
+}
+
+  return (
+    <ErrorBoundary FallbackComponent={ErrorFallback} onError={logErrorToService}>
+    
+      {!error && <Home />}
+      {error && <ErrorFallback error={error} />}
     </ErrorBoundary>
   );
 };
