@@ -9,6 +9,7 @@ import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
 import { AlertModal } from './AlertModal';
+import {GoBack} from "../UI/GoBack";
 
 const HeaderInvoiceView = () => {
 
@@ -42,12 +43,7 @@ const HeaderInvoiceView = () => {
 
 	return (
 		<>
-			<Link to={`/`}>
-				<div role='button' className='flex items-center mb-8 md:mb-8 md:w-4/5 md:m-0 xl:w-1/2 2xl:w-1/3'>
-					<img src={BackArrow} alt='back arrow' className='ml-2'></img>
-					<span className='text-dark-300 dark:text-light-100 text-md/1 ml-3'>Go back</span>
-				</div>
-			</Link>
+			<GoBack/>
 			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
 				<span className='text-neutral-500 text-base/2'>Status</span>
 				<Label status={invoice.status} />
