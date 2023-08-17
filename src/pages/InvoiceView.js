@@ -1,15 +1,16 @@
 // import React from "react";
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
+import { EditInvoice } from '../components/forms/EditInvoice';
 import HeaderInvoiceView from '../components/HeaderInvoiceView';
 import InvoiceDetails from '../components/InvoiceDetails';
 import { Nav } from '../components/Nav';
-import { EditInvoice } from '../components/forms/EditInvoice';
 import { selectInvoiceById } from '../store/invoicesSlice';
-import {MainContentWrapper} from "../UI/MainContentWrapper";
-import {Loader} from "../UI/Loader";
-import React from "react";
+import { Loader } from '../UI/Loader';
+import { MainContentWrapper } from '../UI/MainContentWrapper';
+import { PageContentWrapper } from '../UI/PageContentWrapper';
 
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
@@ -19,13 +20,13 @@ const InvoiceView = () => {
 	return (
 		<>
 			<div inert={modalStatus ? '' : undefined}>
-				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+				<PageContentWrapper>
 					<Nav />
 					<MainContentWrapper styles='lg:w-2xl'>
 						<HeaderInvoiceView />
-						{ !invoice ? <Loader/> : <InvoiceDetails />}
+						{!invoice ? <Loader /> : <InvoiceDetails />}
 					</MainContentWrapper>
-				</div>
+				</PageContentWrapper>
 			</div>
 			{modalStatus && <EditInvoice />}
 		</>
