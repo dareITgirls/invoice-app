@@ -27,12 +27,12 @@ const invoicesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchInvoices.pending, (state, action) => {
+      .addCase(fetchInvoices.pending, (state) => {
         state.status = "loading";
       })
       .addCase(fetchInvoices.rejected, (state, action) => {
         state.status = 'rejected';
-        state.error = {message: action.payload};
+        state.error = { message: action.payload };
       })
       .addCase(fetchInvoices.fulfilled, (state, action) => {
         const newEntities = {};
@@ -46,13 +46,25 @@ const invoicesSlice = createSlice({
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
       })
+      .addCase(addNewInvoice.rejected, (state, action) => {
+       state.status = 'rejected';
+        state.error = { message: action.payload };
+      })
       .addCase(editInvoice.fulfilled, (state, action) => {
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
       })
+         .addCase(editInvoice.rejected, (state, action) => {
+       state.status = 'rejected';
+        state.error = { message: action.payload };
+      })
       .addCase(deleteInvoice.fulfilled, (state, action) => {
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
+      })
+        .addCase(deleteInvoice.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = { message: action.payload };
       })
       .addCase(toggleInvoiceStatus, (state, action) => {
         const invoiceId = action.payload;

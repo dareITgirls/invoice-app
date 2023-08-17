@@ -4,9 +4,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
 import { App } from './App';
-import { Error } from './pages/Error';
+import { ErrorPage } from './pages/Error';
 import InvoiceView from './pages/InvoiceView';
 import { store } from './store/store';
 
@@ -18,7 +17,7 @@ root.render(
 				<Routes>
 					<Route path='/invoices/:invoiceId' element={<InvoiceView />} />
 					<Route path='/' element={<App />} />
-					<Route path='*' element={<Error title='The page you’re looking for can’t be found.' />} />
+          <Route path='*' element={<ErrorPage error={{ message: 'The page you’re looking for can’t be found.' }} />} />
 				</Routes>
 			</Router>
 		</Provider>

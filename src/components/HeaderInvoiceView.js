@@ -11,7 +11,7 @@ import { Button } from '../UI/Button';
 import { GoBack } from '../UI/GoBack';
 import Label from '../UI/Label';
 
-const HeaderInvoiceView = () => {
+export const HeaderInvoiceView = () => {
 	const { invoiceId } = useParams();
 
 	const dispatch = useDispatch();
@@ -89,4 +89,3 @@ const HeaderInvoiceView = () => {
 	);
 };
 
-export default HeaderInvoiceView;

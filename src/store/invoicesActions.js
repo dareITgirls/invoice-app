@@ -14,11 +14,11 @@ import { invoices } from "../utils/consts";
 
 export const fetchInvoices = createAsyncThunk(
   "invoices/fetchInvoices",
-  async (obj, {dispatch, getState, rejectWithValue, fulfillWithValue}) => {
+  async (obj, {rejectWithValue, fulfillWithValue}) => {
     try {
       const querySnapshot = await getDocs(collection(db, invoices));
       if (querySnapshot.empty) {
-         throw rejectWithValue('Ooops, there was a problem with fetching invoices...')
+         throw rejectWithValue('there was a problem with fetching invoices...')
       }
         const data = [];
         querySnapshot.forEach((doc) => {
@@ -27,47 +27,47 @@ export const fetchInvoices = createAsyncThunk(
       return fulfillWithValue(data);
       
     } catch (error) {
-      console.error("Error fetching invoices:", error);
-         return rejectWithValue(error.payload)
+      console.error("Error fetching invoices: ", error);
+      return rejectWithValue(error.payload)
     }
   }
 );
 
 export const addNewInvoice = createAsyncThunk(
   "invoices/addInvoice",
-  async (invoiceToAdd) => {
+  async (invoiceToAdd, {rejectWithValue, fulfillWithValue}) => {
     try {
       await setDoc(doc(db, invoices, invoiceToAdd.id), invoiceToAdd);
-      return invoiceToAdd;
+      return fulfillWithValue(invoiceToAdd)
     } catch (error) {
       console.error("Error adding invoice:", error);
-      throw error;
+      rejectWithValue(error)
     }
   }
 );
 
 export const editInvoice = createAsyncThunk(
   "invoices/editInvoice",
-  async (invoiceToEdit) => {
+  async (invoiceToEdit, {rejectWithValue, fulfillWithValue}) => {
     try {
       await updateDoc(doc(db, invoices, invoiceToEdit.id), invoiceToEdit);
-      return invoiceToEdit;
+      return fulfillWithValue(invoiceToEdit);
     } catch (error) {
-      console.error("Error editing invoice:", error);
-      throw error;
+      console.error("Error editing invoice: ", error);
+      rejectWithValue(error)
     }
   }
 );
 
 export const deleteInvoice = createAsyncThunk(
   "invoices/deleteInvoice",
-  async (invoiceID) => {
+  async (invoiceID, {rejectWithValue, fulfillWithValue}) => {
     try {
       await deleteDoc(doc(db, invoices, invoiceID));
-      return invoiceID;
+      return fulfillWithValue(invoiceID);
     } catch (error) {
       console.error("Error deleting invoice:", error);
-      throw error;
+      rejectWithValue(error)
     }
   }
 );

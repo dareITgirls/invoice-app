@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import { Nav } from "../components/Nav";
 import { MainContentWrapper } from "../UI/MainContentWrapper";
 import { HeaderHome } from '../components/HeaderHome';
@@ -8,6 +9,11 @@ import { NewInvoice } from "../components/forms/NewInvoice";
 
 export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
+  //TODO: delete this comment, just to showcase errorboundary
+  // if (loadingStatus === 'loading') {
+  //   return <div>loadng....</div>
+  // }
+
   const modalStatus = useSelector((state) => state.newFormModalStatus.status);
 
 	return (
