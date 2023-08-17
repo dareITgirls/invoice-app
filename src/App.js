@@ -17,7 +17,6 @@ export const App = () => {
 
   return (
     <ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
-    
       {!error && <Home />}
       {error && <ErrorPage error={error} />}
     </ErrorBoundary>
