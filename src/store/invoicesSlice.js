@@ -49,13 +49,12 @@ const invoicesSlice = createSlice({
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
       })
-      .addCase(toggleInvoiceStatus, (state, action) => {
-        const invoiceId = action.payload;
-        const invoice = state.entities[invoiceId];
-        if (invoice) {
+
+        .addCase(toggleInvoiceStatus, (state, action) => {
+          const invoiceId = action.payload;
+          const invoice = state.entities[invoiceId];
           invoice.status = invoice.status === "paid" ? "pending" : "paid";
-        }
-      });
+        });
   },
 });
 

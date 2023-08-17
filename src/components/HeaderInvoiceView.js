@@ -1,52 +1,53 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom';
+import {Link, useNavigate, useParams} from 'react-router-dom';
 
-import { AlertModal } from '../components/AlertModal';
+import BackArrow from "../assets/icon-arrow-left.svg";
 import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
 import { deleteInvoice, editInvoice } from '../store/invoicesActions';
-import { selectInvoiceById } from '../store/invoicesSlice';
-import { toggleInvoiceStatus } from '../store/invoicesSlice';
+import {selectInvoiceById, toggleInvoiceStatus} from '../store/invoicesSlice';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from '../UI/Button';
-import { GoBack } from '../UI/GoBack';
 import Label from '../UI/Label';
+import { AlertModal } from './AlertModal';
 
 const HeaderInvoiceView = () => {
+
 	const { invoiceId } = useParams();
-
-	const dispatch = useDispatch();
-
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
-
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
-
-	const handleChangeStatusInvoice = () => {
-		dispatch(toggleInvoiceStatus(invoiceId));
-	};
 
 	const handleEditInvoice = async () => {
 		dispatch(openNewFormModal());
 	};
 
+	const showAlertModal = () => {
+		dispatch(openAlertModal());
+	};
+	const discardAlertModal = () => {
+		dispatch(closeAlertModal());
+	};
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
-			discardHandler();
+			discardAlertModal();
 			navigate('/');
 		}
 	};
-
-	const showModal = () => {
-		dispatch(openAlertModal());
-	};
-
-	const discardHandler = () => {
-		dispatch(closeAlertModal());
+	const handleChangeStatusInvoice = () => {
+		const invoiceCloned = structuredClone(invoice)
+		invoiceCloned.status = invoiceCloned.status === "paid" ? "pending" : "paid";
+		dispatch(editInvoice(invoiceCloned))
 	};
 
 	return (
 		<>
-			<GoBack />
+			<Link to={`/`}>
+				<div role='button' className='flex items-center mb-8 md:mb-8 md:w-4/5 md:m-0 xl:w-1/2 2xl:w-1/3'>
+					<img src={BackArrow} alt='back arrow' className='ml-2'></img>
+					<span className='text-dark-300 dark:text-light-100 text-md/1 ml-3'>Go back</span>
+				</div>
+			</Link>
 			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
 				<span className='text-neutral-500 text-base/2'>Status</span>
 				<Label status={invoice.status} />
@@ -62,10 +63,10 @@ const HeaderInvoiceView = () => {
 						title='Edit'
 						onClick={handleEditInvoice}
 					/>
-					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showModal} />
+					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showAlertModal} />
 					<Button
 						disabled={invoice.status === 'draft' ? true : false}
-						styles={invoice.status === 'draft' ? 'bg-neutral-300 text-white w-36 md:px-4' : 'bg-primary-200 text-white hover:bg-danger-100 w-36 md:px-4'}
+						styles={invoice.status === 'draft' ? 'bg-neutral-300 text-white w-40 md:px-4' : 'bg-primary-200 text-white hover:bg-danger-100 w-40 md:px-4'}
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 						onClick={handleChangeStatusInvoice}
@@ -74,7 +75,7 @@ const HeaderInvoiceView = () => {
 			</div>
 			<AlertModal invoiceId={invoiceId}>
 				<Button
-					onClick={discardHandler}
+					onClick={discardAlertModal}
 					styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500'
 					title='Cancel'
 					type='button'
