@@ -46,7 +46,7 @@ const HeaderInvoiceView = () => {
 
 	return (
 		<>
-			<GoBack />
+			<GoBack title="Go back"/>
 			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
 				<span className='text-neutral-500 text-base/2'>Status</span>
 				<Label status={invoice.status} />
