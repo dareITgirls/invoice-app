@@ -1,4 +1,3 @@
-// import React from "react";
 import React from 'react';
 import { ErrorBoundary } from "react-error-boundary";
 import { useSelector } from 'react-redux';
@@ -18,6 +17,11 @@ const InvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const modalStatus = useSelector(state => state.newFormModalStatus.status);
+	const error = useSelector((state) => state.invoices.error);
+
+	if (error) {
+		throw new Error(error.message)
+	}
 
 	return (
 		<ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>

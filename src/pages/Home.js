@@ -9,6 +9,12 @@ import { NewInvoice } from "../components/forms/NewInvoice";
 
 export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
+  const error = useSelector((state) => state.invoices.error);
+
+  //take care of asynchronous errors and throw them in runtime
+  if (error) {
+    throw new Error(error.message)
+  }
   //TODO: delete this comment, just to showcase errorboundary
   // if (loadingStatus === 'loading') {
   //   return <div>loadng....</div>
