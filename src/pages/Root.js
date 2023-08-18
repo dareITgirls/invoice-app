@@ -1,7 +1,7 @@
 import {Outlet} from 'react-router-dom'
 
 import { Nav } from "../components/Nav";
-import { useAuth } from '../providers/AuthProvider';
+import { useAuth } from '../hooks/useAuth';
 import { GoBack } from '../UI/GoBack';
 export const Root = () => {
 

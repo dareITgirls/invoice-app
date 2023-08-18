@@ -4,10 +4,12 @@ import { onAuthStateChanged, signInWithPopup, signOut } from 'firebase/auth';
 import React, {useContext,useState} from 'react';
 
 import { auth, provider } from '../firebase-config/firebase';
+import { useAuth } from '../hooks/useAuth';
 
-const AuthContext = React.createContext({});
+export const AuthContext = React.createContext({});
 
 export const AuthProvider = ({children}) => {
+
     const [user, setUserData] = useState(null);
     
         onAuthStateChanged(auth, user => {
@@ -38,11 +40,3 @@ export const AuthProvider = ({children}) => {
     )
 }
 
-export const useAuth = () => {
-	const auth = useContext(AuthContext);
-
-	if (!auth) {
-		throw Error('useAuth needs to be used inside AuthContext  Provider');
-	}
-	return auth;
-};

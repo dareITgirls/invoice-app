@@ -4,7 +4,7 @@ import { ReactComponent as IconSun } from '../assets/icon-sun.svg';
 // import imageAvatar from '../assets/imageAvatar.jpg';
 import { ReactComponent as IconLogo } from '../assets/logo.svg';
 import { useDarkMode } from '../hooks/useDarkMode';
-import { useAuth } from '../providers/AuthProvider';
+import { useAuth } from '../hooks/useAuth';
 
 export const Nav = () => {
 	const [handleTheme, theme] = useDarkMode();
