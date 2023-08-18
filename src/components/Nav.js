@@ -1,26 +1,15 @@
 //Future todo: consider what to do with a user avatar - what functionality should it has?
-import { signInWithPopup } from 'firebase/auth';
-
 import { ReactComponent as IconMoon } from '../assets/icon-moon.svg';
 import { ReactComponent as IconSun } from '../assets/icon-sun.svg';
-import imageAvatar from '../assets/imageAvatar.jpg';
+// import imageAvatar from '../assets/imageAvatar.jpg';
 import { ReactComponent as IconLogo } from '../assets/logo.svg';
-import { auth, provider } from '../firebase-config/firebase';
 import { useDarkMode } from '../hooks/useDarkMode';
+import { useAuth } from '../providers/AuthProvider';
 
 export const Nav = () => {
 	const [handleTheme, theme] = useDarkMode();
 
-	const handleSignIn = async () => {
-		try {
-			const authResult = await signInWithPopup(auth, provider);
-		} catch (e) {
-			console.log(e);
-		}
-	};
-
-	const handleSignOut = async () => {};
-
+	const { user, handleSignIn, handleSignOut } = useAuth();
 	return (
 		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-screen lg:w-fit lg:flex-col lg:rounded-r-2xl sticky lg:fixed top-0 left-0'>
 			<div className='relative bg-primary-200 w-18 h-18 flex items-center justify-center rounded-r-2xl after:absolute after:h-1/2 after:bg-primary-100 after:w-full after:bottom-0 after:rounded-tl-2xl after:rounded-br-2xl md:w-20 md:h-20 lg:w-26 lg:h-26'>
@@ -38,14 +27,17 @@ export const Nav = () => {
 						<IconMoon className='hover:fill-neutral-200 transition duration-300' />
 					)}
 				</button>
+				<p>{user ? user.displayName : ''}</p>
 				<div>
-					<button onClick={handleSignIn}>Sign in</button>
-					<button onClick={handleSignOut}>Sign out</button>
+					<button onClick={user ? handleSignOut : handleSignIn}>{user ? 'Sign out' : 'Sign in'}</button>
 				</div>
-				<button aria-label='User account' title='User account' className='px-6 h-full md:px-8 lg:py-6'>
-					<img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={imageAvatar} alt='User' />
-				</button>
 			</nav>
 		</header>
 	);
 };
+
+// <button aria-label='User account' title='User account' className='px-6 h-full md:px-8 lg:py-6'>
+{
+	/* <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={imageAvatar} alt='User' />
+</button> */
+}
