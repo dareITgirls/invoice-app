@@ -11,13 +11,13 @@ const {user} = useAuth();
         <>
             <Nav />
 
-            <div className="flex flex-col justify-center items-center mt-10">
+            <main className="flex flex-col justify-center items-center mt-10">
                 <h1>{user ? 'Hello ' + user.displayName + '!' : 'To see invoice list please sign in!'}</h1>
 
                  {user ? <GoBack title="Go to invoices"/> : ""} 
-                 
+
                   <Outlet />
-            </div>
+            </main>
         </>
     )
 }
