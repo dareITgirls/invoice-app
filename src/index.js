@@ -18,12 +18,15 @@ const router = createBrowserRouter(
 	createRoutesFromElements(
 		<>
 			<Route path='/' element={<Root />} />
+
 			<Route path='/invoices' element={<ProtectedRoute />}>
 				<Route index element={<App />} />
 			</Route>
+
 			<Route path=':invoiceId' element={<ProtectedRoute />}>
 				<Route index element={<InvoiceView />} />
 			</Route>
+			
 			<Route path='*' element={<Error title='The page you’re looking for can’t be found.' />} />
 		</>
 	)
