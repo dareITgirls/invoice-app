@@ -10,7 +10,6 @@ import { ProtectedRoute } from './helpers/ProtectedRoute';
 import { Error } from './pages/Error';
 import InvoiceView from './pages/InvoiceView';
 import { Root } from './pages/Root';
-import { AuthProvider } from './providers/AuthProvider';
 import { store } from './store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -33,10 +32,8 @@ const router = createBrowserRouter(
 );
 root.render(
 	<React.StrictMode>
-		<AuthProvider>
 			<Provider store={store}>
 				<RouterProvider router={router} />
 			</Provider>
-		</AuthProvider>
 	</React.StrictMode>
 );
