@@ -1,9 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+
+import alertModalStatusSlice from './alertModalStatusSlice';
+import authSlice from "./authSlice";
 import filterModalSlice from "./filterModalSlice";
 import invoicesSlice from "./invoicesSlice";
 import newFormModalStatusSlice from "./newFormModalStatusSlice";
-import alertModalStatusSlice from './alertModalStatusSlice';
-
 
 export const store = configureStore({
     reducer: {
@@ -11,5 +12,6 @@ export const store = configureStore({
         newFormModalStatus: newFormModalStatusSlice,
         alertModalStatus: alertModalStatusSlice,
         filterModal: filterModalSlice,
+        authSlice: authSlice,
     },
 })
