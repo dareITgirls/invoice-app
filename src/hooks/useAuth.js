@@ -39,5 +39,5 @@ export const useAuth = () => {
 		}
 	};
 
-	return { handleSignOut, handleSignIn, setUser, user };
+	return { handleSignOut, handleSignIn, user };
 };
