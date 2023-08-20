@@ -32,7 +32,7 @@ export const Nav = () => {
 				</button>
 
 				<div className='p-4 flex flex-col items-center'>
-					{ user ? <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user.photoURL} alt='User' /> : ''}
+					{ user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user.photoURL} alt='User' /> }
 					<button
 						className='p-2 text-neutral-500 hover:text-neutral-200 transition duration-300'
 						onClick={isLoggedIn ? handleSignOut : handleSignIn}>
