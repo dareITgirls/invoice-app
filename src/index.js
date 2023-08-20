@@ -25,15 +25,15 @@ const router = createBrowserRouter(
 			<Route path=':invoiceId' element={<ProtectedRoute />}>
 				<Route index element={<InvoiceView />} />
 			</Route>
-			
+
 			<Route path='*' element={<Error title='The page you’re looking for can’t be found.' />} />
 		</>
 	)
 );
 root.render(
 	<React.StrictMode>
-			<Provider store={store}>
-				<RouterProvider router={router} />
-			</Provider>
+		<Provider store={store}>
+			<RouterProvider router={router} />
+		</Provider>
 	</React.StrictMode>
 );

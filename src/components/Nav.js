@@ -1,4 +1,4 @@
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux';
 
 import { ReactComponent as IconMoon } from '../assets/icon-moon.svg';
 import { ReactComponent as IconSun } from '../assets/icon-sun.svg';
@@ -9,9 +9,9 @@ import { useDarkMode } from '../hooks/useDarkMode';
 export const Nav = () => {
 	const [handleTheme, theme] = useDarkMode();
 
-	const {handleSignIn, handleSignOut, user} = useAuth();
+	const { handleSignIn, handleSignOut, user } = useAuth();
 
-	const isLoggedIn = useSelector(state => state.authSlice.isLoggedIn)
+	const isLoggedIn = useSelector(state => state.authSlice.isLoggedIn);
 
 	return (
 		<header className='flex justify-between items-center bg-dark-200 w-full lg:min-h-screen lg:w-fit lg:flex-col lg:rounded-r-2xl sticky lg:fixed top-0 left-0'>
@@ -32,7 +32,7 @@ export const Nav = () => {
 				</button>
 
 				<div className='p-4 flex flex-col items-center'>
-					{ user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user.photoURL} alt='User' /> }
+					{user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user.photoURL} alt='User' />}
 					<button
 						className='p-2 text-neutral-500 hover:text-neutral-200 transition duration-300'
 						onClick={isLoggedIn ? handleSignOut : handleSignIn}>
