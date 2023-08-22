@@ -1,7 +1,7 @@
 import { createSelector, createSlice, createAction } from "@reduxjs/toolkit";
 
 import {
-  addNewInvoice,
+  addNewInvoice, changeInvoiceStatus,
   deleteInvoice,
   editInvoice,
   fetchInvoices,
@@ -45,17 +45,14 @@ const invoicesSlice = createSlice({
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
       })
+      .addCase(changeInvoiceStatus.fulfilled, (state, action) => {
+        const invoice = action.payload;
+        state.entities[invoice.id] = invoice;
+      })
       .addCase(deleteInvoice.fulfilled, (state, action) => {
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
       })
-      .addCase(toggleInvoiceStatus, (state, action) => {
-        const invoiceId = action.payload;
-        const invoice = state.entities[invoiceId];
-        if (invoice) {
-          invoice.status = invoice.status === "paid" ? "pending" : "paid";
-        }
-      });
   },
 });
 
