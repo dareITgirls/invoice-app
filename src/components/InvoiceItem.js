@@ -10,7 +10,7 @@ export const InvoiceItem = ({ id }) => {
   const invoice = useSelector((state) => selectInvoiceById(state, id));
 
   return (
-    <Link to={`/invoices/${invoice.id}`}>
+    <Link to={`/${invoice.id}`}>
       <li className='bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg hover:border hover:border-primary-200 cursor-pointer'>
         <table className='w-full'>
           <tbody>
