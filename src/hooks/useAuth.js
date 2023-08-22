@@ -18,7 +18,7 @@ export const useAuth = () => {
 
 	const handleSignIn = async () => {
 		try {
-			const authResult = await signInWithPopup(auth, provider);
+			await signInWithPopup(auth, provider);
 		} catch (e) {
 			console.log(e);
 		}
