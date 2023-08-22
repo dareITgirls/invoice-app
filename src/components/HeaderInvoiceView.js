@@ -1,15 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {Link, useNavigate, useParams} from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 
-import BackArrow from "../assets/icon-arrow-left.svg";
+
 import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
-import {changeInvoiceStatus, deleteInvoice, editInvoice} from '../store/invoicesActions';
-import {selectInvoiceById, toggleInvoiceStatus} from '../store/invoicesSlice';
+import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
+import { selectInvoiceById } from '../store/invoicesSlice';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
 import { AlertModal } from './AlertModal';
-import {GoBack} from "../UI/GoBack";
+import { GoBack } from "../UI/GoBack";
 
 const HeaderInvoiceView = () => {
 
@@ -41,7 +41,7 @@ const HeaderInvoiceView = () => {
 
 	return (
 		<>
-			<GoBack/>
+			<GoBack title="Go back"/>
 			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
 				<span className='text-neutral-500 text-base/2'>Status</span>
 				<Label status={invoice.status} />
