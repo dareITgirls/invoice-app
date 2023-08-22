@@ -3,7 +3,7 @@ import {Link, useNavigate, useParams} from 'react-router-dom';
 
 import BackArrow from "../assets/icon-arrow-left.svg";
 import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
-import { deleteInvoice, editInvoice } from '../store/invoicesActions';
+import {changeInvoiceStatus, deleteInvoice, editInvoice} from '../store/invoicesActions';
 import {selectInvoiceById, toggleInvoiceStatus} from '../store/invoicesSlice';
 import { openNewFormModal } from '../store/newFormModalStatusSlice';
 import { Button } from '../UI/Button';
@@ -35,10 +35,8 @@ const HeaderInvoiceView = () => {
 			navigate('/');
 		}
 	};
-	const handleChangeStatusInvoice = () => {
-		const invoiceCloned = structuredClone(invoice)
-		invoiceCloned.status = invoiceCloned.status === "paid" ? "pending" : "paid";
-		dispatch(editInvoice(invoiceCloned))
+	const handleChangeStatusInvoice = async () => {
+		dispatch(changeInvoiceStatus(invoice))
 	};
 
 	return (
