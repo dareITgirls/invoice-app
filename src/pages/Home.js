@@ -15,7 +15,7 @@ export const Home = () => {
   if (error) {
     throw new Error(error.message)
   }
-  //TODO: delete this comment, just to showcase errorboundary
+  // TODO: delete this comment, just to showcase errorboundary
   // if (loadingStatus === 'loading') {
   //   return <div>loadng....</div>
   // }
