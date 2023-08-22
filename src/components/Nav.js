@@ -11,7 +11,6 @@ export const Nav = () => {
 
 	const { handleSignIn, handleSignOut } = useAuth();
 
-	const isLoggedIn = useSelector(state => state.authSlice.isLoggedIn);
 	const user = useSelector(state => state.authSlice.user);
 
 	return (
@@ -36,8 +35,8 @@ export const Nav = () => {
 					{user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user} alt='User' />}
 					<button
 						className='p-2 text-neutral-500 hover:text-neutral-200 transition duration-300'
-						onClick={isLoggedIn ? handleSignOut : handleSignIn}>
-						{isLoggedIn ? 'Sign out' : 'Sign in'}
+						onClick={user ? handleSignOut : handleSignIn}>
+						{user ? 'Sign out' : 'Sign in'}
 					</button>
 				</div>
 			</nav>

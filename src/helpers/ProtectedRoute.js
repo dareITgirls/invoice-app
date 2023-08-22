@@ -3,9 +3,9 @@ import { useSelector } from 'react-redux';
 import { Navigate, Outlet } from 'react-router-dom';
 
 export const ProtectedRoute = () => {
-	const isLoggedIn = useSelector(state => state.authSlice.isLoggedIn);
+	const user = useSelector(state => state.authSlice.user);
 
-	if (!isLoggedIn) return <Navigate to='/' replace />;
+	if (!user) return <Navigate to='/' replace />;
 
 	return <Outlet />;
 };
