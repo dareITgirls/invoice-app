@@ -3,16 +3,16 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
 
 import { auth, provider } from '../firebase-config/firebase';
-import { logIn, logOut } from '../store/authSlice';
+import { setActiveUser } from '../store/authSlice';
 
 export const useAuth = () => {
 	const dispatch = useDispatch();
 
 	onAuthStateChanged(auth, user => {
 		if (user) {
-			dispatch(logIn(user.photoURL));
+			dispatch(setActiveUser(user.photoURL));
 		} else {
-			dispatch(logOut(null));
+			dispatch(setActiveUser(null));
 		}
 	});
 
