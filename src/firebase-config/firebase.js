@@ -5,17 +5,17 @@ import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBRyTPvXRYW5oc6jNi3JZvR-S-oCxK7ISA",
+    apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
 
-  authDomain: "invoice-app-8401a.firebaseapp.com",
+    authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
 
-  projectId: "invoice-app-8401a",
+    projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
 
-  storageBucket: "invoice-app-8401a.appspot.com",
+    storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
 
-  messagingSenderId: "442232588528",
+    messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
 
-  appId: "1:442232588528:web:89b6cca18bea667f1c1a35",
+    appId: process.env.REACT_APP_APP_ID,
 };
 
 export const app = initializeApp(firebaseConfig);
