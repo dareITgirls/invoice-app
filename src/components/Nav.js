@@ -7,8 +7,8 @@ import { useAuth } from '../hooks/useAuth';
 import { useDarkMode } from '../hooks/useDarkMode';
 
 export const Nav = () => {
-  const [handleTheme, theme] = useDarkMode();
-
+	
+	const [handleTheme, theme] = useDarkMode();
 	const { handleSignIn, handleSignOut } = useAuth();
 
 	const user = useSelector(state => state.authSlice.user);

@@ -6,6 +6,7 @@ import { Nav } from "../components/Nav";
 import { Loader } from "../UI/Loader";
 import { MainContentWrapper } from "../UI/MainContentWrapper";
 
+
 export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
   const error = useSelector((state) => state.invoices.error);
@@ -13,7 +14,8 @@ export const Home = () => {
   //take care of asynchronous errors and throw them in runtime
   if (error) {
     throw new Error(error.message)
-  }
+	}
+
   // TODO: delete this comment, just to showcase errorboundary
 //   if (loadingStatus === 'loading') {
 //     return <div>loadng....</div>

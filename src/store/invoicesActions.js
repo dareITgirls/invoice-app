@@ -19,7 +19,7 @@ export const fetchInvoices = createAsyncThunk(
       const querySnapshot = await getDocs(collection(db, invoices));
       
       if (querySnapshot.empty && querySnapshot.metadata.fromCache) {
-         throw rejectWithValue('there was a problem with fetching invoices...')
+         throw rejectWithValue('there was a problem with fetching invoices, try again')
       }
    
         const data = [];
