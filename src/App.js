@@ -8,7 +8,7 @@ import { logErrorToService } from './utils/consts';
 
 
 export const App = () => {
-  const dispatch = useDispatch();
+	const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchInvoices());

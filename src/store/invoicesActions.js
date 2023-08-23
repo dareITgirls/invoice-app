@@ -61,6 +61,16 @@ export const editInvoice = createAsyncThunk(
   }
 );
 
+export const changeInvoiceStatus = createAsyncThunk(
+    "invoices/changeInvoiceStatus",
+    async (invoiceToChange) => {
+        const status = await invoiceToChange.status === 'paid' ? 'pending' : 'paid';
+        invoiceToChange = {...invoiceToChange, status: status}
+        await updateDoc(doc(db, invoices, invoiceToChange.id), invoiceToChange);
+        return invoiceToChange;
+    }
+);
+
 export const deleteInvoice = createAsyncThunk(
   "invoices/deleteInvoice",
   async (invoiceID, {rejectWithValue, fulfillWithValue}) => {

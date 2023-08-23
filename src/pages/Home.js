@@ -1,11 +1,10 @@
-import { useSelector } from 'react-redux';
-import { Nav } from "../components/Nav";
-import { MainContentWrapper } from "../UI/MainContentWrapper";
+import {useSelector} from 'react-redux';
+import { NewInvoice } from "../components/forms/NewInvoice";
 import { HeaderHome } from '../components/HeaderHome';
 import { InvoiceList } from '../components/InvoiceList';
+import { Nav } from "../components/Nav";
 import { Loader } from "../UI/Loader";
-import { NewInvoice } from "../components/forms/NewInvoice";
-
+import { MainContentWrapper } from "../UI/MainContentWrapper";
 
 export const Home = () => {
   const loadingStatus = useSelector((state) => state.invoices.status);
@@ -16,22 +15,21 @@ export const Home = () => {
     throw new Error(error.message)
   }
   // TODO: delete this comment, just to showcase errorboundary
-  // if (loadingStatus === 'loading') {
-  //   return <div>loadng....</div>
-  // }
+//   if (loadingStatus === 'loading') {
+//     return <div>loadng....</div>
+//   }
 
   const modalStatus = useSelector((state) => state.newFormModalStatus.status);
 
 	return (
 		<>
-      {!modalStatus && (
-        <div className='flex flex-col lg:flex-row relative lg:justify-center'>
-          <Nav />
-          <MainContentWrapper>
-            <HeaderHome />
-            {loadingStatus === 'loading' ? <Loader /> : <InvoiceList />}
-          </MainContentWrapper>
-        </div>)}
+				<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+					<Nav/>
+					<MainContentWrapper>
+						<HeaderHome />
+						{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
+					</MainContentWrapper>
+				</div>
 			{modalStatus && <NewInvoice />}
 		</>
 	);

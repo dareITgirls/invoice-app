@@ -23,9 +23,7 @@ export const FormTemplate = ({ type }) => {
     const getInvoiceValues = () => {
         if (type === 'edit') {
             const { invoiceId } = useParams();
-
             const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
-
             const unfreezedInvoice = structuredClone(invoice);
             return unfreezedInvoice;
         }

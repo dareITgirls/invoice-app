@@ -1,7 +1,7 @@
 import { createAction, createSelector, createSlice } from "@reduxjs/toolkit";
 
 import {
-  addNewInvoice,
+  addNewInvoice, changeInvoiceStatus,
   deleteInvoice,
   editInvoice,
   fetchInvoices,
@@ -47,22 +47,26 @@ const invoicesSlice = createSlice({
         state.entities[invoice.id] = invoice;
       })
       .addCase(addNewInvoice.rejected, (state, action) => {
-       state.status = 'rejected';
+        state.status = 'rejected';
         state.error = { message: action.payload };
       })
       .addCase(editInvoice.fulfilled, (state, action) => {
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
       })
-         .addCase(editInvoice.rejected, (state, action) => {
-       state.status = 'rejected';
+      .addCase(editInvoice.rejected, (state, action) => {
+        state.status = 'rejected';
         state.error = { message: action.payload };
+      })
+      .addCase(changeInvoiceStatus.fulfilled, (state, action) => {
+        const invoice = action.payload;
+        state.entities[invoice.id] = invoice;
       })
       .addCase(deleteInvoice.fulfilled, (state, action) => {
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
       })
-        .addCase(deleteInvoice.rejected, (state, action) => {
+      .addCase(deleteInvoice.rejected, (state, action) => {
         state.status = 'rejected';
         state.error = { message: action.payload };
       })
