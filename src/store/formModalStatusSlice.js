@@ -11,12 +11,6 @@ const formModalStatusSlice = createSlice( {
         toggleFormModal(state, action) {
             state.status = action.payload;
         }
-        // openNewFormModal(state, action) {
-        //     state.status = true
-        // },
-        // closeNewFormModal(state,action) {
-        //     state.status = false
-        // }
     }
 });
 
