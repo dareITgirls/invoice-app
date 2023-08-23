@@ -10,7 +10,7 @@ export const AlertModal = props => {
 	const modalStatus = useSelector(state => state.alertModalStatus.status);
 	const dispatch = useDispatch();
 
-	const discardHandler = () => {
+	const handleDiscard = () => {
 		dispatch(closeAlertModal());
 	};
 
@@ -18,7 +18,7 @@ export const AlertModal = props => {
 
 	return (
 		<>
-			<Modal className={className} discardHandler={discardHandler} modalStatus={modalStatus}>
+			<Modal className={className} handleDiscard={handleDiscard} modalStatus={modalStatus}>
 				<h2
 					autoFocus
 					className='mt-1 text-md/1 lg:text-lg/2 dark:text-light-100 font-bold focus:outline-none focus:border-primary-100 focus:border-2'

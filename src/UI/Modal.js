@@ -2,7 +2,7 @@ import ReactModal from 'react-modal';
 
 ReactModal.setAppElement('#root');
 
-export const Modal = ({className, discardHandler, modalStatus, children }) => {
+export const Modal = ({className, handleDiscard, modalStatus, children }) => {
   return (
     <ReactModal
 				aria={{
@@ -13,7 +13,7 @@ export const Modal = ({className, discardHandler, modalStatus, children }) => {
 				className={className}
 				closeTimeoutMS={150}
 				isOpen={modalStatus}
-				onRequestClose={discardHandler}
+				onRequestClose={handleDiscard}
 				shouldCloseOnOverlayClick={true}
 				style={{
 					overlay: {
