@@ -9,7 +9,7 @@ import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.sv
 import { calculateInvoiceValues } from '../../utils/consts';
 import { SignupSchema } from '../../utils/validation';
 import { invoiceSchema } from '../../utils/invoiceSchema';
-import { Modal } from '../Modal';
+import { Modal } from '../../UI/Modal';
 import { BillFrom } from './BillFrom';
 import { BillTo } from './BillTo';
 import { FooterNewInvoice } from './FooterNewInvoice';
@@ -19,6 +19,8 @@ import { ItemList } from './ItemList';
 export const FormTemplate = ({ type }) => {
 
     const dispatch = useDispatch();
+
+    const modalStatus = useSelector(state => state.newFormModalStatus.status);
 
     const getInvoiceValues = () => {
         if (type === 'edit') {
@@ -38,8 +40,10 @@ export const FormTemplate = ({ type }) => {
         dispatch(closeNewFormModal());
     }
 
+    const className = 'flex flex-col bg-white dark:bg-dark-300 absolute mt-[72px] w-full md:w-[80%] md:mt-[80px] md:rounded-r-2xl lg:w-[42.5%] lg:ml-[105px] lg:mt-0'
+
     return (  
-        <Modal >  
+        <Modal className={className} discardHandler={handleDiscard} modalStatus={modalStatus}>  
             <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-1/3 md:hidden" type="button" title="Go back" onClick={handleDiscard}><IconArrowLeft/>Go back</button>
             <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">{type === 'new' ? 'New Invoice' : `Edit #${getInvoiceValues().id}`}</h1>
                 <Formik
