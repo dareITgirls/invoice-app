@@ -1,6 +1,6 @@
 import { useFormikContext } from 'formik';
 import { useDispatch } from "react-redux";
-import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { toggleFormModal } from "../../store/formModalStatusSlice";
 import { Button } from '../../UI/Button';
 
 export const FooterEditInvoice = () => {
@@ -9,7 +9,7 @@ export const FooterEditInvoice = () => {
     const dispatch = useDispatch();
 
     const handleDiscard = () => {
-        dispatch(closeNewFormModal());
+        dispatch(toggleFormModal(false));
     }
 
     return (

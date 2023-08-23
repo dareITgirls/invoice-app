@@ -9,7 +9,7 @@ import { MainContentWrapper } from "../UI/MainContentWrapper";
 
 export const Home = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
-	const modalStatus = useSelector(state => state.newFormModalStatus.status);
+	const modalStatus = useSelector(state => state.formModalStatus.status);
 
 	return (
 		<>

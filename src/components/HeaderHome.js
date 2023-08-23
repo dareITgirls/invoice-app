@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
-import { openNewFormModal } from '../store/newFormModalStatusSlice';
+import { toggleFormModal } from '../store/formModalStatusSlice';
 import { FilterModal } from './FilterModal';
 
 export const HeaderHome = () => {
@@ -24,7 +24,7 @@ export const HeaderHome = () => {
 	}
 	const openNewInvoice = () => {
 		if (loadingStatus !== 'loading') {
-			dispatch(openNewFormModal());
+			dispatch(toggleFormModal(true));
 		}
 	};
 
