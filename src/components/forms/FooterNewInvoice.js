@@ -6,7 +6,6 @@ import { calculateInvoiceValues } from '../../utils/consts';
 import { Button } from '../../UI/Button';
 
 export const FooterNewInvoice = () => {
-
     const { setFieldValue, values, resetForm } = useFormikContext();
     const dispatch = useDispatch();
 
@@ -17,7 +16,6 @@ export const FooterNewInvoice = () => {
     const handleSavingAsDraft = () => {
         values.status = 'draft';
         calculateInvoiceValues(values);
-
         dispatch(addNewInvoice(values));
         resetForm();
         dispatch(toggleFormModal(false));

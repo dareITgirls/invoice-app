@@ -4,7 +4,6 @@ import { ReactComponent as IconDelete } from '../../assets/icon-delete.svg';
 
 
 export const Item = ({ index, clickHandler, itemName, itemQty, itemPrice, variant }) => {
-    
     const { handleBlur, values, setFieldValue } = useFormikContext();
 
     const getItemTotal = (item) => {

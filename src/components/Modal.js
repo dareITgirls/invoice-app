@@ -2,7 +2,7 @@ import ReactDOM from 'react-dom';
 import { Nav } from './Nav';
 
 export const Modal = (props) => {
-    const { children } = props;
+  const { children } = props;
 
     return ReactDOM.createPortal(
         <>

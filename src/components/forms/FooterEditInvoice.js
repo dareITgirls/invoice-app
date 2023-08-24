@@ -4,10 +4,9 @@ import { toggleFormModal } from "../../store/formModalStatusSlice";
 import { Button } from '../../UI/Button';
 
 export const FooterEditInvoice = () => {
-
     const { setFieldValue } = useFormikContext();
     const dispatch = useDispatch();
-
+    
     const handleDiscard = () => {
         dispatch(toggleFormModal(false));
     }

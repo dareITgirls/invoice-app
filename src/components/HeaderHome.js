@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from 'react-redux';
-
+import { useDispatch, useSelector } from "react-redux";
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
@@ -10,7 +9,7 @@ export const HeaderHome = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
 	const dispatch = useDispatch();
 
-	const invoices = useSelector(state => state.invoices.entities);
+	const invoices = useSelector((state) => state.invoices.entities);
 
 	const invoicesNumber = Object.keys(invoices).length;
 	let invoicesNumberInfo;
@@ -30,7 +29,7 @@ export const HeaderHome = () => {
 
 	const displayFilter = () => {
 		dispatch(toggleFilterModalOpening());
-	};
+  };
 
 	return (
 		<div className='grid grid-cols-3 md:grid-cols-4 grid-rows-2'>
