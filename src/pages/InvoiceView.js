@@ -16,7 +16,7 @@ import { logErrorToService } from '../utils/consts'
 const InvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
-	const modalStatus = useSelector(state => state.newFormModalStatus.status);
+	const modalStatus = useSelector(state => state.formModalStatus.status);
 	const error = useSelector((state) => state.invoices.error);
 
 	if (error) {
