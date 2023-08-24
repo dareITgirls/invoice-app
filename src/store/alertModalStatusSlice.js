@@ -8,15 +8,12 @@ const alertModalStatusSlice = createSlice( {
     name: 'alertModalStatus',
     initialState,
     reducers: {
-        openAlertModal(state, action) {
-            state.status = true
-        },
-        closeAlertModal(state,action) {
-            state.status = false
+        toggleAlertModal(state, action) {
+            state.status = action.payload
         }
     }
 });
 
-export const {openAlertModal, closeAlertModal} = alertModalStatusSlice.actions;
+export const {toggleAlertModal} = alertModalStatusSlice.actions;
 
 export default alertModalStatusSlice.reducer

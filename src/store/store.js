@@ -4,12 +4,12 @@ import alertModalStatusSlice from './alertModalStatusSlice';
 import authSlice from './authSlice';
 import filterModalSlice from './filterModalSlice';
 import invoicesSlice from './invoicesSlice';
-import newFormModalStatusSlice from './newFormModalStatusSlice';
+import formModalStatusSlice from './formModalStatusSlice';
 
 export const store = configureStore({
 	reducer: {
 		invoices: invoicesSlice,
-		newFormModalStatus: newFormModalStatusSlice,
+		formModalStatus: formModalStatusSlice,
 		alertModalStatus: alertModalStatusSlice,
 		filterModal: filterModalSlice,
 		authSlice: authSlice,

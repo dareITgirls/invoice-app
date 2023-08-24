@@ -1,9 +1,9 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
+import { toggleAlertModal } from '../store/alertModalStatusSlice';
 import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
-import { openNewFormModal } from '../store/newFormModalStatusSlice';
+import { toggleFormModal } from '../store/formModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
 import { AlertModal } from './AlertModal';
@@ -16,15 +16,15 @@ export const HeaderInvoiceView = () => {
 	const navigate = useNavigate();
 
 	const handleEditInvoice = async () => {
-		dispatch(openNewFormModal());
+		dispatch(toggleFormModal(true));
 	};
 
 	const showAlertModal = () => {
-		dispatch(openAlertModal());
+		dispatch(toggleAlertModal(true));
 	};
 
 	const discardAlertModal = () => {
-		dispatch(closeAlertModal());
+		dispatch(toggleAlertModal(false));
 	};
 
 	const handleDeleteInvoice = async () => {

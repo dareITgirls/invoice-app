@@ -1,7 +1,7 @@
 import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { closeAlertModal } from '../store/alertModalStatusSlice';
+import { toggleAlertModal } from '../store/alertModalStatusSlice';
 
 ReactModal.setAppElement('#root');
 
@@ -13,7 +13,7 @@ export const AlertModal = props => {
 	const dispatch = useDispatch();
 
 	const discardHandler = () => {
-		dispatch(closeAlertModal());
+		dispatch(toggleAlertModal(false));
 	};
 
 	return (
