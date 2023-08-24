@@ -5,9 +5,7 @@ import { ErrorPage } from '../../pages/Error';
 import { logErrorToService } from '../../utils/consts';
 
 export const EditInvoice = () => {
-
     const error = useSelector((state) => state.invoices.error);
-
     if (error) {
         throw new Error(error.message)
     }

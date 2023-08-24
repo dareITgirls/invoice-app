@@ -17,7 +17,6 @@ import { FooterEditInvoice } from './FooterEditInvoice';
 import { ItemList } from './ItemList';
 
 export const FormTemplate = ({ type }) => {
-
     const dispatch = useDispatch();
 
     const getInvoiceValues = () => {

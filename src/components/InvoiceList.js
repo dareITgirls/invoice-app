@@ -1,5 +1,4 @@
 import { useSelector } from "react-redux";
-
 import { selectFilteredInvoiceId } from "../store/invoicesSlice";
 import { EmptyInvoiceList } from "./EmptyInvoiceList";
 import { InvoiceItem } from "./InvoiceItem";
@@ -15,7 +14,6 @@ export const InvoiceList = () => {
   });
 
   if (invoicesNumber === 0 && appStatus === 'idle') return   <EmptyInvoiceList />;
-
 
   return (
     <ul className='flex flex-col pt-8 md:pt-14 pb-26 gap-4'>

@@ -1,7 +1,6 @@
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-import { useState } from 'react';
 import { auth, provider } from '../firebase-config/firebase';
 import { setActiveUser, setError } from '../store/authSlice';
 
@@ -20,7 +19,6 @@ export const useAuth = () => {
 		try {
 			await signInWithPopup(auth, provider);
 		} catch (error) {
-			console.log(error);
 			dispatch(setError(error.message))
 		}
 	};
@@ -29,7 +27,6 @@ export const useAuth = () => {
 		try {
 			await signOut(auth);
 		} catch (error) {
-			console.log(error);
 			dispatch(setError(error.message))
 		}
 	};

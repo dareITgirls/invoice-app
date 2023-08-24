@@ -17,17 +17,14 @@ export const fetchInvoices = createAsyncThunk(
   async (obj, {rejectWithValue, fulfillWithValue}) => {
     try {
       const querySnapshot = await getDocs(collection(db, invoices));
-      
       if (querySnapshot.empty && querySnapshot.metadata.fromCache) {
          throw rejectWithValue('there was a problem with fetching invoices, try again')
       }
-   
         const data = [];
         querySnapshot.forEach((doc) => {
         data.push(doc.data());
         });
-      return fulfillWithValue(data);
-      
+      return fulfillWithValue(data);  
     } catch (error) {
       console.error("Error fetching invoices: ", error);
       return rejectWithValue(error.payload)

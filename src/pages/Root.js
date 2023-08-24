@@ -9,11 +9,9 @@ import { logErrorToService } from '../utils/consts';
 export const Root = () => {
 	const user = useSelector(state => state.authSlice.user);
 
-
 	return (
 		<>
 			<Nav />
-
 			<main className='flex flex-col justify-center items-center mt-10'>
 				{user ? <Navigate to='/invoices' /> : <ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}><NoAuth /></ErrorBoundary>}
 

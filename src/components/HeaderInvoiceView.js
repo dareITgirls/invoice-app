@@ -22,9 +22,11 @@ export const HeaderInvoiceView = () => {
 	const showAlertModal = () => {
 		dispatch(openAlertModal());
 	};
+
 	const discardAlertModal = () => {
 		dispatch(closeAlertModal());
 	};
+
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
@@ -32,6 +34,7 @@ export const HeaderInvoiceView = () => {
 			navigate('/');
 		}
 	};
+	
 	const handleChangeStatusInvoice = async () => {
 		dispatch(changeInvoiceStatus(invoice))
 	};

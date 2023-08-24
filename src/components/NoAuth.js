@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 
 export const NoAuth = () => {
-
     const error = useSelector(state => state.authSlice.error);
     if (error) {
         throw new Error(error.message)
