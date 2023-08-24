@@ -1,33 +1,32 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-
-
-import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
+import { toggleAlertModal } from '../store/alertModalStatusSlice';
 import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
-import { openNewFormModal } from '../store/newFormModalStatusSlice';
+import { toggleFormModal } from '../store/formModalStatusSlice';
 import { Button } from '../UI/Button';
 import Label from '../UI/Label';
 import { AlertModal } from './AlertModal';
 import { GoBack } from "../UI/GoBack";
 
-const HeaderInvoiceView = () => {
-
+export const HeaderInvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
 	const handleEditInvoice = async () => {
-		dispatch(openNewFormModal());
+		dispatch(toggleFormModal(true));
 	};
 
 	const showAlertModal = () => {
-		dispatch(openAlertModal());
+		dispatch(toggleAlertModal(true));
 	};
+
 	const discardAlertModal = () => {
-		dispatch(closeAlertModal());
+		dispatch(toggleAlertModal(false));
 	};
+
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
@@ -35,6 +34,7 @@ const HeaderInvoiceView = () => {
 			navigate('/');
 		}
 	};
+	
 	const handleChangeStatusInvoice = async () => {
 		dispatch(changeInvoiceStatus(invoice))
 	};
@@ -85,4 +85,3 @@ const HeaderInvoiceView = () => {
 	);
 };
 
-export default HeaderInvoiceView;

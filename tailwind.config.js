@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 
 // eslint-disable-next-line no-undef
@@ -149,19 +150,19 @@ module.exports = {
 				'item-sm': '50% 25% 25%',
 			},
 
-			maxWidth: {
-				'25ch': '25ch',
-			},
+      maxWidth: {
+        "25ch": "25ch",
+      },
 
-			minHeight: {
-				33: '8.375rem', //134px
-			},
+      minHeight: {
+        33: "8.375rem", //134px
+      },
 
-			scale: {
-				80: '0.8',
-				140: '1.4',
+      scale: {
+        80: "0.8",
+        140: "1.4",
 			},
-
+	  
 			spacing: {
 					2.5: '0.625rem', //10px
 				2.8: '0.875rem', //14px
@@ -179,10 +180,10 @@ module.exports = {
 				49.5: '12.375rem', //198px
 			},
 
-			backgroundImage: {
-				checkboxImg: 'url(assets/icon-check.svg)',
-			},
-		},
-	},
-	plugins: [],
+      backgroundImage: {
+        checkboxImg: "url(assets/icon-check.svg)",
+      },
+    },
+  },
+  plugins: [],
 };

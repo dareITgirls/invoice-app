@@ -1,9 +1,8 @@
 import { signInWithPopup, signOut } from 'firebase/auth';
 import { onAuthStateChanged } from 'firebase/auth';
 import { useDispatch } from 'react-redux';
-
 import { auth, provider } from '../firebase-config/firebase';
-import { setActiveUser } from '../store/authSlice';
+import { setActiveUser, setError } from '../store/authSlice';
 
 export const useAuth = () => {
 	const dispatch = useDispatch();
@@ -19,16 +18,16 @@ export const useAuth = () => {
 	const handleSignIn = async () => {
 		try {
 			await signInWithPopup(auth, provider);
-		} catch (e) {
-			console.log(e);
+		} catch (error) {
+			dispatch(setError(error.message))
 		}
 	};
 
 	const handleSignOut = async () => {
 		try {
 			await signOut(auth);
-		} catch (e) {
-			console.log(e);
+		} catch (error) {
+			dispatch(setError(error.message))
 		}
 	};
 

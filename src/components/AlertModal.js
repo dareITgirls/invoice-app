@@ -1,18 +1,18 @@
 // import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
-import { closeAlertModal } from '../store/alertModalStatusSlice';
 import { Modal } from '../UI/Modal';
+import { toggleAlertModal } from '../store/alertModalStatusSlice';
+
+ReactModal.setAppElement('#root');
 
 export const AlertModal = props => {
 	// eslint-disable-next-line react/prop-types
 	const { children, invoiceId } = props;
-
 	const modalStatus = useSelector(state => state.alertModalStatus.status);
 	const dispatch = useDispatch();
 
 	const handleDiscard = () => {
-		dispatch(closeAlertModal());
-	};
+		dispatch(toggleAlertModal(false));
 
 	const className = "flex flex-col gap-3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 max-w-[30rem] shadow-3xl bg-light-100 dark:bg-dark-200 p-4 md:p-12 rounded-lg z-20"
 
