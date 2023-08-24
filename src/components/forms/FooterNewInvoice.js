@@ -1,26 +1,24 @@
 import { useFormikContext } from 'formik';
 import { useDispatch } from "react-redux";
 import { addNewInvoice } from '../../store/invoicesActions';
-import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { toggleFormModal } from "../../store/formModalStatusSlice";
 import { calculateInvoiceValues } from '../../utils/consts';
 import { Button } from '../../UI/Button';
 
 export const FooterNewInvoice = () => {
-
     const { setFieldValue, values, resetForm } = useFormikContext();
     const dispatch = useDispatch();
 
     const handleDiscard = () => {
-        dispatch(closeNewFormModal());
+        dispatch(toggleFormModal(false));
     }
 
     const handleSavingAsDraft = () => {
         values.status = 'draft';
         calculateInvoiceValues(values);
-
         dispatch(addNewInvoice(values));
         resetForm();
-        dispatch(closeNewFormModal());
+        dispatch(toggleFormModal(false));
     }
 
     return (

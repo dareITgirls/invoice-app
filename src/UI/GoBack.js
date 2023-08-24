@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-
 import BackArrow from '../assets/icon-arrow-left.svg';
 
 export const GoBack = props => {

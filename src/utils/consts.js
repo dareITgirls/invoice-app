@@ -74,3 +74,7 @@ export const splitName = (name) => {
     return values;
 }
 
+  export const logErrorToService = (error) => {
+  console.error("Caught an error:", error);
+}
+

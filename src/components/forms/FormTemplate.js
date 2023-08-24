@@ -4,7 +4,7 @@ import { useParams } from "react-router-dom";
 import { addNewInvoice } from '../../store/invoicesActions';
 import { editInvoice } from "../../store/invoicesActions";
 import { selectInvoiceById } from "../../store/invoicesSlice";
-import { closeNewFormModal } from "../../store/newFormModalStatusSlice";
+import { toggleFormModal } from "../../store/formModalStatusSlice";
 import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
 import { calculateInvoiceValues } from '../../utils/consts';
 import { SignupSchema } from '../../utils/validation';
@@ -17,7 +17,6 @@ import { FooterEditInvoice } from './FooterEditInvoice';
 import { ItemList } from './ItemList';
 
 export const FormTemplate = ({ type }) => {
-
     const dispatch = useDispatch();
 
     const getInvoiceValues = () => {
@@ -30,12 +29,12 @@ export const FormTemplate = ({ type }) => {
     }
 
     const handleDiscard = () => {
-        dispatch( closeNewFormModal());
+        dispatch(toggleFormModal(false));
     }
 
     const handleSubmit = (data) => {
         type === 'edit' ? dispatch(editInvoice(data)) : dispatch(addNewInvoice(data));
-        dispatch(closeNewFormModal());
+        dispatch(toggleFormModal(false));
     }
 
     return (  

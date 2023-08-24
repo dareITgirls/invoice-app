@@ -6,7 +6,6 @@ import { Wrapper } from '../../UI/Wrapper';
 import { Input } from '../../UI/Input';
 
 export const BillTo = () => {
-
     const { handleBlur } = useFormikContext();
 
     return (

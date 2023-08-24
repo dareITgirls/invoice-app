@@ -2,7 +2,6 @@ import { ErrorMessage, Field } from 'formik';
 import { useErrorDisplay } from '../hooks/useErrorDisplay';
 
 export const Input = (props) => {
-
     const { label, id, name, onBlur, classes, variant } = props;
     const { classesLabel, classesInput } = useErrorDisplay(name);
 
