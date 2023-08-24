@@ -18,7 +18,7 @@ import { ItemList } from './ItemList';
 
 export const FormTemplate = ({ type }) => {
     const dispatch = useDispatch();
-    const modalStatus = useSelector(state => state.newFormModalStatus.status);
+    const modalStatus = useSelector(state => state.formModalStatus.status);
 
     const getInvoiceValues = () => {
         if (type === 'edit') {
@@ -38,7 +38,7 @@ export const FormTemplate = ({ type }) => {
         dispatch(toggleFormModal(false));
     }
 
-    const className = 'flex flex-col bg-white dark:bg-dark-300 absolute mt-[72px] w-full md:w-[80%] md:mt-[80px] md:rounded-r-2xl lg:w-[42.5%] lg:ml-[105px] lg:mt-0'
+    const className = 'flex flex-col bg-white h-full overflow-y-scroll dark:bg-dark-300 absolute mt-[72px] w-full md:w-[80%] md:mt-[80px] md:rounded-r-2xl lg:w-[42.5%] lg:ml-[105px] lg:mt-0'
 
     return (  
         <Modal className={className} handleDiscard={handleDiscard} modalStatus={modalStatus}>  

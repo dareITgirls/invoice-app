@@ -1,4 +1,4 @@
-// import ReactModal from 'react-modal';
+import ReactModal from 'react-modal';
 import { useDispatch, useSelector } from 'react-redux';
 import { Modal } from '../UI/Modal';
 import { toggleAlertModal } from '../store/alertModalStatusSlice';
@@ -13,6 +13,7 @@ export const AlertModal = props => {
 
 	const handleDiscard = () => {
 		dispatch(toggleAlertModal(false));
+	}
 
 	const className = "flex flex-col gap-3 absolute top-1/2 left-1/2 -translate-y-1/2 -translate-x-1/2 max-w-[30rem] shadow-3xl bg-light-100 dark:bg-dark-200 p-4 md:p-12 rounded-lg z-20"
 
@@ -26,13 +27,11 @@ export const AlertModal = props => {
 					tabIndex='0'>
 					Confirm Deletion
 				</h2>
-
 				<p
 					className='text-base/2 text-neutral-300 dark:text-neutral-200 font-medium leading-[1.375rem]'
 					id='full_description'>
 					Are you sure you want to delete invoice #{invoiceId}? This action cannot be undone.
 				</p>
-
 				<div className='flex gap-2 self-end mt-1'>{children}</div>
 			</Modal>
 		</>
