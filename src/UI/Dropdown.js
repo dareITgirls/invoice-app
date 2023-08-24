@@ -13,7 +13,6 @@ export const Dropdown = () => {
     const { invoiceId } = useParams();
     const invoice = useSelector((state) => selectInvoiceById(state, invoiceId));
     const terms  = invoice ? invoice.paymentTerms : 30
-
     const { setFieldValue, handleBlur } = useFormikContext();
     const [value, setValue] = useState(terms);
     

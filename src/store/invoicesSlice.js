@@ -1,4 +1,4 @@
-import { createSelector, createSlice, createAction } from "@reduxjs/toolkit";
+import { createAction, createSelector, createSlice } from "@reduxjs/toolkit";
 
 import {
   addNewInvoice, changeInvoiceStatus,
@@ -10,6 +10,7 @@ import {
 const initialState = {
   status: "none",
   entities: {},
+  error: false
 };
 
 const invoicesSlice = createSlice({
@@ -26,8 +27,12 @@ const invoicesSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(fetchInvoices.pending, (state, action) => {
+      .addCase(fetchInvoices.pending, (state) => {
         state.status = "loading";
+      })
+      .addCase(fetchInvoices.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = { message: action.payload };
       })
       .addCase(fetchInvoices.fulfilled, (state, action) => {
         const newEntities = {};
@@ -41,9 +46,17 @@ const invoicesSlice = createSlice({
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
       })
+      .addCase(addNewInvoice.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = { message: action.payload };
+      })
       .addCase(editInvoice.fulfilled, (state, action) => {
         const invoice = action.payload;
         state.entities[invoice.id] = invoice;
+      })
+      .addCase(editInvoice.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = { message: action.payload };
       })
       .addCase(changeInvoiceStatus.fulfilled, (state, action) => {
         const invoice = action.payload;
@@ -53,6 +66,17 @@ const invoicesSlice = createSlice({
         const invoiceID = action.payload;
         delete state.entities[invoiceID];
       })
+      .addCase(deleteInvoice.rejected, (state, action) => {
+        state.status = 'rejected';
+        state.error = { message: action.payload };
+      })
+      .addCase(toggleInvoiceStatus, (state, action) => {
+        const invoiceId = action.payload;
+        const invoice = state.entities[invoiceId];
+        if (invoice) {
+          invoice.status = invoice.status === "paid" ? "pending" : "paid";
+        }
+      });
   },
 });
 

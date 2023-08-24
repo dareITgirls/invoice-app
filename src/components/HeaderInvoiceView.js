@@ -1,7 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
-
-
 import { closeAlertModal, openAlertModal } from '../store/alertModalStatusSlice';
 import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
@@ -11,8 +9,7 @@ import Label from '../UI/Label';
 import { AlertModal } from './AlertModal';
 import { GoBack } from "../UI/GoBack";
 
-const HeaderInvoiceView = () => {
-
+export const HeaderInvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const dispatch = useDispatch();
@@ -25,9 +22,11 @@ const HeaderInvoiceView = () => {
 	const showAlertModal = () => {
 		dispatch(openAlertModal());
 	};
+
 	const discardAlertModal = () => {
 		dispatch(closeAlertModal());
 	};
+
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
@@ -35,6 +34,7 @@ const HeaderInvoiceView = () => {
 			navigate('/');
 		}
 	};
+	
 	const handleChangeStatusInvoice = async () => {
 		dispatch(changeInvoiceStatus(invoice))
 	};
@@ -85,4 +85,3 @@ const HeaderInvoiceView = () => {
 	);
 };
 
-export default HeaderInvoiceView;
