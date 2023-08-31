@@ -1,4 +1,5 @@
 import { useSelector } from 'react-redux';
+
 import { ReactComponent as IconMoon } from '../assets/icon-moon.svg';
 import { ReactComponent as IconSun } from '../assets/icon-sun.svg';
 import { ReactComponent as IconLogo } from '../assets/logo.svg';
@@ -28,7 +29,7 @@ export const Nav = () => {
 					)}
 				</button>
 
-				<div className='p-4 flex flex-col items-center'>
+				<div className='p-4 flex lg:flex-col items-center'>
 					{user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user} alt='User' />}
 					<button
 						className='p-2 text-neutral-500 hover:text-neutral-200 transition duration-300'
