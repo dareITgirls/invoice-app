@@ -7,6 +7,6 @@ export const NoAuth = () => {
     }
 
   return (
-    <h1>To see invoice list please sign in!</h1>
+    <h1 className='text-lg dark:text-light-100 md:text-xl font-medium'>To see invoice list please sign in!</h1>
   )
 }
