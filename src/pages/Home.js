@@ -18,7 +18,7 @@ export const Home = () => {
 
 	return (
 		<>
-			<div className='flex flex-col lg:flex-row relative lg:justify-center'>
+			<div className='flex flex-col overflow-y-scroll lg:flex-row relative lg:justify-center'>
 				<Nav/>
 				<MainContentWrapper>
 					<HeaderHome />

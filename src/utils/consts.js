@@ -66,6 +66,7 @@ export const splitName = (name) => {
 
     export const calculateInvoiceValues = (values) => {
         values.id === '' ? values.id = createInvoiceId() : values.id;
+        values.createdAt = values.createdAt.toISOString().split('T')[0];
         values.paymentDue = getPaymentDue(values.createdAt, values.paymentTerms)
         if (values.items.length > 0) {
         values.items.map((item) => item.total = getItemTotal(item))
