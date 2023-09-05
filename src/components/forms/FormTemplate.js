@@ -42,12 +42,15 @@ export const FormTemplate = ({ type }) => {
 
     return (  
         <Modal className={className} handleDiscard={handleDiscard} modalStatus={modalStatus}>  
-            <button className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-1/3 md:hidden"
-                    type="button"
-                    title="Go back"
-                    onClick={handleDiscard}>
-                <IconArrowLeft/>Go back
-            </button>
+            <div className="flex items-center pt-8 pl-6">
+                <IconArrowLeft/>
+                <button className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center md:hidden"
+                        type="button"
+                        title="Go back"
+                        onClick={handleDiscard}>
+                    Go back
+                </button>
+            </div>
             <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">{type === 'new' ? 'New Invoice' : `Edit #${getInvoiceValues().id}`}</h1>
                 <Formik
                     initialValues={type === 'new' ? invoiceSchema : getInvoiceValues()}
