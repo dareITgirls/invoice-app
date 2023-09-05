@@ -179,7 +179,7 @@
 }
 
 .custom-label {
-	@apply text-neutral-500 text-base/2 pb-2 font-sans;
+	@apply text-neutral-500 dark:text-neutral-200 text-base/2 pb-2 font-sans;
 }
 
 #root {
