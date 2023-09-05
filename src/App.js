@@ -14,7 +14,8 @@ export const App = () => {
   }, [dispatch]);
 
   return (
-    <ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
+    <ErrorBoundary FallbackComponent={ErrorPage}
+                   onError={logErrorToService}>
       <Home />
     </ErrorBoundary>
   );

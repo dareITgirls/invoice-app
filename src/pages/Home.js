@@ -5,6 +5,7 @@ import { InvoiceList } from '../components/InvoiceList';
 import { Nav } from "../components/Nav";
 import { Loader } from "../UI/Loader";
 import { MainContentWrapper } from "../UI/MainContentWrapper";
+import {PageContentWrapper} from "../UI/PageContentWrapper";
 
 
 export const Home = () => {
@@ -18,13 +19,13 @@ export const Home = () => {
 
 	return (
 		<>
-			<div className='flex flex-col overflow-y-scroll lg:flex-row relative lg:justify-center'>
+			<PageContentWrapper>
 				<Nav/>
 				<MainContentWrapper>
 					<HeaderHome />
 					{loadingStatus === 'loading' ? <Loader/> : <InvoiceList />}
 				</MainContentWrapper>
-			</div>
+			</PageContentWrapper>
 			{modalStatus && <NewInvoice />}
 		</>
 	);

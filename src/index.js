@@ -21,7 +21,9 @@ const router = createBrowserRouter(
 			<Route path=':invoiceId' element={<ProtectedRoute />}>
 				<Route index element={<InvoiceView />} />
 			</Route>
-			<Route path='*' element={<ErrorPage error={{ message: 'The page you’re looking for can’t be found.' }} />} />
+			<Route path='*' element={<ErrorPage
+				error={{ message: 'The page you’re looking for can’t be found.' }}
+			/>} />
 		</>
 	)
 );
