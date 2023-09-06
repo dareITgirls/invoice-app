@@ -38,13 +38,13 @@ export const FormTemplate = ({ type }) => {
         dispatch(toggleFormModal(false));
     }
 
-    const className = 'flex flex-col bg-white h-full overflow-y-scroll dark:bg-dark-300 absolute mt-[72px] w-full md:w-[80%] md:mt-[80px] md:rounded-r-2xl lg:w-[42.5%] lg:ml-[105px] lg:mt-0'
+    const className = 'flex flex-col bg-white h-full overflow-y-scroll dark:bg-dark-300 absolute mt-[72px] w-full md:mt-[80px] md:rounded-r-2xl lg:w-3/5 2xl:w-2/5 lg:ml-[105px] lg:mt-0'
 
     return (  
         <Modal className={className} handleDiscard={handleDiscard} modalStatus={modalStatus}>  
-            <div className="flex items-center pt-8 pl-6">
+            <div className="md:hidden flex items-center pt-8 pl-6">
                 <IconArrowLeft/>
-                <button className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center md:hidden"
+                <button className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center"
                         type="button"
                         title="Go back"
                         onClick={handleDiscard}>
