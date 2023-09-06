@@ -8,7 +8,7 @@ export const ItemList = () => {
     const { content, handleAddingNewItem } = useListItems();
 
     return (
-        <section className="pt-15 pb-17 mb-16 md:pt-4 md:pb-0 lg:pt-[26px] lg:mb-[-3px]">
+        <section className="pt-15 pb-17 mb-16 md:mb-32 md:pt-4 md:pb-0 lg:pt-[26px] lg:mb-[-3px]">
             <h2 className="text-neutral-300 text-md/3 pb-1 md:pb-2 lg:pb-[6px]">Item List</h2>
             <ul>  
                 {content}

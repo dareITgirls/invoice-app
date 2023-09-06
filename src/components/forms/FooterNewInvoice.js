@@ -22,8 +22,8 @@ export const FooterNewInvoice = () => {
     }
 
     return (
-        <footer className="flex items-center justify-center md:justify-between gap-4 py-8 bg-white
-        dark:bg-dark-300 fixed md:px-[56px] md:py-6 bottom-0 pb-4 lg:static lg:ml-0 lg:pl-0 lg:pr-0 lg:mt-0 lg:mb-3">
+        <footer className="flex items-center justify-center w-full md:justify-between gap-4 py-8 bg-white
+        dark:bg-dark-300 fixed md:px-[56px] bottom-0 left-0 pb-4 lg:static lg:ml-0 lg:pl-0 lg:pr-0 lg:mt-0 lg:mb-3">
             <Button styles="bg-neutral-100 text-neutral-500"
                     type="button"
                     title="Discard"
