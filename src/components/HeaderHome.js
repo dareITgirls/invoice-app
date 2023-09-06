@@ -4,6 +4,7 @@ import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
 import { toggleFormModal } from '../store/formModalStatusSlice';
 import { FilterModal } from './FilterModal';
+import { Button } from "../UI/Button";
 
 export const HeaderHome = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
@@ -42,8 +43,9 @@ export const HeaderHome = () => {
 				<FilterModal />
 			</button>
 			<div className='flex row-span-2 justify-end items-center'>
-				<button
-					className='flex row-span-2 w-22 h-11 md:w-46 md:h-12 ml-5 justify-around items-center md:self-center bg-primary-200 rounded-3xl'
+				<Button
+					styles='flex row-span-2 w-22 h-11 md:w-46 md:h-12 ml-5 justify-around items-center md:self-center rounded-3xl'
+					variant='primary'
 					onClick={openNewInvoice}>
 					<div className='flex justify-center items-center w-8 h-8 bg-light-100 rounded-full p-2 ml-2'>
 						<IconPlus />
@@ -51,7 +53,7 @@ export const HeaderHome = () => {
 					<p className='text-light-100 text-md/2 pl-1 pr-3'>
 						New <span className='hidden md:inline'>invoice</span>
 					</p>
-				</button>
+				</Button>
 			</div>
 			<p className='text-neutral-300 dark:text-light-100 text-base/1 md:hidden'>{invoicesNumber} invoices</p>
 			{invoicesNumberInfo}

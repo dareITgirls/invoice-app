@@ -53,14 +53,19 @@ export const HeaderInvoiceView = () => {
 				</div>
 				<div className='flex w-full sm:w-auto justify-center items-center'>
 					<Button
-						styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white hover:bg-neutral-200 px-6 mr-2'
+						styles='px-20 mr-2'
+						variant="neutral"
 						title='Edit'
 						onClick={handleEditInvoice}
 					/>
-					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showAlertModal} />
+					<Button styles='px-6 mr-2'
+							title='Delete'
+							variant='warning'
+							onClick={showAlertModal} />
 					<Button
 						disabled={invoice.status === 'draft' ? true : false}
-						styles={invoice.status === 'draft' ? 'bg-neutral-300 text-white w-40 md:px-4' : 'bg-primary-200 text-white hover:bg-danger-100 w-40 md:px-4'}
+						styles ='w-40 md:px-4'
+						variant = {invoice.status === 'draft' ? 'disabled' : 'primary'}
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
 						onClick={handleChangeStatusInvoice}
