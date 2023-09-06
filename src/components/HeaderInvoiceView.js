@@ -43,12 +43,12 @@ export const HeaderInvoiceView = () => {
 		<>
 			<GoBack title="Go back"/>
 			<div className='sm:hidden flex items-center justify-between bg-light-100 dark:bg-dark-200 shadow-3xl rounded-lg p-5'>
-				<span className='text-neutral-500 text-base/2'>Status</span>
+				<span className='text-neutral-500 dark:text-neutral-200 text-base/2'>Status</span>
 				<Label status={invoice.status} />
 			</div>
 			<div className='fixed bottom-0 left-0 sm:static flex items-center justify-between bg-light-100 dark:bg-dark-200 w-full p-5 sm:px-8 rounded-lg'>
 				<div className='hidden sm:flex items-center'>
-					<span className='text-neutral-500 text-base/2 sm:mr-5'>Status </span>
+					<span className='text-neutral-500 dark:text-neutral-200 text-base/2 sm:mr-5'>Status</span>
 					<Label status={invoice.status} />
 				</div>
 				<div className='flex w-full sm:w-auto justify-center items-center'>

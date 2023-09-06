@@ -18,7 +18,7 @@ export const Item = ({ index, clickHandler, itemName, itemQty, itemPrice, varian
 
     let classesItemContainer = variant === 'item' ? "pb-6 md:flex md:w-full md:pb-4" : "pb-5 md:flex md:w-full md:pb-4 md:mt-[-20px]";
 
-    let classesButton = variant === 'item' ? 'pt-2 px-2 mt-4 md:pr-0  md:mt-4 lg:mt-5 ' : 'pt-2 px-2 mt-5 md:pr-0  md:mt-[-4px] lg:mt-[-8px] '
+    let classesButton = variant === 'item' ? 'pt-2 px-2 mt-4 md:pr-0 md:mt-4 lg:mt-5 ' : 'pt-2 px-2 mt-5 md:pr-0 md:mt-[-4px] lg:mt-[-8px] '
 
     let inputName = index === 0 ? 'item-name' : variant;
 

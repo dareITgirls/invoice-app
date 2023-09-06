@@ -20,13 +20,12 @@ export const InvoiceDetails = () => {
           {items.map((item, id) => (
             <div key={id} className='text-md/2 mb-3 md:mb-7'>
               {item.name}
-              <p className='text-md/1 text-neutral-500 mt-2 md:hidden'>
+              <p className='text-md/1 mt-2 md:hidden'>
                 {item.quantity} x £ {formatedCost(item.price)}
               </p>
             </div>
           ))}
         </div>
-
         <div className='hidden md:grid col-span-1 justify-items-center justify-self-end'>
           <h2 className='md:text-base/1 mb-7'>QTY</h2>
           {items.map((item, id) => (
@@ -35,7 +34,6 @@ export const InvoiceDetails = () => {
             </div>
           ))}
         </div>
-
         <div className='hidden md:grid col-span-1 justify-items-end'>
           <h2 className='md:text-base/1 mb-7'>Price</h2>
           {items.map((item, id) => (
@@ -44,7 +42,6 @@ export const InvoiceDetails = () => {
             </div>
           ))}
         </div>
-
         <div className='grid rows-span-2 md:grid col-span-1 justify-items-end'>
           <h2 className='hidden md:grid text-base/1 mb-7'>Total</h2>
           {items.map((item, id) => (
@@ -58,18 +55,18 @@ export const InvoiceDetails = () => {
   };
 
   return (
-    <div className='flex-col mt-5 md:mt-6 mb-20 md:mb-0 p-5 md:p-8 bg-light-100 dark:bg-dark-200 rounded-lg '>
+    <div className='flex-col mt-5 md:mt-6 mb-20 md:mb-0 p-5 md:p-8 bg-light-100 dark:bg-dark-200 text-neutral-500 dark:text-neutral-200 rounded-lg '>
       <div className='md:flex flex-row md:justify-between md:pb-5'>
         <ul className='pb-7 md:pb-0'>
           <li className='text-md/2'>
             <span className='text-neutral-400'>#</span>
             {invoice.id}
           </li>
-          <li className='text-neutral-500 dark:text-neutral-200 text-base/2'>
+          <li className='text-base/2'>
             {invoice.items[0].name}
           </li>
         </ul>
-        <ul className='text-neutral-500 dark:text-neutral-200 text-base/2 pb-7 md:pb-0 md:text-right'>
+        <ul className='text-base/2 pb-7 md:pb-0 md:text-right'>
           <li>{invoice.senderAddress.street}</li>
           <li>{invoice.senderAddress.city}</li>
           <li>{invoice.senderAddress.postCode}</li>
@@ -79,7 +76,7 @@ export const InvoiceDetails = () => {
       <div className='md:flex flex-row justify-start'>
         <div className='grid grid-cols-2 grid-rows-1 gap-2 self-center mb-8 md:w-2/3'>
           <section>
-            <span className='text-neutral-500 dark:text-neutral-200 text-base/2'>
+            <span className='text-base/2'>
               Invoice Date
             </span>
             <p className='text-md/2 mt-2'>
@@ -87,13 +84,13 @@ export const InvoiceDetails = () => {
             </p>
           </section>
           <section>
-            <span className='text-neutral-500 dark:text-neutral-200 text-base/2'>
+            <span className='text-base/2'>
               Bill To
             </span>
             <p className='text-md/2 mt-2'>{invoice.clientName}</p>
           </section>
           <section className='self-center'>
-            <span className='text-neutral-500 dark:text-neutral-200 text-base/2'>
+            <span className='text-base/2'>
               Payment Due
             </span>
             <p className='text-md/2 mt-2'>
@@ -101,7 +98,7 @@ export const InvoiceDetails = () => {
             </p>
           </section>
           <section>
-            <ul className='text-neutral-500 dark:text-neutral-200 text-base/1'>
+            <ul className='text-base/1'>
               <li>{invoice.clientAddress.street}</li>
               <li>{invoice.clientAddress.city}</li>
               <li>{invoice.clientAddress.postCode}</li>
@@ -110,7 +107,7 @@ export const InvoiceDetails = () => {
           </section>
         </div>
         <div>
-          <p className='text-neutral-500 dark:text-neutral-200 text-base/1'>
+          <p className='text-base/1'>
             Sent To
           </p>
           <p className='text-md/2 mt-2'>{invoice.clientEmail}</p>

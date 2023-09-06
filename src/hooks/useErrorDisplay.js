@@ -14,7 +14,7 @@ export const useErrorDisplay = (name) => {
             setClassesLabel('text-base/2 text-danger-150 mt-[-4px]');
             setClassesInput('field outline outline-1 outline-danger-150');
         } else {
-            setClassesLabel('label');
+            setClassesLabel('label dark:text-neutral-200');
             setClassesInput('field touched && outline-danger-150');
         }
     }, [errors, touched])
