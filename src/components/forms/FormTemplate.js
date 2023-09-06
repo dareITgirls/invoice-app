@@ -42,9 +42,9 @@ export const FormTemplate = ({ type }) => {
 
     return (  
         <Modal className={className} handleDiscard={handleDiscard} modalStatus={modalStatus}>  
-            <div className="flex items-center pt-8 pl-6">
+            <div className="md:hidden flex items-center pt-8 pl-6">
                 <IconArrowLeft/>
-                <button className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center md:hidden"
+                <button className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center"
                         type="button"
                         title="Go back"
                         onClick={handleDiscard}>
