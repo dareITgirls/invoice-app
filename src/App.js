@@ -3,11 +3,11 @@ import { useDispatch } from "react-redux";
 import { Home } from "./pages/Home";
 import { ErrorPage } from './pages/Error';
 import { fetchInvoices } from "./store/invoicesActions";
-import {PageContentWrapper} from "./UI/PageContentWrapper";
-import {Nav} from "./components/Nav";
-import {Route, Routes} from "react-router-dom";
-import {Root} from "./pages/Root";
-import {ProtectedRoute} from "./helpers/ProtectedRoute";
+import { PageContentWrapper } from "./UI/PageContentWrapper";
+import { Nav } from "./components/Nav";
+import { Route, Routes } from "react-router-dom";
+import { Root } from "./pages/Root";
+import { ProtectedRoute } from "./helpers/ProtectedRoute";
 import InvoiceView from "./pages/InvoiceView";
 
 export const App = () => {

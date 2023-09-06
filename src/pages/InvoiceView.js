@@ -6,11 +6,9 @@ import { ErrorPage } from './Error';
 import { EditInvoice } from '../components/forms/EditInvoice';
 import { HeaderInvoiceView } from '../components/HeaderInvoiceView';
 import { InvoiceDetails } from '../components/InvoiceDetails';
-import { Nav } from '../components/Nav';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { Loader } from '../UI/Loader';
 import { MainContentWrapper } from '../UI/MainContentWrapper';
-import { PageContentWrapper } from '../UI/PageContentWrapper';
 import { logErrorToService } from '../utils/consts'
 
 const InvoiceView = () => {
