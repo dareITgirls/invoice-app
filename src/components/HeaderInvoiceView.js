@@ -75,13 +75,13 @@ export const HeaderInvoiceView = () => {
 			<AlertModal invoiceId={invoiceId}>
 				<Button
 					onClick={discardAlertModal}
-					styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500'
+					variant='neutral'
 					title='Cancel'
 					type='button'
 				/>
 				<Button
 					onClick={handleDeleteInvoice}
-					styles='bg-danger-150 text-light-100 hover:bg-danger-50 dark:hover:bg-danger-50'
+					variant='warning'
 					title='Delete'
 					type='button'
 				/>

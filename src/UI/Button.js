@@ -5,11 +5,11 @@ export const Button = (props) => {
   if(props.variant === "primary") {
     buttonStyles = `${baseStyles} bg-primary-200 text-white hover:bg-danger-100`;
   } else if (props.variant === "neutral") {
-    buttonStyles = `${baseStyles} bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white hover:bg-neutral-200`;
+    buttonStyles = `${baseStyles} bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500`;
   } else if (props.variant === "warning") {
     buttonStyles = `${baseStyles} bg-red-500 text-white hover:bg-danger-50`;
   } else if (props.variant === "neutral-dark") {
-    buttonStyles = `${baseStyles} bg-dark-500 text-neutral-300 dark:bg-dark-200 dark:text-neutral-200 hover:bg-dark-600`;
+    buttonStyles = `${baseStyles} bg-dark-500 text-neutral-300 dark:bg-dark-200 dark:text-neutral-200 hover:bg-dark-600 dark:hover:bg-light-100 dark:hover:text-neutral-500`;
   } else if (props.variant === "disabled") {
     buttonStyles = `${baseStyles} bg-neutral-300 text-white`
   }
