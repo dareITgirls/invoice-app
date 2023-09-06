@@ -36,11 +36,12 @@ export const FooterNewInvoice = () => {
                     title="Save & Send"
                     onClick={() => setFieldValue('status', 'pending')} />
             <div className="hidden md:flex md:space-x-2 lg:space-x-[6px]">
-                <Button styles="bg-dark-500  text-neutral-300 dark:bg-dark-200 dark:text-neutral-200 hover:bg-dark-600"
+                <Button styles="bg-dark-500 text-neutral-300 dark:bg-dark-200 dark:text-neutral-200 hover:bg-dark-600"
                         type="button" title="Save as Draft"
                         onClick={handleSavingAsDraft} />
-                <Button styles="bg-primary-200 text-white hover:bg-primary-100"
+                <Button styles=""
                         type="submit"
+                        variant="primary"
                         title="Save & Send"
                         onClick={() => setFieldValue('status', 'pending')} />
             </div>
