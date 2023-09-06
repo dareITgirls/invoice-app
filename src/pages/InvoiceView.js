@@ -26,13 +26,10 @@ const InvoiceView = () => {
 	return (
 		<ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
 			<div inert={modalStatus ? '' : undefined}>
-				<PageContentWrapper>
-					<Nav />
 					<MainContentWrapper styles='lg:w-2xl'>
 						<HeaderInvoiceView />
 						{!invoice ? <Loader /> : <InvoiceDetails />}
 					</MainContentWrapper>
-				</PageContentWrapper>
 			</div>
 			{modalStatus && <EditInvoice />}
 		</ErrorBoundary>
