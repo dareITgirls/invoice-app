@@ -11,7 +11,7 @@ import { Loader } from '../UI/Loader';
 import { MainContentWrapper } from '../UI/MainContentWrapper';
 import { logErrorToService } from '../utils/consts'
 
-const InvoiceView = () => {
+export const InvoiceView = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const modalStatus = useSelector(state => state.formModalStatus.status);
@@ -33,5 +33,3 @@ const InvoiceView = () => {
 		</ErrorBoundary>
 	);
 };
-
-export default InvoiceView;
