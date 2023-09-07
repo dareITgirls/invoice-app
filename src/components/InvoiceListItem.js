@@ -6,7 +6,7 @@ import { selectInvoiceById } from "../store/invoicesSlice";
 import { Label } from "../UI/Label";
 import { changeDateFormat } from '../utils/consts'
 
-export const InvoiceItem = ({ id }) => {
+export const InvoiceListItem = ({ id }) => {
   const invoice = useSelector((state) => selectInvoiceById(state, id));
 
   return (

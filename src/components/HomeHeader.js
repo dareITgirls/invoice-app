@@ -4,9 +4,9 @@ import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
 import { toggleFormModal } from '../store/formModalStatusSlice';
-import { FilterModal } from './FilterModal';
+import { HomeFilterModal } from './HomeFilterModal';
 
-export const HeaderHome = () => {
+export const HomeHeader = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
 	const invoices = useSelector((state) => state.invoices.entities);
 	const dispatch = useDispatch();
@@ -38,7 +38,7 @@ export const HeaderHome = () => {
 					Filter <span className='hidden md:inline'>by status</span>
 				</div>
 				<IconArrowDown />
-				<FilterModal />
+				<HomeFilterModal />
 			</button>
 			<div className='flex row-span-2 justify-end items-center'>
 				<button

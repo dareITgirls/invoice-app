@@ -2,7 +2,7 @@ import { ErrorBoundary } from "react-error-boundary";
 import { useSelector } from 'react-redux';
 
 import { NewInvoice } from "../components/forms/NewInvoice";
-import { HeaderHome } from "../components/HeaderHome";
+import { HomeHeader } from "../components/HomeHeader";
 import { InvoiceList } from '../components/InvoiceList';
 import { Loader } from "../UI/Loader";
 import { MainContentWrapper } from "../UI/MainContentWrapper";
@@ -21,7 +21,7 @@ export const Home = () => {
     return (
         <ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
             <MainContentWrapper>
-                <HeaderHome/>
+                <HomeHeader/>
                 {loadingStatus === 'loading' ?
                     <Loader/> :
                     <InvoiceList/>}

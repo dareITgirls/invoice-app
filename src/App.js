@@ -6,7 +6,7 @@ import { Nav } from "./components/Nav";
 import { ProtectedRoute } from "./helpers/ProtectedRoute";
 import { ErrorPage } from './pages/Error';
 import { Home } from "./pages/Home";
-import { InvoiceView } from "./pages/InvoiceView";
+import { SingleInvoice } from "./pages/SingleInvoice";
 import { Root } from "./pages/Root";
 import { fetchInvoices } from "./store/invoicesActions";
 import { PageContentWrapper } from "./UI/PageContentWrapper";
@@ -27,7 +27,7 @@ export const App = () => {
                     <Route index element={<Home/>}/>
                 </Route>
                 <Route path=':invoiceId' element={<ProtectedRoute/>}>
-                    <Route index element={<InvoiceView/>}/>
+                    <Route index element={<SingleInvoice/>}/>
                 </Route>
                 <Route path='*' element={<ErrorPage error={{message: 'The page you’re looking for can’t be found.'}}/>}/>
             </Routes>

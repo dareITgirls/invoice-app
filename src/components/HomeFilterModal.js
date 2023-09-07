@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { toggleFilter } from "../store/filterModalSlice";
 import { firstLetterToUpper } from "../utils/consts";
 
-export const FilterModal = () => {
+export const HomeFilterModal = () => {
   const dispatch = useDispatch();
   const { modalStatus, filters } = useSelector((state) => state.filterModal);
 

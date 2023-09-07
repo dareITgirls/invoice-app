@@ -9,7 +9,7 @@ import { Label } from '../UI/Label';
 import { AlertModal } from './AlertModal';
 import { GoBack } from "../UI/GoBack";
 
-export const HeaderInvoiceView = () => {
+export const SingleInvoiceHeader = () => {
 	const { invoiceId } = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const dispatch = useDispatch();

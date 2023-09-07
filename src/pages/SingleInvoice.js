@@ -4,15 +4,15 @@ import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
 import { EditInvoice } from '../components/forms/EditInvoice';
-import { HeaderInvoiceView } from '../components/HeaderInvoiceView';
-import { InvoiceDetails } from '../components/InvoiceDetails';
+import { SingleInvoiceHeader } from '../components/SingleInvoiceHeader';
+import { SingleInvoiceDetails } from '../components/SingleInvoiceDetails';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { Loader } from '../UI/Loader';
 import { MainContentWrapper } from '../UI/MainContentWrapper';
 import { logErrorToService } from '../utils/consts'
 import { ErrorPage } from './Error';
 
-export const InvoiceView = () => {
+export const SingleInvoice = () => {
 	const {invoiceId} = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const modalStatus = useSelector(state => state.formModalStatus.status);
@@ -26,10 +26,10 @@ export const InvoiceView = () => {
 		<ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
 			<div inert={modalStatus ? '' : undefined}>
 					<MainContentWrapper styles='lg:w-2xl'>
-						<HeaderInvoiceView />
+						<SingleInvoiceHeader />
 						{!invoice ?
 							<Loader /> :
-							<InvoiceDetails />}
+							<SingleInvoiceDetails />}
 					</MainContentWrapper>
 			</div>
 			{modalStatus && <EditInvoice />}
