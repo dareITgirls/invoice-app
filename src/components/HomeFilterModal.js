@@ -16,21 +16,18 @@ export const HomeFilterModal = () => {
     const handleChange = () => {
       handleToggleFilter(filter);
     };
+
     return (
-      <label
-        key={filter}
-        className='text-md/1 dark:text-light-100 pb-2 last-of-type:pb-0 cursor-pointer'
-      >
-        <input
-          className='relative h-4 w-4 mr-3 appearance-none bg-neutral-200 rounded-sm
+      <label key={filter}
+             className='text-md/1 dark:text-light-100 pb-2 last-of-type:pb-0 cursor-pointer'>
+        <input className='relative h-4 w-4 mr-3 appearance-none bg-neutral-200 rounded-sm
                     hover:border hover:border-primary-200 focus:outline-none
                     checked:bg-checkboxImg checked:bg-no-repeat checked:bg-center checked:bg-primary-200
                     cursor-pointer'
-          type='checkbox'
-          name={filter}
-          checked={checked}
-          onChange={handleChange}
-        />
+                type='checkbox'
+                name={filter}
+                checked={checked}
+                onChange={handleChange}/>
         {firstLetterToUpper(filter)}
       </label>
     );
