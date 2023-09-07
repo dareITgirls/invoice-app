@@ -5,7 +5,7 @@ import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
 import { toggleFormModal } from '../store/formModalStatusSlice';
 import { Button } from '../UI/Button';
-import Label from '../UI/Label';
+import { Label } from '../UI/Label';
 import { AlertModal } from './AlertModal';
 import { GoBack } from "../UI/GoBack";
 
