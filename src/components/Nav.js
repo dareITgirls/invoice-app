@@ -22,13 +22,11 @@ export const Nav = () => {
 					type='button'
 					aria-label='Switch color theme'
 					onClick={handleTheme}>
-					{theme === 'dark' ? (
-						<IconSun className='hover:fill-neutral-200 transition duration-300' />
-					) : (
+					{theme === 'dark' ?
+						<IconSun className='hover:fill-neutral-200 transition duration-300' /> :
 						<IconMoon className='hover:fill-neutral-200 transition duration-300' />
-					)}
+					}
 				</button>
-
 				<div className='p-4 flex lg:flex-col items-center'>
 					{user && <img className='rounded-full h-8 w-8 lg:h-10 lg:w-10' src={user} alt='User' />}
 					<button

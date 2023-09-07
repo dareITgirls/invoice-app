@@ -1,4 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
+
 import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
@@ -7,32 +8,30 @@ import { FilterModal } from './FilterModal';
 
 export const HeaderHome = () => {
 	const loadingStatus = useSelector(state => state.invoices.status);
-	const dispatch = useDispatch();
-
 	const invoices = useSelector((state) => state.invoices.entities);
-
-	const invoicesNumber = Object.keys(invoices).length;
-	let invoicesNumberInfo;
-	let invoiceNumberInfoVisibility = 'hidden md:inline text-base/2 text-neutral-300 md:col-span2';
-	if (invoicesNumber === 0) {
-		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>No invoices</p>;
-	} else if (invoicesNumber === 1) {
-		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There is 1 invoice</p>;
-	} else {
-		invoicesNumberInfo = <p className={invoiceNumberInfoVisibility}>There are {invoicesNumber} total invoices</p>;
-	}
+	const dispatch = useDispatch();
 	const openNewInvoice = () => {
 		if (loadingStatus !== 'loading') {
 			dispatch(toggleFormModal(true));
 		}
 	};
-
 	const displayFilter = () => {
 		dispatch(toggleFilterModalOpening());
-  };
+	};
+
+	const invoicesNumber = Object.keys(invoices).length;
+	let invoicesNumberInfo;
+	let styles = 'hidden md:inline text-base/2 text-neutral-300 md:col-span2';
+	if (invoicesNumber === 0) {
+		invoicesNumberInfo = <p className={styles}>No invoices</p>;
+	} else if (invoicesNumber === 1) {
+		invoicesNumberInfo = <p className={styles}>There is 1 invoice</p>;
+	} else {
+		invoicesNumberInfo = <p className={styles}>There are {invoicesNumber} total invoices</p>;
+	}
 
 	return (
-		<div className='grid grid-cols-3 md:grid-cols-4 grid-rows-2'>
+		<section className='grid grid-cols-3 md:grid-cols-4 grid-rows-2'>
 			<h1 className='text-lg dark:text-light-100 md:text-xl md:col-span-2'>Invoices</h1>
 			<button className='relative row-span-2 flex justify-end items-center'>
 				<div className='text-dark-300 dark:text-light-100 text-md/2 mr-3' onClick={displayFilter}>
@@ -55,6 +54,6 @@ export const HeaderHome = () => {
 			</div>
 			<p className='text-neutral-300 dark:text-light-100 text-base/1 md:hidden'>{invoicesNumber} invoices</p>
 			{invoicesNumberInfo}
-		</div>
+		</section>
 	);
 };
