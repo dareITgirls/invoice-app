@@ -22,7 +22,9 @@ export const Home = () => {
         <ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
             <MainContentWrapper>
                 <HeaderHome/>
-                {loadingStatus === 'loading' ? <Loader/> : <InvoiceList/>}
+                {loadingStatus === 'loading' ?
+                    <Loader/> :
+                    <InvoiceList/>}
             </MainContentWrapper>
             {modalStatus && <NewInvoice/>}
         </ErrorBoundary>
