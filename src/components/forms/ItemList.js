@@ -13,8 +13,11 @@ export const ItemList = () => {
             <ul>  
                 {content}
             </ul>
-            <Button styles="bg-neutral-100 dark:bg-dark-100 hover:bg-neutral-200 text-neutral-300 dark:text-neutral-200 w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6
-            md:mb-20 lg:mb-6" type="button" title="Add New Item" onClick={handleAddingNewItem} >
+            <Button styles="w-full flex items-center justify-center mt-[11px] md:mt-[-10px] mb-6 md:mb-20 lg:mb-6"
+                    type="button"
+                    variant="neutral"
+                    title="Add New Item"
+                    onClick={handleAddingNewItem} >
                 <IconPlus className="scale-75 mb-[2px] mr-1"/>
             </Button>
             <p className={classesMainError}>All fields must be added</p>
