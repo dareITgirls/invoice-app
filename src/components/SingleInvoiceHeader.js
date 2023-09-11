@@ -1,16 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
+
 import { toggleAlertModal } from '../store/alertModalStatusSlice';
+import { toggleFormModal } from '../store/formModalStatusSlice';
 import { changeInvoiceStatus, deleteInvoice } from '../store/invoicesActions';
 import { selectInvoiceById } from '../store/invoicesSlice';
-import { toggleFormModal } from '../store/formModalStatusSlice';
 import { Button } from '../UI/Button';
+import { GoBack } from "../UI/GoBack";
 import { Label } from '../UI/Label';
 import { AlertModal } from './AlertModal';
-import { GoBack } from "../UI/GoBack";
 
 export const SingleInvoiceHeader = () => {
-	const { invoiceId } = useParams();
+	const {invoiceId} = useParams();
 	const invoice = useSelector(state => selectInvoiceById(state, invoiceId));
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -18,15 +19,12 @@ export const SingleInvoiceHeader = () => {
 	const handleEditInvoice = async () => {
 		dispatch(toggleFormModal(true));
 	};
-
 	const showAlertModal = () => {
 		dispatch(toggleAlertModal(true));
 	};
-
 	const discardAlertModal = () => {
 		dispatch(toggleAlertModal(false));
 	};
-
 	const handleDeleteInvoice = async () => {
 		if (invoice) {
 			dispatch(deleteInvoice(invoiceId));
@@ -34,7 +32,6 @@ export const SingleInvoiceHeader = () => {
 			navigate('/');
 		}
 	};
-	
 	const handleChangeStatusInvoice = async () => {
 		dispatch(changeInvoiceStatus(invoice))
 	};
@@ -55,16 +52,14 @@ export const SingleInvoiceHeader = () => {
 					<Button
 						styles='bg-neutral-100 text-neutral-500 dark:bg-dark-100 dark:text-white hover:bg-neutral-200 px-6 mr-2'
 						title='Edit'
-						onClick={handleEditInvoice}
-					/>
+						onClick={handleEditInvoice}/>
 					<Button styles='bg-red-500 text-white hover:bg-danger-50 px-6 mr-2' title='Delete' onClick={showAlertModal} />
 					<Button
 						disabled={invoice.status === 'draft' ? true : false}
 						styles={invoice.status === 'draft' ? 'bg-neutral-300 text-white w-40 md:px-4' : 'bg-primary-200 text-white hover:bg-danger-100 w-40 md:px-4'}
 						id='markAsPaidButton'
 						title={invoice.status === 'paid' ? 'Mark as Unpaid' : 'Mark as Paid'}
-						onClick={handleChangeStatusInvoice}
-					/>
+						onClick={handleChangeStatusInvoice}/>
 				</div>
 			</div>
 			<AlertModal invoiceId={invoiceId}>
@@ -72,14 +67,12 @@ export const SingleInvoiceHeader = () => {
 					onClick={discardAlertModal}
 					styles='bg-neutral-100 dark:bg-dark-100 text-neutral-500 dark:text-neutral-200 hover:bg-neutral-200 dark:hover:bg-light-100 dark:hover:text-neutral-500'
 					title='Cancel'
-					type='button'
-				/>
+					type='button'/>
 				<Button
 					onClick={handleDeleteInvoice}
 					styles='bg-danger-150 text-light-100 hover:bg-danger-50 dark:hover:bg-danger-50'
 					title='Delete'
-					type='button'
-				/>
+					type='button'/>
 			</AlertModal>
 		</>
 	);
