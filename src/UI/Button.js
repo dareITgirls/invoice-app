@@ -1,6 +1,6 @@
 export const Button = (props) => {
 
-  let baseStyles = "rounded-full p-4 text-md/1 md:px-6 focus:outline-none focus:border-primary-100 focus:border-2 transition duration-300"
+  const baseStyles = "rounded-full p-4 text-md/1 md:px-6 focus:outline-none focus:border-primary-100 focus:border-2 transition duration-300"
   let buttonStyles;
   if(props.variant === "primary") {
     buttonStyles = `${baseStyles} bg-primary-200 text-white hover:bg-danger-100`;
