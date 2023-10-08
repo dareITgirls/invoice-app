@@ -3,65 +3,63 @@
 @tailwind utilities;
 @tailwind variants;
 
-
-
 .ReactModal__Overlay {
-	opacity: 0;
-	transition: opacity 500ms ease-in-out;
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
 }
 
 .ReactModal__Overlay--after-open {
-	opacity: 1;
+  opacity: 1;
 }
 
 .ReactModal__Overlay--before-close {
-	opacity: 0;
+  opacity: 0;
 }
 
 .MuiInputBase-root:hover,
 .MuiInputBase-root:focus,
 .dark .MuiInputBase-root:hover,
 .dark .MuiInputBase-root:focus {
-	outline: 1px solid #7c5dfa;
+  outline: 1px solid #7c5dfa;
 }
 
 .MuiInputBase-root {
-	outline: 1px solid #dfe3fa;
+  outline: 1px solid #dfe3fa;
 }
 
 .MuiInputBase-root {
-	background: white;
+  background: white;
 }
 
 .dark .MuiInputBase-input {
-	color: #f8f8fb;
+  color: #f8f8fb;
 }
 
 .MuiPaper-root {
-	margin-top: 1rem;
+  margin-top: 1rem;
 }
 
 .MuiMenuItem-root {
-	border-bottom: 1px solid #f8f8f8;
+  border-bottom: 1px solid #f8f8f8;
 }
 
 .dark .MuiMenuItem-root {
-	border-bottom: 1px solid #1e2139;
+  border-bottom: 1px solid #1e2139;
 }
 
 .MuiMenuItem-root:nth-last-of-type(1) {
-	border-bottom: none;
+  border-bottom: none;
 }
 
 .MuiSvgIcon-root {
-	width: 0.9375rem;
-	height: 0.9375rem;
-	color: #7c5dfa;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  color: #7c5dfa;
 }
 
 .MuiSelect-icon {
-	color: #7c5dfa;
-	height: 50%;
+  color: #7c5dfa;
+  height: 50%;
 }
 
 .MuiInputBase-input,
@@ -71,19 +69,19 @@
 .MuiButtonBase-root,
 .MuiPickersDay-today,
 .MuiPickersDay-root {
-	font-size: 0.9375rem;
-	line-height: 0.9375rem;
-	letter-spacing: -0.1px;
-	font-weight: bold;
-	color: #0c0e16;
-	font-family: 'LeagueSpartan' sans-serif;
-	padding: 0.8rem 1.25rem;
-	cursor: pointer;
+  font-size: 0.9375rem;
+  line-height: 0.9375rem;
+  letter-spacing: -0.1px;
+  font-weight: bold;
+  color: #0c0e16;
+  font-family: 'LeagueSpartan' sans-serif;
+  padding: 0.8rem 1.25rem;
+  cursor: pointer;
 }
 
 .dark .MuiMenuItem-root:focus,
 .dark .MuiMenuItem-root:hover {
-	color: #7c5dfa !important;
+  color: #7c5dfa !important;
 }
 .dark .MuiInputBase-root,
 .dark .MuiButtonBase-root,
@@ -95,97 +93,97 @@
 .dark .MuiDayCalendar-header,
 .dark .MuiPickersCalendarHeader-root,
 .dark .MuiDateCalendar-root {
-	background: #252945 !important;
-	color: #f8f8fb !important;
+  background: #252945 !important;
+  color: #f8f8fb !important;
 }
 
 .dark .MuiOutlinedInput-notchedOutline,
 .dark .MuiInputBase-root {
-	border: none;
-	outline: none;
+  border: none;
+  outline: none;
 }
 
 .MuiSelect-select {
-	display: flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .MuiMenuItem-root:hover,
 .MuiMenuItem-root:focus {
-	color: #7c5dfa;
-	background: transparent;
+  color: #7c5dfa;
+  background: transparent;
 }
 
 .MuiPickersDay-dayWithMargin:hover,
 .MuiPickersDay-dayWithMargin:focus {
-	color: #7c5dfa !important;
+  color: #7c5dfa !important;
 }
 
 .MuiPickersDay-dayWithMargin {
-	background-color: transparent !important;
-	color: #0c0e16 !important;
-	font-weight: bold !important;
+  background-color: transparent !important;
+  color: #0c0e16 !important;
+  font-weight: bold !important;
 }
 
 .MuiPickersDay-dayOutsideMonth {
-	color: #dfe3fa !important;
+  color: #dfe3fa !important;
 }
 
 .MuiOutlinedInput-notchedOutline,
 .MuiOutlinedInput-input {
-	outline: none;
-	border: none;
+  outline: none;
+  border: none;
 }
 
 @layer base {
-	body {
-		@apply bg-light-200 dark:bg-dark-300 font-sans;
-	}
+  body {
+    @apply bg-light-200 dark:bg-dark-300 font-sans;
+  }
 }
 
 .field {
-	@apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent  hover:outline hover:outline-1 hover:outline-primary-200 focus:outline focus:outline-1 focus:outline-primary-200;
+  @apply text-dark-400 text-md/1 p-4 border rounded w-full dark:bg-dark-100 dark:text-light-200 dark:border-transparent  hover:outline hover:outline-1 hover:outline-primary-200 focus:outline focus:outline-1 focus:outline-primary-200;
 }
 
 .field:-webkit-autofill,
 .field:-webkit-autofill:hover,
 .field:-webkit-autofill:focus {
-	filter: none;
-	background-color: white;
-	box-shadow: 0 0 0 100px white inset;
-	-webkit-text-fill-color: #0c0e16;
+  filter: none;
+  background-color: white;
+  box-shadow: 0 0 0 100px white inset;
+  -webkit-text-fill-color: #0c0e16;
 }
 
 .dark .field:-webkit-autofill,
 .dark .field:-webkit-autofill:hover,
 .dark .field:-webkit-autofill:focus {
-	filter: none;
-	background-color: #252945;
-	box-shadow: 0 0 0 100px #252945 inset;
-	border: none;
-	-webkit-text-fill-color: #f8f8fb;
+  filter: none;
+  background-color: #252945;
+  box-shadow: 0 0 0 100px #252945 inset;
+  border: none;
+  -webkit-text-fill-color: #f8f8fb;
 }
 
 .label {
-	@apply text-neutral-500 text-base/3;
+  @apply text-neutral-500 text-base/3;
 }
 
 .custom-container {
-	@apply flex flex-col pt-8 mb-[-5px] md:w-full md:mt-2;
+  @apply flex flex-col pt-8 mb-[-5px] md:w-full md:mt-2;
 }
 
 .custom-wrapper {
-	@apply rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200;
+  @apply rounded w-full cursor-pointer dark:bg-dark-100 dark:text-light-200;
 }
 
 .custom-label {
-	@apply text-neutral-500 text-base/2 pb-2 font-sans;
+  @apply text-neutral-500 text-base/2 pb-2 font-sans;
 }
 
 #root {
-	z-index: 1;
+  z-index: 1;
 }
 
 #modal {
-	z-index: 2;
+  z-index: 2;
 }

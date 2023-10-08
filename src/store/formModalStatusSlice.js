@@ -1,19 +1,19 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    status: false,
-}
+  status: false,
+};
 
-const formModalStatusSlice = createSlice( {
-    name: 'formModalStatus',
-    initialState,
-    reducers: {
-        toggleFormModal(state, action) {
-            state.status = action.payload;
-        }
-    }
+const formModalStatusSlice = createSlice({
+  name: 'formModalStatus',
+  initialState,
+  reducers: {
+    toggleFormModal(state, action) {
+      state.status = action.payload;
+    },
+  },
 });
 
-export const {toggleFormModal} = formModalStatusSlice.actions;
+export const { toggleFormModal } = formModalStatusSlice.actions;
 
-export default formModalStatusSlice.reducer
+export default formModalStatusSlice.reducer;
