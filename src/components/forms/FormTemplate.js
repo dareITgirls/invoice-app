@@ -1,20 +1,19 @@
 import { Form, Formik } from 'formik';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-
-import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
-import { toggleFormModal } from '../../store/formModalStatusSlice';
 import { addNewInvoice } from '../../store/invoicesActions';
 import { editInvoice } from '../../store/invoicesActions';
 import { selectInvoiceById } from '../../store/invoicesSlice';
-import { Modal } from '../../UI/Modal';
+import { toggleFormModal } from '../../store/formModalStatusSlice';
+import { ReactComponent as IconArrowLeft } from '../../assets/icon-arrow-left.svg';
 import { calculateInvoiceValues } from '../../utils/consts';
-import { invoiceSchema } from '../../utils/invoiceSchema';
 import { SignupSchema } from '../../utils/validation';
+import { invoiceSchema } from '../../utils/invoiceSchema';
+import { Modal } from '../../UI/Modal';
 import { BillFrom } from './BillFrom';
 import { BillTo } from './BillTo';
-import { FooterEditInvoice } from './FooterEditInvoice';
 import { FooterNewInvoice } from './FooterNewInvoice';
+import { FooterEditInvoice } from './FooterEditInvoice';
 import { ItemList } from './ItemList';
 
 export const FormTemplate = ({ type }) => {
@@ -44,7 +43,7 @@ export const FormTemplate = ({ type }) => {
   };
 
   const className =
-    'flex flex-col bg-white h-full overflow-y-scroll dark:bg-dark-300 absolute mt-[72px] w-full md:w-[80%] md:mt-[80px] md:rounded-r-2xl lg:w-[42.5%] lg:ml-[105px] lg:mt-0';
+    'flex flex-col bg-white h-full overflow-y-scroll dark:bg-dark-300 absolute mt-[72px] w-full md:mt-[80px] md:rounded-r-2xl lg:w-3/5 2xl:w-2/5 lg:ml-[105px] lg:mt-0';
 
   return (
     <Modal
@@ -52,15 +51,17 @@ export const FormTemplate = ({ type }) => {
       handleDiscard={handleDiscard}
       modalStatus={modalStatus}
     >
-      <button
-        className="flex text-dark-400 text-md/1 pt-8 pl-6 items-center justify-between w-1/3 md:hidden"
-        type="button"
-        title="Go back"
-        onClick={handleDiscard}
-      >
+      <div className="md:hidden flex items-center pt-8 pl-6">
         <IconArrowLeft />
-        Go back
-      </button>
+        <button
+          className="text-dark-400 dark:text-neutral-200 text-md/1 ml-3 items-center"
+          type="button"
+          title="Go back"
+          onClick={handleDiscard}
+        >
+          Go back
+        </button>
+      </div>
       <h1 className="text-dark-400 dark:text-neutral-200 text-lg/2 pt-7 pl-6 md:text-lg md:pt-16 md:pl-13.5 lg:pt-16">
         {type === 'new' ? 'New Invoice' : `Edit #${getInvoiceValues().id}`}
       </h1>

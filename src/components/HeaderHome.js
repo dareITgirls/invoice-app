@@ -4,6 +4,7 @@ import { ReactComponent as IconArrowDown } from '../assets/icon-arrow-down.svg';
 import { ReactComponent as IconPlus } from '../assets/icon-plus.svg';
 import { toggleFilterModalOpening } from '../store/filterModalSlice';
 import { toggleFormModal } from '../store/formModalStatusSlice';
+import { Button } from '../UI/Button';
 import { FilterModal } from './FilterModal';
 
 export const HeaderHome = () => {
@@ -57,17 +58,18 @@ export const HeaderHome = () => {
         <FilterModal />
       </button>
       <div className="flex row-span-2 justify-end items-center">
-        <button
-          className="flex row-span-2 w-22 h-11 md:w-46 md:h-12 ml-5 justify-around items-center md:self-center bg-primary-200 rounded-3xl"
+        <Button
+          styles="flex row-span-2 w-22 h-11 md:w-[10.6rem] md:h-12 ml-5 justify-around items-center md:self-center rounded-3xl"
+          variant="primary"
           onClick={openNewInvoice}
         >
-          <div className="flex justify-center items-center w-8 h-8 bg-light-100 rounded-full p-2 ml-2">
+          <div className="flex justify-center items-center w-7 h-7 bg-light-100 rounded-full p-2">
             <IconPlus />
           </div>
-          <p className="text-light-100 text-md/2 pl-1 pr-3">
+          <p className="text-light-100 text-md/2 pl-1">
             New <span className="hidden md:inline">invoice</span>
           </p>
-        </button>
+        </Button>
       </div>
       <p className="text-neutral-300 dark:text-light-100 text-base/1 md:hidden">
         {invoicesNumber} invoices

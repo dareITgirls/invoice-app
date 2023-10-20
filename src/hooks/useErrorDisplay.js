@@ -1,7 +1,6 @@
 import { useFormikContext } from 'formik';
 import { useEffect, useState } from 'react';
-
-import { getError,splitName } from '../utils/consts';
+import { splitName, getError } from '../utils/consts';
 
 export const useErrorDisplay = (name) => {
   const { errors, touched } = useFormikContext();
@@ -17,7 +16,7 @@ export const useErrorDisplay = (name) => {
       setClassesLabel('text-base/2 text-danger-150 mt-[-4px]');
       setClassesInput('field outline outline-1 outline-danger-150');
     } else {
-      setClassesLabel('label');
+      setClassesLabel('label dark:text-neutral-200');
       setClassesInput('field touched && outline-danger-150');
     }
   }, [errors, touched]);

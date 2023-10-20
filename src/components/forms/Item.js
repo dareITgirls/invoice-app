@@ -30,8 +30,8 @@ export const Item = ({
 
   let classesButton =
     variant === 'item'
-      ? 'pt-2 px-2 mt-4 md:pr-0  md:mt-4 lg:mt-5 '
-      : 'pt-2 px-2 mt-5 md:pr-0  md:mt-[-4px] lg:mt-[-8px] ';
+      ? 'pt-2 px-2 mt-4 md:pr-0 md:mt-4 lg:mt-5 '
+      : 'pt-2 px-2 mt-5 md:pr-0 md:mt-[-4px] lg:mt-[-8px] ';
 
   let inputName = index === 0 ? 'item-name' : variant;
 
