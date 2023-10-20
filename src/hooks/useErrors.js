@@ -1,5 +1,5 @@
 import { useFormikContext } from 'formik';
-import { useEffect,useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { getError, splitName } from '../utils/consts';
 

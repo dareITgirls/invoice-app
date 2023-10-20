@@ -1,7 +1,7 @@
+import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 import { useErrors } from '../../hooks/useErrors';
 import { useListItems } from '../../hooks/useListItems';
 import { Button } from '../../UI/Button';
-import { ReactComponent as IconPlus } from '../../assets/icon-plus.svg';
 
 export const ItemList = () => {
   const { classesMainError, classesItemError } = useErrors();
