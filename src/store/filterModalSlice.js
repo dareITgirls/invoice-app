@@ -1,28 +1,29 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-    modalStatus: false,
-    filters: {
-        paid: true,
-        draft: true,
-        pending: true
-    }
-}
+  modalStatus: false,
+  filters: {
+    paid: true,
+    draft: true,
+    pending: true,
+  },
+};
 
-const filterModalSlice = createSlice( {
-    name: 'filterModal',
-    initialState,
-    reducers: {
-        toggleFilterModalOpening: (state, action) => {
-          state.modalStatus = !state.modalStatus
-        },
-        toggleFilter: (state, action) => {
-            const filterType = action.payload;
-            state.filters[filterType] = !state.filters[filterType]
-        }
-    }
+const filterModalSlice = createSlice({
+  name: 'filterModal',
+  initialState,
+  reducers: {
+    toggleFilterModalOpening: (state, action) => {
+      state.modalStatus = !state.modalStatus;
+    },
+    toggleFilter: (state, action) => {
+      const filterType = action.payload;
+      state.filters[filterType] = !state.filters[filterType];
+    },
+  },
 });
 
-export const {toggleFilter, toggleFilterModalOpening} = filterModalSlice.actions;
+export const { toggleFilter, toggleFilterModalOpening } =
+  filterModalSlice.actions;
 
-export default filterModalSlice.reducer
+export default filterModalSlice.reducer;

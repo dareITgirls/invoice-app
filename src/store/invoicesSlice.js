@@ -1,20 +1,21 @@
-import { createAction, createSelector, createSlice } from "@reduxjs/toolkit";
+import { createAction, createSelector, createSlice } from '@reduxjs/toolkit';
 
 import {
-  addNewInvoice, changeInvoiceStatus,
+  addNewInvoice,
+  changeInvoiceStatus,
   deleteInvoice,
   editInvoice,
   fetchInvoices,
-} from "./invoicesActions";
+} from './invoicesActions';
 
 const initialState = {
-  status: "none",
+  status: 'none',
   entities: {},
-  error: false
+  error: false,
 };
 
 const invoicesSlice = createSlice({
-  name: "invoices",
+  name: 'invoices',
   initialState,
   reducers: {
     invoicesLoaded: (state, action) => {
@@ -28,7 +29,7 @@ const invoicesSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(fetchInvoices.pending, (state) => {
-        state.status = "loading";
+        state.status = 'loading';
       })
       .addCase(fetchInvoices.rejected, (state, action) => {
         state.status = 'rejected';
@@ -40,7 +41,7 @@ const invoicesSlice = createSlice({
           newEntities[invoice.id] = invoice;
         });
         state.entities = newEntities;
-        state.status = "idle";
+        state.status = 'idle';
       })
       .addCase(addNewInvoice.fulfilled, (state, action) => {
         const invoice = action.payload;
@@ -74,7 +75,7 @@ const invoicesSlice = createSlice({
         const invoiceId = action.payload;
         const invoice = state.entities[invoiceId];
         if (invoice) {
-          invoice.status = invoice.status === "paid" ? "pending" : "paid";
+          invoice.status = invoice.status === 'paid' ? 'pending' : 'paid';
         }
       });
   },
@@ -88,7 +89,7 @@ const selectInvoicesEntities = (state) => state.invoices.entities;
 
 export const selectInvoices = createSelector(
   selectInvoicesEntities,
-  (entities) => Object.values(entities)
+  (entities) => Object.values(entities),
 );
 
 export const selectFilteredInvoices = createSelector(
@@ -97,21 +98,21 @@ export const selectFilteredInvoices = createSelector(
   (invoices, filters) => {
     return invoices.filter((invoice) => {
       return (
-        (filters.pending && invoice.status === "pending") ||
-        (filters.paid && invoice.status === "paid") ||
-        (filters.draft && invoice.status === "draft")
+        (filters.pending && invoice.status === 'pending') ||
+        (filters.paid && invoice.status === 'paid') ||
+        (filters.draft && invoice.status === 'draft')
       );
     });
-  }
+  },
 );
 
 export const selectFilteredInvoiceId = createSelector(
   selectFilteredInvoices,
-  (invoices) => invoices.map((invoice) => invoice.id)
+  (invoices) => invoices.map((invoice) => invoice.id),
 );
 
 export const selectInvoiceById = (state, invoiceId) => {
   return selectInvoicesEntities(state)[invoiceId];
 };
 
-export const toggleInvoiceStatus = createAction("invoices/toggleInvoiceStatus");
+export const toggleInvoiceStatus = createAction('invoices/toggleInvoiceStatus');

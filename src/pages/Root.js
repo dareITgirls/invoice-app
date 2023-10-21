@@ -8,17 +8,21 @@ import { logErrorToService } from '../utils/consts';
 import { ErrorPage } from './Error';
 
 export const Root = () => {
-	const user = useSelector(state => state.authSlice.user);
+  const user = useSelector((state) => state.authSlice.user);
 
-	return (
-			<MainContentWrapper styles='flex justify-center'>
-				{user ?
-					<Navigate to='/invoices' /> :
-					<ErrorBoundary FallbackComponent={ErrorPage} onError={logErrorToService}>
-						<NoAuth />
-					</ErrorBoundary>
-				}
-				<Outlet />
-			</MainContentWrapper>
-	);
+  return (
+    <MainContentWrapper styles="flex justify-center">
+      {user ? (
+        <Navigate to="/invoices" />
+      ) : (
+        <ErrorBoundary
+          FallbackComponent={ErrorPage}
+          onError={logErrorToService}
+        >
+          <NoAuth />
+        </ErrorBoundary>
+      )}
+      <Outlet />
+    </MainContentWrapper>
+  );
 };

@@ -6,7 +6,7 @@ Invoicing application that enables users to create, read, update and delete invo
 
 Users should be able to:
 
--   Sihn in/sign out
+-   Sign in/sign out
 -   Toggle light/dark mode
 -   View the optimal layout for the app depending on their device's screen size
 -   See hover states for all interactive elements on the page
@@ -88,10 +88,10 @@ Run locally
 
 ## Authors
 
--   [@katarzyna-półrolniczak](https://www.github.com/pizgo)
--   [@joanna-łapa](https://www.github.com/JoannaLapa)
--   [@ewelina-ostańska](https://www.github.com/Ewelina-EN)
--   [@klaudia-stopczyńska](https://www.github.com/k-stopczynska)
+- [@katarzyna-półrolniczak](https://www.github.com/pizgo)
+- [@joanna-łapa](https://www.github.com/JoannaLapa)
+- [@ewelina-ostańska](https://www.github.com/Ewelina-EN)
+- [@klaudia-stopczyńska](https://www.github.com/k-stopczynska)
 
 ## Acknowledgements
 
