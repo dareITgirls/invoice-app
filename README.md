@@ -1,6 +1,7 @@
 # Invoices Issuing System
 
 Invoicing application that enables users to create, read, update and delete invoices.
+The project was prepared as a demo version of the app for the prospective client.
 
 ## Features
 
@@ -95,6 +96,6 @@ Run locally
 
 ## Acknowledgements
 
-This is a solution to
+The app design was provided by 
 [Frontend Mentor](https://www.frontendmentor.io/home)
 challenge Invoice App
