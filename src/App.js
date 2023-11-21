@@ -1,14 +1,45 @@
-import './App.css';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Route, Routes } from 'react-router-dom';
 
-function App() {
+import { Nav } from './components/Nav';
+import { ProtectedRoute } from './helpers/ProtectedRoute';
+import { ErrorPage } from './pages/Error';
+import { Home } from './pages/Home';
+import InvoiceView from './pages/InvoiceView';
+import { Root } from './pages/Root';
+import { fetchInvoices } from './store/invoicesActions';
+import { PageContentWrapper } from './UI/PageContentWrapper';
+
+export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchInvoices());
+  }, [dispatch]);
 
   return (
-    <div className="text-white font-bold bg-black h-screen flex flex-auto flex-col items-center justify-center">
-      <h1 className="text-6xl m-20">Hello dareITgirl!</h1>
-      <p className="text-3xl">Hope you doing great today!</p>
-      <p className="text-3xl">Let's do some codin':D:D</p>
-    </div>
+    <PageContentWrapper>
+      <Nav />
+      <Routes>
+        <Route path="/" element={<Root />} />
+        <Route path="/invoices" element={<ProtectedRoute />}>
+          <Route index element={<Home />} />
+        </Route>
+        <Route path=":invoiceId" element={<ProtectedRoute />}>
+          <Route index element={<InvoiceView />} />
+        </Route>
+        <Route
+          path="*"
+          element={
+            <ErrorPage
+              error={{ message: 'The page you’re looking for can’t be found.' }}
+            />
+          }
+        />
+      </Routes>
+    </PageContentWrapper>
   );
-}
+};
 
 export default App;
